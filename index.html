@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PANDA is a BU-endorsed self-driving laboratory platform for autonomous materials discovery, built for professor-led materials science and chemistry labs."
+    />
+    <title>PANDA | Self-Driving Labs for Materials Discovery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="PANDA landing page header">
+      <a class="brand" href="#top" aria-label="PANDA home">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>PANDA</span>
+      </a>
+      <a class="header-cta" href="#airtable">Tell us about your lab</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">BU-endorsed technology developed at Boston University</p>
+          <h1 id="hero-title">Autonomous materials discovery, ready for your lab.</h1>
+          <p class="hero-subtitle">
+            PANDA is a self-driving laboratory platform that combines a CNC gantry robot,
+            integrated fluid handling, electrochemistry, optical characterization, and AI orchestration
+            to run hundreds of 96-well plate experiments without human intervention.
+          </p>
+          <div class="hero-actions" aria-label="Primary calls to action">
+            <a class="button button-primary" href="#airtable">Fill out the Airtable</a>
+            <a class="button button-secondary" href="#functionality">Explore the platform</a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="PANDA experiment loop summary">
+          <div class="loop-card active">
+            <span class="loop-number">01</span>
+            <strong>Plan</strong>
+            <p>Bayesian optimization selects the next experimental conditions from prior results.</p>
+          </div>
+          <div class="loop-card">
+            <span class="loop-number">02</span>
+            <strong>Run</strong>
+            <p>Robotics and fluid handling execute 96-well plate workflows overnight.</p>
+          </div>
+          <div class="loop-card">
+            <span class="loop-number">03</span>
+            <strong>Measure</strong>
+            <p>Electrochemistry and optical characterization feed clean structured data back to AI.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="PANDA platform highlights">
+        <div>
+          <strong>96-well throughput</strong>
+          <span>Hundreds of experiments per campaign</span>
+        </div>
+        <div>
+          <strong>Closed-loop AI</strong>
+          <span>Next-experiment selection from prior results</span>
+        </div>
+        <div>
+          <strong>Turnkey deployment</strong>
+          <span>Designed for chemistry and materials labs</span>
+        </div>
+      </section>
+
+      <section id="media" class="section media-section" aria-labelledby="media-title">
+        <div class="section-heading">
+          <p class="eyebrow">Video + pictures</p>
+          <h2 id="media-title">Show the self-driving lab in motion.</h2>
+          <p>
+            Replace these placeholders with approved PANDA product video and images when assets are
+            ready. The layout is designed to make media feel intentional rather than missing.
+          </p>
+        </div>
+
+        <div class="media-grid">
+          <article class="video-placeholder placeholder-card">
+            <div class="play-icon" aria-hidden="true"></div>
+            <p class="placeholder-label">PANDA platform video placeholder</p>
+            <span>Drop in the demo video or embedded player here.</span>
+          </article>
+          <article class="image-placeholder placeholder-card">
+            <span class="placeholder-icon" aria-hidden="true">↔</span>
+            <p class="placeholder-label">CNC gantry platform</p>
+            <span>Robot workspace / deck image</span>
+          </article>
+          <article class="image-placeholder placeholder-card">
+            <span class="placeholder-icon" aria-hidden="true">96</span>
+            <p class="placeholder-label">96-well workflow</p>
+            <span>Plate preparation and experiment batch</span>
+          </article>
+          <article class="image-placeholder placeholder-card">
+            <span class="placeholder-icon" aria-hidden="true">Δ</span>
+            <p class="placeholder-label">Characterization + results</p>
+            <span>Electrochemistry, optics, and optimization output</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="functionality" class="section functionality" aria-labelledby="functionality-title">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Functionality</p>
+          <h2 id="functionality-title">A modular self-driving laboratory stack.</h2>
+          <p>
+            PANDA productizes the low-level hardware, control, and data loops that labs usually have
+            to build themselves, so researchers can focus on scientific questions and synthesis goals.
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card">
+            <span class="capability-kicker">Robotics</span>
+            <h3>CNC gantry experimentation</h3>
+            <p>
+              Automates repeatable experiment execution across 96-well plates without requiring a
+              researcher to manually move between every condition.
+            </p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-kicker">Preparation</span>
+            <h3>Integrated fluid handling</h3>
+            <p>
+              Supports the pipetting and material preparation steps needed to turn experimental
+              designs into physical samples.
+            </p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-kicker">Measurement</span>
+            <h3>Electrochemistry + optics</h3>
+            <p>
+              Combines electrochemical and optical characterization so every run can produce
+              structured, machine-readable feedback for the next decision.
+            </p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-kicker">AI loop</span>
+            <h3>Bayesian optimization</h3>
+            <p>
+              Uses prior results to intelligently select each next experiment, compressing what might
+              take months of manual iteration into days of autonomous lab work.
+            </p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-kicker">Data</span>
+            <h3>Clean structured output</h3>
+            <p>
+              Generates experiment records that make it easier to compare conditions, identify
+              promising synthesis windows, and surface optimal synthesis conditions automatically.
+            </p>
+          </article>
+          <article class="capability-card">
+            <span class="capability-kicker">Extensible</span>
+            <h3>Modular lab integrations</h3>
+            <p>
+              Designed to support different potentiostats, pipetting systems, and characterization tools,
+              extending beyond the initial conductive polymer synthesis use case.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section outcomes" aria-labelledby="outcomes-title">
+        <div>
+          <p class="eyebrow">Why professors care</p>
+          <h2 id="outcomes-title">Run overnight. Learn by morning.</h2>
+        </div>
+        <div class="outcome-list">
+          <p>
+            Instead of spending weeks manually testing conditions, a research lab can define the
+            scientific objective and let PANDA run the iterative experiment-measure-optimize loop.
+          </p>
+          <p>
+            The goal is a turnkey self-driving lab that helps materials science and chemistry teams
+            move faster without building custom hardware or writing low-level control software from
+            scratch.
+          </p>
+        </div>
+      </section>
+
+      <section id="airtable" class="section airtable" aria-labelledby="airtable-title">
+        <div class="airtable-copy">
+          <p class="eyebrow">For professors and research labs</p>
+          <h2 id="airtable-title">Tell us where PANDA could accelerate your lab.</h2>
+          <p>
+            Share your lab’s interest through the Airtable form. We’ll use it to prioritize
+            conversations with professors and labs that want plug-and-play autonomous experimentation.
+          </p>
+        </div>
+        <div class="airtable-placeholder" role="note" aria-label="Airtable embed placeholder">
+          <span>Airtable form embed placeholder</span>
+          <p>Replace this block with the provided Airtable embed iframe when the form is ready.</p>
+          <code>&lt;iframe src="https://airtable.com/embed/..."&gt;&lt;/iframe&gt;</code>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>PANDA — self-driving laboratories for autonomous materials discovery.</p>
+      <a href="#airtable">Fill out the Airtable</a>
+    </footer>
+  </body>
+</html>

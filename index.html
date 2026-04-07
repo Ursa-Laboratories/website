@@ -18,14 +18,8 @@
           <p class="eyebrow">Built by Ursa Laboratories</p>
           <h1 id="hero-title">Autonomous Materials Characterization, Made Easy.</h1>
           <p class="hero-subtitle">
-            PANDA is a self-driving laboratory platform that combines a CNC gantry robot,
-            integrated fluid handling, electrochemistry, optical characterization, and AI orchestration
-            to run hundreds of 96-well plate experiments without human intervention.
+            An open source Self-Driving Lab platform to automate high-throughput materials characterization.
           </p>
-          <div class="hero-actions" aria-label="Primary calls to action">
-            <a class="button button-primary" href="#airtable">Fill out the Airtable</a>
-            <a class="button button-secondary" href="#functionality">Explore the platform</a>
-          </div>
         </div>
 
       </section>
@@ -35,7 +29,7 @@
           <p class="eyebrow">Instruments supported</p>
           <h2 id="instruments-title">One platform, many measurements.</h2>
           <p>
-            Swap instrument heads on the CNC gantry to run different characterization workflows
+            Swap instrument heads on the Cub platform to run different characterization workflows
             across 96-well plates — all controlled by the same software stack.
           </p>
         </div>
@@ -77,8 +71,8 @@
           <table class="instruments-table">
             <thead>
               <tr>
-                <th>Instrument</th>
-                <th>Vendor</th>
+                <th>Supported Instruments</th>
+                <th>Supported Vendors</th>
                 <th>Category</th>
               </tr>
             </thead>
@@ -101,7 +95,7 @@
               <tr>
                 <td>ASMI Indenter (GoDirect Force Sensor)</td>
                 <td>Vernier</td>
-                <td>Mechanical testing</td>
+                <td>Hardness and Puncture Testing</td>
               </tr>
               <tr>
                 <td>UV Curing System (OmniCure S1500 PRO)</td>
@@ -116,7 +110,7 @@
       <section id="compare" class="section compare" aria-labelledby="compare-title">
         <div class="section-heading narrow">
           <p class="eyebrow">Hardware</p>
-          <h2 id="compare-title">CubOS vs CubOS XL</h2>
+          <h2 id="compare-title">Cub vs Cub XL</h2>
           <p>
             Two form factors, same software. Pick the platform that fits your lab's footprint and throughput needs.
           </p>
@@ -127,8 +121,14 @@
             <thead>
               <tr>
                 <th></th>
-                <th>CubOS</th>
-                <th class="highlight">CubOS XL</th>
+                <th>
+                  <img class="compare-th-img" src="assets/raman_spec.png" alt="Cub platform" />
+                  Cub
+                </th>
+                <th class="highlight">
+                  <img class="compare-th-img" src="assets/asmi_indent.png" alt="Cub XL platform" />
+                  Cub XL
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -139,7 +139,7 @@
               </tr>
               <tr>
                 <td>Well-plate capacity</td>
-                <td>1 &times; 96-well plate</td>
+                <td>2 &times; 96-well plates</td>
                 <td>Up to 4 &times; 96-well plates</td>
               </tr>
               <tr>
@@ -164,30 +164,30 @@
 
       <section id="software" class="section software" aria-labelledby="software-title">
         <div class="section-heading narrow">
-          <p class="eyebrow">Software</p>
+          <p class="eyebrow">Hardware + Software</p>
           <h2 id="software-title">Cub &amp; CubOS</h2>
           <p>
-            The two layers that turn a CNC gantry into a self-driving lab.
+            Coupled hardware and software that turn a CNC gantry into a self-driving lab.
           </p>
         </div>
 
         <div class="software-grid">
           <article class="software-card">
-            <span class="software-kicker">CubOS</span>
-            <h3>Instrument operating system</h3>
+            <span class="software-kicker">Cub</span>
+            <h3>Modified hardware platform</h3>
             <p>
-              Firmware and motion-control layer that runs on the gantry. Handles G-code generation,
-              instrument head coordination, and real-time safety checks so hardware behaves
-              predictably across every well.
+              A modified CNC gantry with custom instrument mounts, labware, and safety
+              enclosures — purpose-built for autonomous characterization in materials
+              science and chemistry labs.
             </p>
           </article>
           <article class="software-card">
-            <span class="software-kicker">Cub</span>
-            <h3>Experiment orchestration</h3>
+            <span class="software-kicker">CubOS</span>
+            <h3><a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">Open-source Python package</a></h3>
             <p>
-              Python-based application that designs experiments, sends jobs to CubOS,
-              collects structured data, and feeds results into Bayesian optimization for
-              closed-loop autonomous discovery.
+              Define entire experiment workflows in simple YAML configs. CubOS handles
+              motion control, instrument coordination, data collection, and closed-loop
+              optimization — no low-level code required.
             </p>
           </article>
         </div>
@@ -195,17 +195,14 @@
 
       <section id="airtable" class="section airtable" aria-labelledby="airtable-title">
         <div class="airtable-copy">
-          <p class="eyebrow">For professors and research labs</p>
           <h2 id="airtable-title">Tell us where PANDA could accelerate your lab.</h2>
           <p>
             Share your lab’s interest through the Airtable form. We’ll use it to prioritize
             conversations with professors and labs that want plug-and-play autonomous experimentation.
           </p>
         </div>
-        <div class="airtable-placeholder" role="note" aria-label="Airtable embed placeholder">
-          <span>Airtable form embed placeholder</span>
-          <p>Replace this block with the provided Airtable embed iframe when the form is ready.</p>
-          <code>&lt;iframe src="https://airtable.com/embed/..."&gt;&lt;/iframe&gt;</code>
+        <div class="airtable-embed">
+          <iframe class="airtable-embed" src="https://airtable.com/embed/appkft46LDFlip29o/pag9RQk14NLlZZe4i/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
         </div>
       </section>
     </main>

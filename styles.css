@@ -52,47 +52,14 @@ a {
   color: inherit;
 }
 
-.button,
 .site-footer a {
   text-decoration: none;
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.8rem;
-  border-radius: 999px;
-  font-weight: 760;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
-}
-
-.button {
-  padding: 0 1.35rem;
-  border: 1px solid transparent;
-}
-
-.button-primary {
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-  box-shadow: 0 18px 36px rgba(20, 87, 217, 0.28);
-}
-
-.button-secondary {
-  color: var(--navy);
-  border-color: var(--line);
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.button:hover,
 .site-footer a:hover {
   transform: translateY(-2px);
 }
 
-.button:focus-visible,
 .site-footer a:focus-visible {
   outline: 3px solid rgba(245, 184, 75, 0.72);
   outline-offset: 4px;
@@ -163,14 +130,6 @@ h3 {
   color: var(--muted);
   font-size: clamp(1.08rem, 2vw, 1.28rem);
 }
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 1.35rem;
-}
-
 
 
 .section {
@@ -469,44 +428,6 @@ h3 {
     radial-gradient(circle at top right, rgba(245, 184, 75, 0.24), transparent 18rem);
 }
 
-.airtable-placeholder {
-  min-height: 21rem;
-  padding: 1.5rem;
-  border: 1px dashed rgba(20, 87, 217, 0.46);
-  border-radius: var(--radius-md);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.54)),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(20, 87, 217, 0.08),
-      rgba(20, 87, 217, 0.08) 10px,
-      rgba(7, 166, 166, 0.08) 10px,
-      rgba(7, 166, 166, 0.08) 20px
-    );
-}
-
-.airtable-placeholder span {
-  display: block;
-  margin-bottom: 1rem;
-  color: var(--blue-dark);
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.airtable-placeholder p {
-  color: var(--muted);
-}
-
-.airtable-placeholder code {
-  display: block;
-  overflow-x: auto;
-  margin-top: 1.35rem;
-  padding: 1rem;
-  border-radius: var(--radius-sm);
-  color: #ffffff;
-  background: var(--navy);
-}
 
 .site-footer {
   display: flex;
@@ -534,7 +455,7 @@ h3 {
   }
 
   h1 {
-    max-width: 12ch;
+    max-width: none;
   }
 
   .software-grid {
@@ -543,6 +464,11 @@ h3 {
 
   .carousel-labels {
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .compare-th-img {
+    max-height: 150px;
   }
 }
 
@@ -554,25 +480,94 @@ h3 {
   }
 
   .hero {
-    gap: 2rem;
-  }
-
-  .hero-actions,
-  .site-footer {
-    flex-direction: column;
-  }
-
-  .button {
-    width: 100%;
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 17vw, 4.7rem);
+    max-width: none;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Carousel */
+  .carousel-track {
+    border-radius: var(--radius-md);
+  }
+
+  .carousel-labels {
+    gap: 0.5rem;
+  }
+
+  .carousel-label {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Instruments table - card layout on mobile */
+  .instruments-table-wrap {
+    border-radius: var(--radius-md);
+  }
+
+  .instruments-table {
+    font-size: 0.85rem;
+  }
+
+  .instruments-table th,
+  .instruments-table td {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .instruments-table thead th {
+    font-size: 0.7rem;
+  }
+
+  /* Comparison table */
+  .compare-table-wrap {
+    border-radius: var(--radius-md);
   }
 
   .compare-table th,
   .compare-table td {
-    padding: 0.75rem 0.9rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .compare-table thead th {
+    font-size: 0.95rem;
+  }
+
+  .compare-th-img {
+    max-height: 120px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Airtable */
+  .airtable {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: var(--radius-md);
+  }
+
+  /* Software cards */
+  .software-card {
+    border-radius: var(--radius-sm);
+  }
+
+  .software-kicker {
+    margin-bottom: 1.2rem;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
   }
 }

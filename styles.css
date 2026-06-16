@@ -25,8 +25,15 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background:
     radial-gradient(circle at top left, rgba(7, 166, 166, 0.2), transparent 30rem),
@@ -214,8 +221,128 @@ h3 {
 }
 
 
+/* Affiliations — text-only institutional credibility band (full-bleed navy) */
+.affiliations {
+  width: 100%;
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 6rem);
+  text-align: center;
+  background: var(--navy);
+  background-image:
+    radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.12), transparent 60%);
+}
+
+.affiliations-eyebrow {
+  margin: 0 0 clamp(1.6rem, 3.2vw, 2.4rem);
+  color: rgba(255, 255, 255, 0.5);
+  font-family:
+    "JetBrains Mono", "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.affiliations-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 3.4vw, 2.8rem);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.affiliations-list li {
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.2rem, 2.3vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  opacity: 0.86;
+  transition: opacity 240ms ease, color 240ms ease;
+}
+
+.affiliations-list li:hover {
+  opacity: 1;
+  color: #7cc4f5;
+}
+
+/* Subtle dot separators centered between institutions */
+.affiliations-list li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(1.2rem, 3.4vw, 2.8rem) / -2);
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  transform: translate(-50%, -50%);
+}
+
+.affiliations-note {
+  max-width: 56ch;
+  margin: clamp(1.8rem, 3.6vw, 2.6rem) auto 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Scroll-reveal entrance — respects reduced-motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .section {
   padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+/* Alternating full-bleed navy section band */
+.section--navy {
+  position: relative;
+  isolation: isolate;
+}
+
+.section--navy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--navy);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1), transparent 55%);
+}
+
+.section--navy .eyebrow {
+  color: #6fb7ef;
+}
+
+.section--navy h2 {
+  color: #ffffff;
+}
+
+.section--navy .section-heading p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.68);
 }
 
 .section-heading {
@@ -447,6 +574,41 @@ h3 {
   color: var(--muted);
 }
 
+.section--navy .compare-table-wrap {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 80px rgba(2, 8, 20, 0.45);
+}
+
+.section--navy .compare-table th,
+.section--navy .compare-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.section--navy .compare-table thead th,
+.section--navy .compare-table tbody td:first-child {
+  color: #ffffff;
+}
+
+.section--navy .compare-table tbody td {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.section--navy .compare-table thead th.highlight {
+  color: #ffffff;
+}
+
+/* Subtle emphasis on the Cub XL column */
+.section--navy .compare-table thead th.highlight,
+.section--navy .compare-table tbody td:last-child {
+  background: rgba(56, 189, 248, 0.07);
+}
+
+.section--navy .compare-th-img {
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(2, 8, 20, 0.4);
+}
+
 .compare-table tbody tr:last-child td {
   border-bottom: none;
 }
@@ -487,9 +649,9 @@ h3 {
 /* Airtable */
 .airtable {
   display: grid;
-  grid-template-columns: 0.72fr 1fr;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
   gap: clamp(1.5rem, 5vw, 4rem);
-  align-items: center;
+  align-items: start;
   padding: clamp(1.4rem, 4vw, 3rem);
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -508,6 +670,15 @@ h3 {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(237, 244, 255, 0.9)),
     radial-gradient(circle at top right, rgba(245, 184, 75, 0.24), transparent 18rem);
+}
+
+/* When the CTA is a navy band, sit flush and drop the now-hidden card chrome.
+   Use margin-block (not the shorthand) so .section's margin-inline:auto centering survives. */
+.airtable.section--navy {
+  margin-block: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 
@@ -675,5 +846,15 @@ h3 {
   /* Section spacing */
   .section {
     padding: clamp(2.5rem, 6vw, 4rem) 0;
+  }
+
+  /* Affiliations — stack institutions vertically on mobile */
+  .affiliations-list {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .affiliations-list li:not(:first-child)::before {
+    display: none;
   }
 }

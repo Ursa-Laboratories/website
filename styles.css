@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 84px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -57,6 +58,112 @@ body::before {
 
 a {
   color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(20, 87, 217, 0.55);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Sticky site header — translucent navy so it reads over both the hero video
+   and the light sections. */
+.site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.8rem clamp(1.25rem, 4vw, 2.5rem);
+  background: rgba(5, 16, 33, 0.62);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 1.02rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+}
+
+.site-nav {
+  display: flex;
+  gap: clamp(1rem, 2.6vw, 1.9rem);
+  margin-left: auto;
+}
+
+.site-nav a {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.site-nav a:hover {
+  color: #ffffff;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease,
+    border-color 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2f6ff0, var(--blue) 55%, var(--blue-dark));
+  box-shadow: 0 10px 26px rgba(20, 87, 217, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 16px 34px rgba(20, 87, 217, 0.45);
+}
+
+.btn-ghost {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-nav {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
 }
 
 .site-footer a {
@@ -123,6 +230,7 @@ main {
   min-height: inherit;
   margin-inline: auto;
   padding: 4rem;
+  padding-top: 7.5rem;
 }
 
 .hero-copy {
@@ -134,6 +242,13 @@ main {
 
 .hero-copy::before {
   display: none;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.9rem;
 }
 
 .hero .eyebrow {
@@ -461,12 +576,19 @@ h3 {
 .carousel-label {
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
+  font-family: inherit;
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--muted);
   background: transparent;
   border: 1px solid transparent;
+  cursor: pointer;
   transition: all 200ms ease;
+}
+
+.carousel-label:hover {
+  color: var(--blue-dark);
+  border-color: rgba(20, 87, 217, 0.18);
 }
 
 .carousel-label.active {
@@ -516,8 +638,33 @@ h3 {
   color: var(--muted);
 }
 
+.instruments-table tbody tr {
+  transition: background 180ms ease;
+}
+
+.instruments-table tbody tr:hover {
+  background: rgba(20, 87, 217, 0.045);
+}
+
 .instruments-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* "In development" pill for instruments on the roadmap (e.g. Raman) */
+.pill-soon {
+  display: inline-block;
+  margin-left: 0.45rem;
+  padding: 0.14rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 184, 75, 0.5);
+  background: rgba(245, 184, 75, 0.14);
+  color: #8a5b00;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 0.12em;
+  white-space: nowrap;
 }
 
 /* Comparison table */
@@ -616,7 +763,7 @@ h3 {
 /* Software section */
 .software-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 2.4rem;
 }
@@ -627,6 +774,13 @@ h3 {
   border-radius: var(--radius-md);
   background: var(--panel);
   box-shadow: 0 18px 50px rgba(12, 33, 65, 0.08);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.software-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(20, 87, 217, 0.28);
+  box-shadow: 0 26px 60px rgba(12, 33, 65, 0.14);
 }
 
 .software-card p {
@@ -684,6 +838,7 @@ h3 {
 
 .site-footer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 2rem 0 3rem;
@@ -693,6 +848,20 @@ h3 {
 .site-footer a {
   color: var(--blue-dark);
   font-weight: 800;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.site-footer-links a {
+  font-size: 0.9rem;
+  transition: color 180ms ease;
+}
+
+.site-footer-links a:hover {
+  color: var(--blue);
 }
 
 @media (max-width: 920px) {
@@ -728,6 +897,12 @@ h3 {
 
   .compare-th-img {
     max-height: 150px;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-nav {
+    display: none;
   }
 }
 
@@ -774,6 +949,24 @@ h3 {
   .site-footer {
     flex-direction: column;
     text-align: center;
+  }
+
+  .site-footer-links {
+    justify-content: center;
+  }
+
+  .site-header {
+    gap: 1rem;
+    padding-block: 0.65rem;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .hero-actions .btn {
+    padding: 0.62rem 1.2rem;
+    font-size: 0.85rem;
   }
 
   /* Carousel */

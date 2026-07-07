@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="PANDA is a self-driving laboratory platform for autonomous materials discovery, built for professor-led materials science and chemistry labs."
+      content="Ursa Labs builds Cub and CubOS — an open-source self-driving lab platform for autonomous materials characterization and electrochemistry in materials science and chemistry labs."
     />
     <title>Ursa Laboratories | Self-Driving Labs for Materials Discovery</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Ursa Laboratories — back to top">
+        <img class="brand-mark" src="assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#instruments">Instruments</a>
+        <a href="#compare">Hardware</a>
+        <a href="#software">Software</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="#airtable">Get in touch</a>
+    </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
@@ -25,6 +39,10 @@
             <p class="hero-subtitle">
               An open source Self-Driving Lab platform to automate high-throughput materials characterization.
             </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#airtable">Get in touch</a>
+              <a class="btn btn-ghost" href="#instruments">Explore instruments</a>
+            </div>
           </div>
         </div>
       </section>
@@ -43,7 +61,7 @@
       </section>
 
       <section id="instruments" class="section instruments" aria-labelledby="instruments-title">
-        <div class="section-heading narrow">
+        <div class="section-heading narrow reveal">
           <p class="eyebrow">Instruments supported</p>
           <h2 id="instruments-title">One platform, many measurements.</h2>
           <p>
@@ -52,7 +70,7 @@
           </p>
         </div>
 
-        <div class="carousel" aria-label="Instrument carousel">
+        <div class="carousel reveal" aria-label="Instrument carousel">
           <div class="carousel-track">
             <div class="carousel-slide active" data-index="0">
               <img src="assets/asmi_indent.png" alt="ASMI indentation instrument mounted on CubOS XL gantry" />
@@ -78,14 +96,14 @@
             <button class="carousel-btn" aria-label="Next slide" onclick="moveCarousel(1)">&#8594;</button>
           </div>
           <div class="carousel-labels">
-            <span class="carousel-label active">ASMI Indentation</span>
-            <span class="carousel-label">Needle Puncture</span>
-            <span class="carousel-label">Raman Spectroscopy</span>
-            <span class="carousel-label">UV Curing</span>
+            <button class="carousel-label active" onclick="goToSlide(0)">ASMI Indentation</button>
+            <button class="carousel-label" onclick="goToSlide(1)">Needle Puncture</button>
+            <button class="carousel-label" onclick="goToSlide(2)">Raman Spectroscopy</button>
+            <button class="carousel-label" onclick="goToSlide(3)">UV Curing</button>
           </div>
         </div>
 
-        <div class="instruments-table-wrap">
+        <div class="instruments-table-wrap reveal">
           <table class="instruments-table">
             <thead>
               <tr>
@@ -95,6 +113,11 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>Potentiostat (SquidStat Series) — CV, OCP, CA, CP</td>
+                <td>Admiral Instruments</td>
+                <td>Electrochemistry</td>
+              </tr>
               <tr>
                 <td>UV-Vis Spectrometer (CCS100 / CCS175 / CCS200)</td>
                 <td>Thorlabs</td>
@@ -120,13 +143,23 @@
                 <td>Excelitas</td>
                 <td>Sample preparation</td>
               </tr>
+              <tr>
+                <td>Camera</td>
+                <td>Raspberry Pi</td>
+                <td>Imaging and monitoring</td>
+              </tr>
+              <tr>
+                <td>Raman Spectroscopy <span class="pill-soon">In development</span></td>
+                <td>&mdash;</td>
+                <td>Optical characterization</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section id="compare" class="section section--navy compare" aria-labelledby="compare-title">
-        <div class="section-heading narrow">
+        <div class="section-heading narrow reveal">
           <p class="eyebrow">Hardware</p>
           <h2 id="compare-title">Cub vs Cub XL</h2>
           <p>
@@ -134,7 +167,7 @@
           </p>
         </div>
 
-        <div class="compare-table-wrap">
+        <div class="compare-table-wrap reveal">
           <table class="compare-table">
             <thead>
               <tr>
@@ -181,15 +214,15 @@
       </section>
 
       <section id="software" class="section software" aria-labelledby="software-title">
-        <div class="section-heading narrow">
+        <div class="section-heading narrow reveal">
           <p class="eyebrow">Hardware + Software</p>
-          <h2 id="software-title">Cub &amp; CubOS</h2>
+          <h2 id="software-title">Cub, CubOS &amp; Zoo</h2>
           <p>
-            Coupled hardware and software that turn a CNC gantry into a self-driving lab.
+            Coupled hardware, software, and UI that turn a CNC gantry into a self-driving lab.
           </p>
         </div>
 
-        <div class="software-grid">
+        <div class="software-grid reveal">
           <article class="software-card">
             <span class="software-kicker">Cub</span>
             <h3>Modified hardware platform</h3>
@@ -208,6 +241,15 @@
               optimization — no low-level code required.
             </p>
           </article>
+          <article class="software-card">
+            <span class="software-kicker">Zoo</span>
+            <h3>Browser-based lab UI</h3>
+            <p>
+              A local web interface over CubOS. Edit configs, calibrate gantries,
+              validate motion, and launch protocols from the browser — then watch
+              experiment data come in live.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -223,6 +265,10 @@
 
     <footer class="site-footer">
       <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="#airtable">Contact</a>
+      </nav>
       <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
     </footer>
     <script>
@@ -231,6 +277,39 @@
       const dots = document.querySelectorAll('.carousel-dot');
       const labels = document.querySelectorAll('.carousel-label');
       let timer = setInterval(() => moveCarousel(1), 4000);
+      let paused = false;
+
+      // Pause auto-advance while the user is hovering or focused inside the carousel.
+      const carousel = document.querySelector('.carousel');
+      carousel.addEventListener('mouseenter', () => { paused = true; clearInterval(timer); });
+      carousel.addEventListener('focusin', () => { paused = true; clearInterval(timer); });
+      carousel.addEventListener('mouseleave', () => {
+        paused = false;
+        clearInterval(timer);
+        timer = setInterval(() => moveCarousel(1), 4000);
+      });
+
+      const carouselTrack = document.querySelector('.carousel-track');
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      carouselTrack.addEventListener('touchstart', (event) => {
+        touchStartX = event.changedTouches[0].screenX;
+        touchStartY = event.changedTouches[0].screenY;
+      }, { passive: true });
+
+      carouselTrack.addEventListener('touchend', (event) => {
+        const deltaX = event.changedTouches[0].screenX - touchStartX;
+        const deltaY = event.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          moveCarousel(deltaX < 0 ? 1 : -1);
+        }
+      }, { passive: true });
+
+      carousel.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') moveCarousel(-1);
+        if (event.key === 'ArrowRight') moveCarousel(1);
+      });
 
       function goToSlide(i) {
         slides[current].classList.remove('active');
@@ -241,7 +320,7 @@
         dots[current].classList.add('active');
         labels[current].classList.add('active');
         clearInterval(timer);
-        timer = setInterval(() => moveCarousel(1), 4000);
+        if (!paused) timer = setInterval(() => moveCarousel(1), 4000);
       }
 
       function moveCarousel(dir) {

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Build a Cub yourself — open-source bill of materials, CAD assembly files, and build instructions for the CubXL ASMI indentation system from Ursa Labs."
+    />
+    <title>Build It | Ursa Laboratories</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Ursa Laboratories — home">
+        <img class="brand-mark" src="assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#instruments">Instruments</a>
+        <a href="index.html#compare">Hardware</a>
+        <a href="index.html#software">Software</a>
+        <a href="build.html" aria-current="page">Build It</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="index.html#airtable">Get in touch</a>
+    </header>
+
+    <main id="top">
+      <section id="build" class="section build" aria-labelledby="build-title">
+        <div class="section-heading narrow reveal">
+          <p class="eyebrow">Open source</p>
+          <h1 id="build-title">Build it yourself.</h1>
+          <p>
+            Cub is open hardware. The first build we're publishing is the CubXL configured
+            for ASMI indentation — everything you need to source the parts, print the
+            mounts, and assemble a working system.
+          </p>
+        </div>
+
+        <div class="build-sub reveal" id="build-cad">
+          <h3>CAD assembly</h3>
+          <p class="build-note">
+            Every 3D-printed part of the CubXL + ASMI build, viewable right here. Drag to
+            rotate, scroll to zoom. Source STL / STEP files and per-part assembly notes
+            live in the
+            <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>
+            repository.
+          </p>
+          <div class="cad-viewer">
+            <div class="cad-canvas-wrap">
+              <canvas id="cad-canvas" aria-label="Interactive 3D preview of the selected CAD part"></canvas>
+              <p class="cad-status" id="cad-status">Loading model&hellip;</p>
+            </div>
+            <aside class="cad-parts" aria-label="CAD part picker">
+              <p class="cad-group-label">ASMI force-sensor mount</p>
+              <div class="cad-part-buttons" role="group">
+                <button class="cad-part-btn" data-part="front">Front housing</button>
+                <button class="cad-part-btn" data-part="back">Back housing</button>
+                <button class="cad-part-btn" data-part="cap">Cap</button>
+              </div>
+              <p class="cad-group-label">Labware</p>
+              <div class="cad-part-buttons" role="group">
+                <button class="cad-part-btn" data-part="wellplate">Well-plate holder</button>
+                <button class="cad-part-btn" data-part="block">Calibration block</button>
+                <button class="cad-part-btn" data-part="base1">Calibration base</button>
+              </div>
+              <p class="cad-part-desc" id="cad-part-desc"></p>
+              <a class="build-card-cta" href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Browse all CAD files &rarr;</a>
+            </aside>
+          </div>
+        </div>
+
+        <div class="build-sub reveal" id="build-bom">
+          <h3>Bill of materials <span class="pill-soon">Coming soon</span></h3>
+          <p class="build-note">
+            A complete bill of materials for a self-sourced CubXL + ASMI indentation
+            build — components, estimated costs, and sourcing links — is on its way.
+          </p>
+        </div>
+
+        <div class="build-sub reveal" id="build-instructions">
+          <h3>Build instructions <span class="pill-soon">Coming soon</span></h3>
+          <p class="build-note">
+            A step-by-step assembly guide — from unboxing the gantry to a calibrated,
+            indentation-ready system — is on its way. In the meantime, per-part READMEs in
+            <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>
+            cover printing and mounting each component.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="build.html">Build It</a>
+        <a href="index.html#airtable">Contact</a>
+      </nav>
+      <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
+    </footer>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from 'three';
+      import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+      const PARTS = {
+        front: {
+          file: 'assets/cad/ForceSensorMountFront.stl',
+          desc: 'Front half of the printed housing that seats the Vernier Go Direct force sensor.',
+        },
+        back: {
+          file: 'assets/cad/ForceSensorMountBack.stl',
+          desc: 'Back half of the force-sensor housing — mounts to the CubXL Z-carriage.',
+        },
+        cap: {
+          file: 'assets/cad/ForceSensorMountCap.stl',
+          desc: 'Cap that closes the housing once the sensor is seated.',
+        },
+        wellplate: {
+          file: 'assets/cad/wellplate_holder.stl',
+          desc: 'Holds SBS-format 96-well plates rigidly on the CubXL deck during indentation runs (REV 1).',
+        },
+        block: {
+          file: 'assets/cad/Block.stl',
+          desc: 'Reference block used to calibrate gantry position before a run — shared across every Cub configuration.',
+        },
+        base1: {
+          file: 'assets/cad/Base1.stl',
+          desc: 'Base the calibration block sits on during calibration.',
+        },
+      };
+
+      const canvas = document.getElementById('cad-canvas');
+      const status = document.getElementById('cad-status');
+      const descEl = document.getElementById('cad-part-desc');
+      const buttons = document.querySelectorAll('.cad-part-btn');
+      const wrap = canvas.parentElement;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 5000);
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x44506b, 1.1));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.4);
+      keyLight.position.set(1, 2, 1.5);
+      scene.add(keyLight);
+      const fillLight = new THREE.DirectionalLight(0xbcd3ff, 0.5);
+      fillLight.position.set(-1.5, -0.5, -1);
+      scene.add(fillLight);
+
+      const controls = new OrbitControls(camera, canvas);
+      controls.enableDamping = true;
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 1.6;
+
+      const material = new THREE.MeshStandardMaterial({ color: 0x3f6fd1, metalness: 0.1, roughness: 0.55 });
+      const loader = new STLLoader();
+      let mesh = null;
+
+      function resize() {
+        const w = wrap.clientWidth;
+        const h = wrap.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      new ResizeObserver(resize).observe(wrap);
+      resize();
+
+      function frameObject(geometry) {
+        geometry.computeBoundingBox();
+        const box = geometry.boundingBox;
+        const center = new THREE.Vector3();
+        box.getCenter(center);
+        geometry.translate(-center.x, -center.y, -center.z);
+        // STLs are Z-up; three.js is Y-up
+        geometry.rotateX(-Math.PI / 2);
+        geometry.computeBoundingBox();
+        const size = new THREE.Vector3();
+        geometry.boundingBox.getSize(size);
+        const radius = size.length() / 2;
+        camera.position.set(radius * 2.2, radius * 1.4, radius * 2.2);
+        camera.near = radius / 100;
+        camera.far = radius * 100;
+        camera.updateProjectionMatrix();
+        controls.target.set(0, 0, 0);
+        controls.update();
+      }
+
+      function loadPart(id) {
+        const part = PARTS[id];
+        if (!part) return;
+        buttons.forEach((b) => b.classList.toggle('active', b.dataset.part === id));
+        descEl.textContent = part.desc;
+        status.textContent = 'Loading model…';
+        status.hidden = false;
+        loader.load(
+          part.file,
+          (geometry) => {
+            if (mesh) {
+              scene.remove(mesh);
+              mesh.geometry.dispose();
+            }
+            frameObject(geometry);
+            mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+            status.hidden = true;
+          },
+          undefined,
+          () => {
+            status.textContent = 'Could not load this model.';
+          }
+        );
+      }
+
+      buttons.forEach((btn) => btn.addEventListener('click', () => loadPart(btn.dataset.part)));
+      loadPart('front');
+
+      renderer.setAnimationLoop(() => {
+        controls.update();
+        renderer.render(scene, camera);
+      });
+    </script>
+    <script>
+      // Scroll-reveal entrance (no-ops gracefully if reduced-motion or no IO support)
+      const reveals = document.querySelectorAll('.reveal');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        reveals.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        reveals.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

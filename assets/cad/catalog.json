@@ -1,0 +1,1893 @@
+{
+  "version": 1,
+  "source": "Cubware",
+  "parts": [
+    {
+      "id": "cub-instrument-mounts-cad-colormatchingdemo-color-matching-vial-holders",
+      "label": "Color matching vial holders",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/CAD_ColorMatchingDemo",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-color-matching-vial-holders.stl",
+      "source": "cub/instrument_mounts/CAD_ColorMatchingDemo/Color matching_vial holders.stl",
+      "sources": [
+        "cub/instrument_mounts/CAD_ColorMatchingDemo/Color matching_vial holders.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-instrument-mounts-cad-colormatchingdemo-color-matching-vial-holders-2",
+      "label": "Color matching vial holders 2",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/CAD_ColorMatchingDemo",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-color-matching-vial-holders-2.stl",
+      "source": "cub/instrument_mounts/CAD_ColorMatchingDemo/Color matching_vial holders_2.stl",
+      "sources": [
+        "cub/instrument_mounts/CAD_ColorMatchingDemo/Color matching_vial holders_2.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-instrument-mounts-cad-colormatchingdemo-colormatching-tipholder",
+      "label": "ColorMatching TipHolder",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/CAD_ColorMatchingDemo",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-tipholder.stl",
+      "source": "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_TipHolder.stl",
+      "sources": [
+        "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_TipHolder.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-instrument-mounts-cad-colormatchingdemo-colormatching-pipette-tip-box",
+      "label": "ColorMatching pipette tip box",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/CAD_ColorMatchingDemo",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-pipette-tip-box.stl",
+      "source": "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_pipette tip box.stl",
+      "sources": [
+        "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_pipette tip box.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-instrument-mounts-cad-colormatchingdemo-colormatching-trash-box",
+      "label": "ColorMatching trash box",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/CAD_ColorMatchingDemo",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-trash-box.stl",
+      "source": "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_trash box.stl",
+      "sources": [
+        "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_trash box.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-instrument-mounts-cad-colormatchingdemo-colormatching-wellplateholder",
+      "label": "ColorMatching wellplateholder",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/CAD_ColorMatchingDemo",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-wellplateholder.stl",
+      "source": "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_wellplateholder.stl",
+      "sources": [
+        "cub/instrument_mounts/CAD_ColorMatchingDemo/ColorMatching_wellplateholder.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-instrument-mounts-cub-2-0-megapixel-usb-camera-mount-2-0-megapixel-usb-x-camera-mount-rev-0",
+      "label": "2.0 Megapixel USB X Camera Mount REV. 0",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/Cub - 2.0 Megapixel USB Camera Mount",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-2-0-megapixel-usb-camera-mount-2-0-megapixel-usb-x-camera-mount-rev-0.stl",
+      "source": "cub/instrument_mounts/Cub - 2.0 Megapixel USB Camera Mount/2.0 Megapixel USB X Camera Mount_REV. 0.step",
+      "sources": [
+        "cub/instrument_mounts/Cub - 2.0 Megapixel USB Camera Mount/2.0 Megapixel USB X Camera Mount_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-cub-2-0-megapixel-usb-camera-mount-2-0-megapixel-usb-z-camera-mount-rev-0",
+      "label": "2.0 Megapixel USB Z Camera Mount REV. 0",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/Cub - 2.0 Megapixel USB Camera Mount",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-2-0-megapixel-usb-camera-mount-2-0-megapixel-usb-z-camera-mount-rev-0.stl",
+      "source": "cub/instrument_mounts/Cub - 2.0 Megapixel USB Camera Mount/2.0 Megapixel USB Z Camera Mount_REV. 0.step",
+      "sources": [
+        "cub/instrument_mounts/Cub - 2.0 Megapixel USB Camera Mount/2.0 Megapixel USB Z Camera Mount_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-cub-vernier-go-direct-mount-cub-3018-mount-rev-0",
+      "label": "Cub - 3018 Mount REV. 0",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/Cub - Vernier Go Direct Mount",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-vernier-go-direct-mount-cub-3018-mount-rev-0.stl",
+      "source": "cub/instrument_mounts/Cub - Vernier Go Direct Mount/Cub - 3018 Mount_REV. 0.step",
+      "sources": [
+        "cub/instrument_mounts/Cub - Vernier Go Direct Mount/Cub - 3018 Mount_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-cub-vernier-go-direct-mount-cub-vernier-go-direct-mount-base-rev-0",
+      "label": "Cub - Vernier Go Direct Mount (Base) REV. 0",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/Cub - Vernier Go Direct Mount",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-vernier-go-direct-mount-cub-vernier-go-direct-mount-base-rev-0.stl",
+      "source": "cub/instrument_mounts/Cub - Vernier Go Direct Mount/Cub - Vernier Go Direct Mount (Base)_REV. 0.step",
+      "sources": [
+        "cub/instrument_mounts/Cub - Vernier Go Direct Mount/Cub - Vernier Go Direct Mount (Base)_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-cub-vernier-go-direct-mount-cub-vernier-go-direct-mount-cover-rev-0",
+      "label": "Cub - Vernier Go Direct Mount (Cover) REV. 0",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/Cub - Vernier Go Direct Mount",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-vernier-go-direct-mount-cub-vernier-go-direct-mount-cover-rev-0.stl",
+      "source": "cub/instrument_mounts/Cub - Vernier Go Direct Mount/Cub - Vernier Go Direct Mount (Cover)_REV. 0.step",
+      "sources": [
+        "cub/instrument_mounts/Cub - Vernier Go Direct Mount/Cub - Vernier Go Direct Mount (Cover)_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-asmi-vernier-go-direct-mount-base-rev-0-2",
+      "label": "Vernier Go Direct Mount (Base) REV. 0 (2)",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-vernier-go-direct-mount-cub-vernier-go-direct-mount-base-rev-0.stl",
+      "source": "cub/instrument_mounts/asmi/Vernier Go Direct Mount (Base)_REV. 0 (2).step",
+      "sources": [
+        "cub/instrument_mounts/asmi/Vernier Go Direct Mount (Base)_REV. 0 (2).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-asmi-vernier-go-direct-mount-cover-rev-0-1",
+      "label": "Vernier Go Direct Mount (Cover) REV. 0 (1)",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-vernier-go-direct-mount-cub-vernier-go-direct-mount-cover-rev-0.stl",
+      "source": "cub/instrument_mounts/asmi/Vernier Go Direct Mount (Cover)_REV. 0 (1).step",
+      "sources": [
+        "cub/instrument_mounts/asmi/Vernier Go Direct Mount (Cover)_REV. 0 (1).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-concentricasmiassembly",
+      "label": "ConcentricAsmiAssembly",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-concentricasmiassembly.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiAssembly.step",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiAssembly.FCStd",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiAssembly.step"
+      ],
+      "desc": "Prototype CAD; Cubware marks physical validation as pending.",
+      "status": "prototype"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-concentricasmibody",
+      "label": "ConcentricAsmiBody",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-concentricasmibody.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiBody.stl",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiBody.step",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiBody.stl"
+      ],
+      "desc": "Prototype CAD; Cubware marks physical validation as pending.",
+      "status": "prototype"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-concentricasmicover",
+      "label": "ConcentricAsmiCover",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-concentricasmicover.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiCover.stl",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiCover.step",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiCover.stl"
+      ],
+      "desc": "Prototype CAD; Cubware marks physical validation as pending.",
+      "status": "prototype"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-holderenvelope",
+      "label": "HolderEnvelope",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-holderenvelope.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/HolderEnvelope.stl",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/HolderEnvelope.step",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/HolderEnvelope.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-indenterreference",
+      "label": "IndenterReference",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-indenterreference.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/IndenterReference.stl",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/IndenterReference.step",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/IndenterReference.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-sensorenvelope",
+      "label": "SensorEnvelope",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-sensorenvelope.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/SensorEnvelope.stl",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/SensorEnvelope.step",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/SensorEnvelope.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "cub-instrument-mounts-concentric-asmi-genmitsu-v2-spindlefitcoupon",
+      "label": "SpindleFitCoupon",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/concentric_asmi_genmitsu_v2",
+      "file": "assets/cad/catalog/cub-instrument-mounts-concentric-asmi-genmitsu-v2-spindlefitcoupon.stl",
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/SpindleFitCoupon.stl",
+      "sources": [
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/SpindleFitCoupon.step",
+        "cub/instrument_mounts/concentric_asmi_genmitsu_v2/SpindleFitCoupon.stl"
+      ],
+      "desc": "Prototype CAD; Cubware marks physical validation as pending.",
+      "status": "prototype"
+    },
+    {
+      "id": "cub-instrument-mounts-uv-vis-3018-mount-rev-0-3",
+      "label": "3018 Mount REV. 0 (3)",
+      "group": "Cub",
+      "subgroup": "cub/instrument_mounts/uv_vis",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cub-vernier-go-direct-mount-cub-3018-mount-rev-0.stl",
+      "source": "cub/instrument_mounts/uv_vis/3018 Mount_REV. 0 (3).step",
+      "sources": [
+        "cub/instrument_mounts/uv_vis/3018 Mount_REV. 0 (3).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-enclosured",
+      "label": "EnclosureD",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-enclosured.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/EnclosureD.step",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/EnclosureD.FCStd",
+        "gantry/genmitsu_prover_v2_enclosure_d/EnclosureD.step"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-enclosuredcosmeticparts",
+      "label": "EnclosureDCosmeticParts",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-enclosuredcosmeticparts.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/EnclosureDCosmeticParts.step",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/EnclosureDCosmeticParts.step"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-basetile00",
+      "label": "BaseTile00",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-basetile00.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile00.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile00.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile00.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-basetile01",
+      "label": "BaseTile01",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-basetile01.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile01.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile01.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile01.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-basetile10",
+      "label": "BaseTile10",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-basetile10.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile10.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile10.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile10.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-basetile11",
+      "label": "BaseTile11",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-basetile11.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile11.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile11.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BaseTile11.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-bridgecover0",
+      "label": "BridgeCover0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-bridgecover0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/BridgeCover0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BridgeCover0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BridgeCover0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-bridgecover1",
+      "label": "BridgeCover1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-bridgecover1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/BridgeCover1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BridgeCover1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/BridgeCover1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner00segment0",
+      "label": "Corner00Segment0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner00segment0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner00Segment0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner00Segment0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner00Segment0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner00segment1",
+      "label": "Corner00Segment1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner00segment1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner00Segment1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner00Segment1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner00Segment1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner02segment0",
+      "label": "Corner02Segment0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner02segment0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner02Segment0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner02Segment0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner02Segment0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner02segment1",
+      "label": "Corner02Segment1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner02segment1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner02Segment1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner02Segment1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner02Segment1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner20segment0",
+      "label": "Corner20Segment0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner20segment0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner20Segment0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner20Segment0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner20Segment0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner20segment1",
+      "label": "Corner20Segment1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner20segment1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner20Segment1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner20Segment1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner20Segment1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner22segment0",
+      "label": "Corner22Segment0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner22segment0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner22Segment0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner22Segment0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner22Segment0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-corner22segment1",
+      "label": "Corner22Segment1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-corner22segment1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner22Segment1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner22Segment1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Corner22Segment1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-deckskirt0",
+      "label": "DeckSkirt0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-deckskirt0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/DeckSkirt0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/DeckSkirt0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/DeckSkirt0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-deckskirt1",
+      "label": "DeckSkirt1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-deckskirt1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/DeckSkirt1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/DeckSkirt1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/DeckSkirt1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontheader0",
+      "label": "FrontHeader0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontheader0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontHeader0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontHeader0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontHeader0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontheader1",
+      "label": "FrontHeader1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontheader1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontHeader1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontHeader1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontHeader1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb00",
+      "label": "FrontJamb00",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb00.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb00.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb00.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb00.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb01",
+      "label": "FrontJamb01",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb01.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb01.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb01.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb01.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb20",
+      "label": "FrontJamb20",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb20.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb20.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb20.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb20.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb21",
+      "label": "FrontJamb21",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontjamb21.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb21.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb21.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontJamb21.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontsill0",
+      "label": "FrontSill0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontsill0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontSill0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontSill0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontSill0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontsill1",
+      "label": "FrontSill1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontsill1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontSill1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontSill1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontSill1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-frontwindow",
+      "label": "FrontWindow",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-frontwindow.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontWindow.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontWindow.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/FrontWindow.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-movingheadcover",
+      "label": "MovingHeadCover",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-movingheadcover.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/MovingHeadCover.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/MovingHeadCover.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/MovingHeadCover.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-pillarcover0",
+      "label": "PillarCover0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-pillarcover0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/PillarCover0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/PillarCover0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/PillarCover0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-pillarcover2",
+      "label": "PillarCover2",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-pillarcover2.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/PillarCover2.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/PillarCover2.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/PillarCover2.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearheader0",
+      "label": "RearHeader0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearheader0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearHeader0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearHeader0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearHeader0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearheader1",
+      "label": "RearHeader1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearheader1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearHeader1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearHeader1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearHeader1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel00",
+      "label": "RearPanel00",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel00.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel00.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel00.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel00.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel01",
+      "label": "RearPanel01",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel01.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel01.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel01.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel01.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel10",
+      "label": "RearPanel10",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel10.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel10.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel10.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel10.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel11",
+      "label": "RearPanel11",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearpanel11.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel11.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel11.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearPanel11.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearsill0",
+      "label": "RearSill0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearsill0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearSill0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearSill0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearSill0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rearsill1",
+      "label": "RearSill1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rearsill1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RearSill1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearSill1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RearSill1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile00",
+      "label": "RoofTile00",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile00.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile00.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile00.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile00.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile01",
+      "label": "RoofTile01",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile01.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile01.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile01.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile01.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile10",
+      "label": "RoofTile10",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile10.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile10.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile10.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile10.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile11",
+      "label": "RoofTile11",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-rooftile11.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile11.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile11.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/RoofTile11.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side0lower0",
+      "label": "Side0Lower0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side0lower0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Lower0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Lower0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Lower0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side0lower1",
+      "label": "Side0Lower1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side0lower1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Lower1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Lower1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Lower1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side0upper0",
+      "label": "Side0Upper0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side0upper0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Upper0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Upper0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Upper0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side0upper1",
+      "label": "Side0Upper1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side0upper1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Upper1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Upper1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side0Upper1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side2lower0",
+      "label": "Side2Lower0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side2lower0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Lower0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Lower0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Lower0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side2lower1",
+      "label": "Side2Lower1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side2lower1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Lower1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Lower1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Lower1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side2upper0",
+      "label": "Side2Upper0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side2upper0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Upper0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Upper0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Upper0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-side2upper1",
+      "label": "Side2Upper1",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-side2upper1.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Upper1.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Upper1.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/Side2Upper1.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-sidewindow0",
+      "label": "SideWindow0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-sidewindow0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/SideWindow0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/SideWindow0.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/SideWindow0.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-parts-sidewindow2",
+      "label": "SideWindow2",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/parts",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-parts-sidewindow2.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/parts/SideWindow2.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/SideWindow2.step",
+        "gantry/genmitsu_prover_v2_enclosure_d/parts/SideWindow2.stl"
+      ],
+      "desc": "Design and packaging mockup; Cubware says this enclosure is not a finished kit.",
+      "status": "mockup"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-decksweptenvelope",
+      "label": "DeckSweptEnvelope",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-decksweptenvelope.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/DeckSweptEnvelope.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/DeckSweptEnvelope.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-headsweptenvelope",
+      "label": "HeadSweptEnvelope",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-headsweptenvelope.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/HeadSweptEnvelope.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/HeadSweptEnvelope.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-publishedmachineenvelope",
+      "label": "PublishedMachineEnvelope",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-publishedmachineenvelope.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/PublishedMachineEnvelope.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/PublishedMachineEnvelope.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencebasecrossbar0",
+      "label": "ReferenceBaseCrossbar0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencebasecrossbar0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseCrossbar0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseCrossbar0.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencebasecrossbar2",
+      "label": "ReferenceBaseCrossbar2",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencebasecrossbar2.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseCrossbar2.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseCrossbar2.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencebaseside0",
+      "label": "ReferenceBaseSide0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencebaseside0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseSide0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseSide0.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencebaseside2",
+      "label": "ReferenceBaseSide2",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencebaseside2.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseSide2.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceBaseSide2.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencedeckadapter",
+      "label": "ReferenceDeckAdapter",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencedeckadapter.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceDeckAdapter.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceDeckAdapter.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencehead",
+      "label": "ReferenceHead",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencehead.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceHead.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceHead.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencemicroplate",
+      "label": "ReferenceMicroplate",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencemicroplate.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceMicroplate.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceMicroplate.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencemovingdeck",
+      "label": "ReferenceMovingDeck",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencemovingdeck.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceMovingDeck.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceMovingDeck.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referenceupright0",
+      "label": "ReferenceUpright0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referenceupright0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceUpright0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceUpright0.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referenceupright2",
+      "label": "ReferenceUpright2",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referenceupright2.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceUpright2.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceUpright2.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referencexbridge",
+      "label": "ReferenceXBridge",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referencexbridge.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceXBridge.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceXBridge.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referenceyrail0",
+      "label": "ReferenceYRail0",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referenceyrail0.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceYRail0.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceYRail0.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-referenceyrail2",
+      "label": "ReferenceYRail2",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-referenceyrail2.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceYRail2.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ReferenceYRail2.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "gantry-genmitsu-prover-v2-enclosure-d-reference-scienceprobeillustrative",
+      "label": "ScienceProbeIllustrative",
+      "group": "Cub",
+      "subgroup": "gantry/genmitsu_prover_v2_enclosure_d/reference",
+      "file": "assets/cad/catalog/gantry-genmitsu-prover-v2-enclosure-d-reference-scienceprobeillustrative.stl",
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/reference/ScienceProbeIllustrative.stl",
+      "sources": [
+        "gantry/genmitsu_prover_v2_enclosure_d/reference/ScienceProbeIllustrative.stl"
+      ],
+      "desc": "Reference geometry or an illustrative envelope from Cubware; descriptive preview only.",
+      "status": "reference"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-forcesensormountback",
+      "label": "ForceSensorMountBack",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-forcesensormountback.stl",
+      "source": "cubxl/instrument_mounts/asmi/ForceSensorMountBack.stl",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/ForceSensorMountBack.step",
+        "cubxl/instrument_mounts/asmi/ForceSensorMountBack.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-forcesensormountcap",
+      "label": "ForceSensorMountCap",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-forcesensormountcap.stl",
+      "source": "cubxl/instrument_mounts/asmi/ForceSensorMountCap.stl",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/ForceSensorMountCap.step",
+        "cubxl/instrument_mounts/asmi/ForceSensorMountCap.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-forcesensormountfront",
+      "label": "ForceSensorMountFront",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-forcesensormountfront.stl",
+      "source": "cubxl/instrument_mounts/asmi/ForceSensorMountFront.stl",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/ForceSensorMountFront.step",
+        "cubxl/instrument_mounts/asmi/ForceSensorMountFront.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-heater-plate-holder-rev-0",
+      "label": "Heater Plate Holder REV. 0",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-heater-plate-holder-rev-0.stl",
+      "source": "cubxl/instrument_mounts/asmi/Heater Plate Holder_REV. 0.step",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/Heater Plate Holder_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-vernier-go-direct-mount-base-rev-3-1",
+      "label": "Vernier Go Direct Mount (Base) REV. 3 (1)",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-vernier-go-direct-mount-base-rev-3-1.stl",
+      "source": "cubxl/instrument_mounts/asmi/Vernier Go Direct Mount (Base)_REV. 3 (1).step",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/Vernier Go Direct Mount (Base)_REV. 3 (1).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-vernier-go-direct-mount-cover-rev-3-1",
+      "label": "Vernier Go Direct Mount (Cover) REV. 3 (1)",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-vernier-go-direct-mount-cover-rev-3-1.stl",
+      "source": "cubxl/instrument_mounts/asmi/Vernier Go Direct Mount (Cover)_REV. 3 (1).step",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/Vernier Go Direct Mount (Cover)_REV. 3 (1).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-cubxl-vernier-go-direct-mount-cubxl-vernier-go-direct-mount-base-rev-4",
+      "label": "CubXL - Vernier Go Direct Mount (Base) REV. 4",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi/CubXL - Vernier Go Direct Mount",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-cubxl-vernier-go-direct-mount-cubxl-vernier-go-direct-mount-base-rev-4.stl",
+      "source": "cubxl/instrument_mounts/asmi/CubXL - Vernier Go Direct Mount/CubXL - Vernier Go Direct Mount (Base)_REV. 4.step",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/CubXL - Vernier Go Direct Mount/CubXL - Vernier Go Direct Mount (Base)_REV. 4.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-instrument-mounts-asmi-cubxl-vernier-go-direct-mount-cubxl-vernier-go-direct-mount-cover-rev-4",
+      "label": "CubXL - Vernier Go Direct Mount (Cover) REV. 4",
+      "group": "CubXL",
+      "subgroup": "cubxl/instrument_mounts/asmi/CubXL - Vernier Go Direct Mount",
+      "file": "assets/cad/catalog/cubxl-instrument-mounts-asmi-cubxl-vernier-go-direct-mount-cubxl-vernier-go-direct-mount-cover-rev-4.stl",
+      "source": "cubxl/instrument_mounts/asmi/CubXL - Vernier Go Direct Mount/CubXL - Vernier Go Direct Mount (Cover)_REV. 4.step",
+      "sources": [
+        "cubxl/instrument_mounts/asmi/CubXL - Vernier Go Direct Mount/CubXL - Vernier Go Direct Mount (Cover)_REV. 4.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-plus-deck-polycarbonate-deck-pandadeck",
+      "label": "PandaDeck",
+      "group": "CubXL+",
+      "subgroup": "cubxl_plus/deck/polycarbonate_deck",
+      "file": "assets/cad/catalog/cubxl-plus-deck-polycarbonate-deck-pandadeck.stl",
+      "source": "cubxl_plus/deck/polycarbonate_deck/PandaDeck.stl",
+      "sources": [
+        "cubxl_plus/deck/polycarbonate_deck/PandaDeck.step",
+        "cubxl_plus/deck/polycarbonate_deck/PandaDeck.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-instrument-mounts-backboard-paw-v2-ot2mount-rev-1-ot2mount",
+      "label": "PAW-V2 - OT2Mount REV. 1 - OT2Mount",
+      "group": "CubXL+",
+      "subgroup": "cubxl_plus/instrument_mounts/backboard",
+      "file": "assets/cad/catalog/cubxl-plus-instrument-mounts-backboard-paw-v2-ot2mount-rev-1-ot2mount.stl",
+      "source": "cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount_REV. 1 - OT2Mount.stl",
+      "sources": [
+        "cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount_REV. 1 - OT2Mount.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-instrument-mounts-backboard-paw-v2-ot2mount-spacers-rev-0-ot2mount",
+      "label": "PAW-V2 - OT2Mount Spacers REV. 0 - OT2Mount",
+      "group": "CubXL+",
+      "subgroup": "cubxl_plus/instrument_mounts/backboard",
+      "file": "assets/cad/catalog/cubxl-plus-instrument-mounts-backboard-paw-v2-ot2mount-spacers-rev-0-ot2mount.stl",
+      "source": "cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount Spacers_REV. 0 - OT2Mount.stl",
+      "sources": [
+        "cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount Spacers_REV. 0 - OT2Mount.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-instrument-mounts-potentiostat-mount-ionicconductivityprobemount",
+      "label": "IonicConductivityProbeMount",
+      "group": "CubXL+",
+      "subgroup": "cubxl_plus/instrument_mounts/potentiostat_mount",
+      "file": "assets/cad/catalog/cubxl-plus-instrument-mounts-potentiostat-mount-ionicconductivityprobemount.stl",
+      "source": "cubxl_plus/instrument_mounts/potentiostat_mount/IonicConductivityProbeMount.stl",
+      "sources": [
+        "cubxl_plus/instrument_mounts/potentiostat_mount/IonicConductivityProbeMount.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-instrument-mounts-raspberry-pi-mount-raspberrypicameramount",
+      "label": "RaspberryPiCameraMount",
+      "group": "CubXL+",
+      "subgroup": "cubxl_plus/instrument_mounts/raspberry_pi_mount",
+      "file": "assets/cad/catalog/cubxl-plus-instrument-mounts-raspberry-pi-mount-raspberrypicameramount.stl",
+      "source": "cubxl_plus/instrument_mounts/raspberry_pi_mount/RaspberryPiCameraMount.stl",
+      "sources": [
+        "cubxl_plus/instrument_mounts/raspberry_pi_mount/RaspberryPiCameraMount.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-instrument-mounts-vial-capper-decapper-mount-vialdecappermount",
+      "label": "VialDecapperMount",
+      "group": "CubXL+",
+      "subgroup": "cubxl_plus/instrument_mounts/vial_capper_decapper_mount",
+      "file": "assets/cad/catalog/cubxl-plus-instrument-mounts-vial-capper-decapper-mount-vialdecappermount.stl",
+      "source": "cubxl_plus/instrument_mounts/vial_capper_decapper_mount/VialDecapperMount.stl",
+      "sources": [
+        "cubxl_plus/instrument_mounts/vial_capper_decapper_mount/VialDecapperMount.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-color-matching-vial-holders",
+      "label": "Color matching vial holders",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-color-matching-vial-holders.stl",
+      "source": "cub/labware/Color matching_vial holders.stl",
+      "sources": [
+        "cub/labware/Color matching_vial holders.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-color-matching-vial-holders-2",
+      "label": "Color matching vial holders 2",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-color-matching-vial-holders-2.stl",
+      "source": "cub/labware/Color matching_vial holders_2.stl",
+      "sources": [
+        "cub/labware/Color matching_vial holders_2.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-color-matching-vial-holders-base",
+      "label": "Color matching vial holders base",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-labware-color-matching-vial-holders-base.stl",
+      "source": "cub/labware/Color matching_vial holders_base.stl",
+      "sources": [
+        "cub/labware/Color matching_vial holders_base.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-colormatching-pipette-tip-box",
+      "label": "ColorMatching pipette tip box",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-pipette-tip-box.stl",
+      "source": "cub/labware/ColorMatching_pipette tip box.stl",
+      "sources": [
+        "cub/labware/ColorMatching_pipette tip box.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-colormatching-pipette-tip-box-new",
+      "label": "ColorMatching pipette tip box new",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-labware-colormatching-pipette-tip-box-new.stl",
+      "source": "cub/labware/ColorMatching_pipette tip box new.stl",
+      "sources": [
+        "cub/labware/ColorMatching_pipette tip box new.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-colormatching-trash-box",
+      "label": "ColorMatching trash box",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-trash-box.stl",
+      "source": "cub/labware/ColorMatching_trash box.stl",
+      "sources": [
+        "cub/labware/ColorMatching_trash box.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-colormatching-wellplateholder",
+      "label": "ColorMatching wellplateholder",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-instrument-mounts-cad-colormatchingdemo-colormatching-wellplateholder.stl",
+      "source": "cub/labware/ColorMatching_wellplateholder.stl",
+      "sources": [
+        "cub/labware/ColorMatching_wellplateholder.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-cnc-3018-z-spacer-offset-55mm",
+      "label": "cnc 3018 z-spacer offset 55mm",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-labware-cnc-3018-z-spacer-offset-55mm.stl",
+      "source": "cub/labware/cnc_3018_z-spacer_offset_55mm.stl",
+      "sources": [
+        "cub/labware/cnc_3018_z-spacer_offset_55mm.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-satorius-1",
+      "label": "satorius 1",
+      "group": "Labware",
+      "subgroup": "cub/labware",
+      "file": "assets/cad/catalog/cub-labware-satorius-1.stl",
+      "source": "cub/labware/satorius_1.obj",
+      "sources": [
+        "cub/labware/satorius_1.obj"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cub-labware-cub-100ul-pipette-tip-rack-100ul-pipette-tip-rack-mounting-base-rev-0",
+      "label": "100uL Pipette Tip Rack Mounting Base REV. 0",
+      "group": "Labware",
+      "subgroup": "cub/labware/Cub - 100uL Pipette Tip Rack",
+      "file": "assets/cad/catalog/cub-labware-cub-100ul-pipette-tip-rack-100ul-pipette-tip-rack-mounting-base-rev-0.stl",
+      "source": "cub/labware/Cub - 100uL Pipette Tip Rack/100uL Pipette Tip Rack Mounting Base_REV. 0.step",
+      "sources": [
+        "cub/labware/Cub - 100uL Pipette Tip Rack/100uL Pipette Tip Rack Mounting Base_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-labware-cub-100ul-pipette-tip-rack-100ul-pipette-tip-rack-rev-0",
+      "label": "100uL Pipette Tip Rack REV. 0",
+      "group": "Labware",
+      "subgroup": "cub/labware/Cub - 100uL Pipette Tip Rack",
+      "file": "assets/cad/catalog/cub-labware-cub-100ul-pipette-tip-rack-100ul-pipette-tip-rack-rev-0.stl",
+      "source": "cub/labware/Cub - 100uL Pipette Tip Rack/100uL Pipette Tip Rack_REV. 0.step",
+      "sources": [
+        "cub/labware/Cub - 100uL Pipette Tip Rack/100uL Pipette Tip Rack_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-labware-cub-calibration-block-calibration-base-cub-rev-0",
+      "label": "Calibration Base (Cub) REV. 0",
+      "group": "Labware",
+      "subgroup": "cub/labware/Cub - Calibration Block",
+      "file": "assets/cad/catalog/cub-labware-cub-calibration-block-calibration-base-cub-rev-0.stl",
+      "source": "cub/labware/Cub - Calibration Block/Calibration Base (Cub)_REV. 0.step",
+      "sources": [
+        "cub/labware/Cub - Calibration Block/Calibration Base (Cub)_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-labware-cub-calibration-block-calibration-block-rev-0",
+      "label": "Calibration Block REV. 0",
+      "group": "Labware",
+      "subgroup": "cub/labware/Cub - Calibration Block",
+      "file": "assets/cad/catalog/cub-labware-cub-calibration-block-calibration-block-rev-0.stl",
+      "source": "cub/labware/Cub - Calibration Block/Calibration Block_REV. 0.step",
+      "sources": [
+        "cub/labware/Cub - Calibration Block/Calibration Block_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cub-labware-well-plate-holder-wellplateholder",
+      "label": "WellplateHolder",
+      "group": "Labware",
+      "subgroup": "cub/labware/well_plate_holder",
+      "file": "assets/cad/catalog/cub-labware-well-plate-holder-wellplateholder.stl",
+      "source": "cub/labware/well_plate_holder/WellplateHolder.stl",
+      "sources": [
+        "cub/labware/well_plate_holder/WellplateHolder.glb",
+        "cub/labware/well_plate_holder/WellplateHolder.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-labware-cubxl-asmi-wellplate-holder-cubxl-asmi-wellplate-holder-rev-0-1",
+      "label": "CubXL - ASMI Wellplate Holder REV. 0 (1)",
+      "group": "Labware",
+      "subgroup": "cubxl/labware/CubXL - ASMI Wellplate Holder",
+      "file": "assets/cad/catalog/cubxl-labware-cubxl-asmi-wellplate-holder-cubxl-asmi-wellplate-holder-rev-0-1.stl",
+      "source": "cubxl/labware/CubXL - ASMI Wellplate Holder/CubXL - ASMI Wellplate Holder_REV. 0 (1).step",
+      "sources": [
+        "cubxl/labware/CubXL - ASMI Wellplate Holder/CubXL - ASMI Wellplate Holder_REV. 0 (1).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-labware-cubxl-asmi-wellplate-holder-cubxl-asmi-wellplate-holder-rev-1-4",
+      "label": "CubXL - ASMI Wellplate Holder REV. 1 (4)",
+      "group": "Labware",
+      "subgroup": "cubxl/labware/CubXL - ASMI Wellplate Holder",
+      "file": "assets/cad/catalog/cubxl-labware-cubxl-asmi-wellplate-holder-cubxl-asmi-wellplate-holder-rev-1-4.stl",
+      "source": "cubxl/labware/CubXL - ASMI Wellplate Holder/CubXL - ASMI Wellplate Holder_REV. 1 (4).step",
+      "sources": [
+        "cubxl/labware/CubXL - ASMI Wellplate Holder/CubXL - ASMI Wellplate Holder_REV. 1 (4).step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-labware-cubxl-calibration-block-calibration-base-cubxl-rev-0",
+      "label": "Calibration Base (CubXL) REV. 0",
+      "group": "Labware",
+      "subgroup": "cubxl/labware/CubXL - Calibration Block",
+      "file": "assets/cad/catalog/cubxl-labware-cubxl-calibration-block-calibration-base-cubxl-rev-0.stl",
+      "source": "cubxl/labware/CubXL - Calibration Block/Calibration Base (CubXL)_REV. 0.step",
+      "sources": [
+        "cubxl/labware/CubXL - Calibration Block/Calibration Base (CubXL)_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-labware-cubxl-calibration-block-calibration-block-rev-0",
+      "label": "Calibration Block REV. 0",
+      "group": "Labware",
+      "subgroup": "cubxl/labware/CubXL - Calibration Block",
+      "file": "assets/cad/catalog/cub-labware-cub-calibration-block-calibration-block-rev-0.stl",
+      "source": "cubxl/labware/CubXL - Calibration Block/Calibration Block_REV. 0.step",
+      "sources": [
+        "cubxl/labware/CubXL - Calibration Block/Calibration Block_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-labware-cubxl-hamilton-heater-cooler-plate-holder-hamilton-heater-cooler-plate-holder-rev-0",
+      "label": "Hamilton Heater Cooler Plate Holder REV. 0",
+      "group": "Labware",
+      "subgroup": "cubxl/labware/CubXL - Hamilton Heater Cooler Plate Holder",
+      "file": "assets/cad/catalog/cubxl-labware-cubxl-hamilton-heater-cooler-plate-holder-hamilton-heater-cooler-plate-holder-rev-0.stl",
+      "source": "cubxl/labware/CubXL - Hamilton Heater Cooler Plate Holder/Hamilton Heater Cooler Plate Holder_REV. 0.step",
+      "sources": [
+        "cubxl/labware/CubXL - Hamilton Heater Cooler Plate Holder/Hamilton Heater Cooler Plate Holder_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-plus-labware-cubxl-plus-calibration-block-calibration-base-cubxl-plus-rev-0",
+      "label": "Calibration Base (CubXL +) REV. 0",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/CubXL+ - Calibration Block",
+      "file": "assets/cad/catalog/cubxl-plus-labware-cubxl-plus-calibration-block-calibration-base-cubxl-plus-rev-0.stl",
+      "source": "cubxl_plus/labware/CubXL+ - Calibration Block/Calibration Base (CubXL +)_REV. 0.step",
+      "sources": [
+        "cubxl_plus/labware/CubXL+ - Calibration Block/Calibration Base (CubXL +)_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-plus-labware-cubxl-plus-calibration-block-calibration-block-rev-0",
+      "label": "Calibration Block REV. 0",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/CubXL+ - Calibration Block",
+      "file": "assets/cad/catalog/cub-labware-cub-calibration-block-calibration-block-rev-0.stl",
+      "source": "cubxl_plus/labware/CubXL+ - Calibration Block/Calibration Block_REV. 0.step",
+      "sources": [
+        "cubxl_plus/labware/CubXL+ - Calibration Block/Calibration Block_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-plus-labware-tip-rack-holder-tiprack",
+      "label": "TipRack",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/tip_rack_holder",
+      "file": "assets/cad/catalog/cubxl-plus-labware-tip-rack-holder-tiprack.stl",
+      "source": "cubxl_plus/labware/tip_rack_holder/TipRack.stl",
+      "sources": [
+        "cubxl_plus/labware/tip_rack_holder/TipRack.glb",
+        "cubxl_plus/labware/tip_rack_holder/TipRack.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-labware-vial-holder-9vialholder",
+      "label": "9VialHolder",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/vial_holder",
+      "file": "assets/cad/catalog/cubxl-plus-labware-vial-holder-9vialholder.stl",
+      "source": "cubxl_plus/labware/vial_holder/9VialHolder.step",
+      "sources": [
+        "cubxl_plus/labware/vial_holder/9VialHolder.glb",
+        "cubxl_plus/labware/vial_holder/9VialHolder.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-plus-labware-vial-holder-9vialholder-key",
+      "label": "9VialHolder-key",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/vial_holder",
+      "file": "assets/cad/catalog/cubxl-plus-labware-vial-holder-9vialholder-key.stl",
+      "source": "cubxl_plus/labware/vial_holder/9VialHolder-key.step",
+      "sources": [
+        "cubxl_plus/labware/vial_holder/9VialHolder-key.glb",
+        "cubxl_plus/labware/vial_holder/9VialHolder-key.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "cubxl-plus-labware-well-plate-holder-pandasbswellplateholder",
+      "label": "PandaSBSWellplateHolder",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/well_plate_holder",
+      "file": "assets/cad/catalog/cubxl-plus-labware-well-plate-holder-pandasbswellplateholder.stl",
+      "source": "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder.stl",
+      "sources": [
+        "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder.3mf",
+        "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder.gcode.3mf",
+        "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder.step",
+        "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "cubxl-plus-labware-well-plate-holder-pandasbswellplateholder-deck-fit",
+      "label": "PandaSBSWellplateHolder-deck-fit",
+      "group": "Labware",
+      "subgroup": "cubxl_plus/labware/well_plate_holder",
+      "file": "assets/cad/catalog/cubxl-plus-labware-well-plate-holder-pandasbswellplateholder-deck-fit.stl",
+      "source": "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder-deck-fit.step",
+      "sources": [
+        "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder-deck-fit.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "misc-para-dox-well-plate-vial-cover-rev-0",
+      "label": "Para-Dox Well Plate Vial Cover REV. 0",
+      "group": "Labware",
+      "subgroup": "misc",
+      "file": "assets/cad/catalog/misc-para-dox-well-plate-vial-cover-rev-0.stl",
+      "source": "misc/Para-Dox Well Plate Vial Cover_REV. 0.step",
+      "sources": [
+        "misc/Para-Dox Well Plate Vial Cover_REV. 0.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "misc-paw-v2-opentrons-temperature-module-mount-paw-v2-opentrons-temperature-module-mount-part-1",
+      "label": "PAW-V2-Opentrons Temperature Module Mount - Part 1",
+      "group": "Labware",
+      "subgroup": "misc/PAW-V2-Opentrons Temperature Module Mount",
+      "file": "assets/cad/catalog/misc-paw-v2-opentrons-temperature-module-mount-paw-v2-opentrons-temperature-module-mount-part-1.stl",
+      "source": "misc/PAW-V2-Opentrons Temperature Module Mount/PAW-V2-Opentrons Temperature Module Mount - Part 1.stl",
+      "sources": [
+        "misc/PAW-V2-Opentrons Temperature Module Mount/PAW-V2-Opentrons Temperature Module Mount - Part 1.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "misc-standard-96-position-photoredox-block-vial-retainer-ursa-101960-3x4-test-coupon",
+      "label": "ursa 101960 3x4 test coupon",
+      "group": "Labware",
+      "subgroup": "misc/standard_96_position_photoredox_block_vial_retainer",
+      "file": "assets/cad/catalog/misc-standard-96-position-photoredox-block-vial-retainer-ursa-101960-3x4-test-coupon.stl",
+      "source": "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_3x4_test_coupon.step",
+      "sources": [
+        "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_3x4_test_coupon.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "misc-standard-96-position-photoredox-block-vial-retainer-ursa-101960-open-access-gasket",
+      "label": "ursa 101960 open access gasket",
+      "group": "Labware",
+      "subgroup": "misc/standard_96_position_photoredox_block_vial_retainer",
+      "file": "assets/cad/catalog/misc-standard-96-position-photoredox-block-vial-retainer-ursa-101960-open-access-gasket.stl",
+      "source": "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_open_access_gasket.step",
+      "sources": [
+        "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_open_access_gasket.step"
+      ],
+      "desc": "Source CAD companion; the landing page exposes a generated mesh preview.",
+      "status": "source-cad"
+    },
+    {
+      "id": "misc-standard-96-position-photoredox-block-vial-retainer-ursa-101960-open-access-vial-retainer",
+      "label": "ursa 101960 open access vial retainer",
+      "group": "Labware",
+      "subgroup": "misc/standard_96_position_photoredox_block_vial_retainer",
+      "file": "assets/cad/catalog/misc-standard-96-position-photoredox-block-vial-retainer-ursa-101960-open-access-vial-retainer.stl",
+      "source": "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_open_access_vial_retainer.stl",
+      "sources": [
+        "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_open_access_vial_retainer.step",
+        "misc/standard_96_position_photoredox_block_vial_retainer/ursa_101960_open_access_vial_retainer.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "shared-calibration-block-base1",
+      "label": "Base1",
+      "group": "Labware",
+      "subgroup": "shared/calibration_block",
+      "file": "assets/cad/catalog/shared-calibration-block-base1.stl",
+      "source": "shared/calibration_block/Base1.stl",
+      "sources": [
+        "shared/calibration_block/Base1.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "shared-calibration-block-base2",
+      "label": "Base2",
+      "group": "Labware",
+      "subgroup": "shared/calibration_block",
+      "file": "assets/cad/catalog/shared-calibration-block-base2.stl",
+      "source": "shared/calibration_block/Base2.stl",
+      "sources": [
+        "shared/calibration_block/Base2.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "shared-calibration-block-base3",
+      "label": "Base3",
+      "group": "Labware",
+      "subgroup": "shared/calibration_block",
+      "file": "assets/cad/catalog/shared-calibration-block-base3.stl",
+      "source": "shared/calibration_block/Base3.stl",
+      "sources": [
+        "shared/calibration_block/Base3.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    },
+    {
+      "id": "shared-calibration-block-block",
+      "label": "Block",
+      "group": "Labware",
+      "subgroup": "shared/calibration_block",
+      "file": "assets/cad/catalog/shared-calibration-block-block.stl",
+      "source": "shared/calibration_block/Block.stl",
+      "sources": [
+        "shared/calibration_block/Block.stl"
+      ],
+      "desc": "CAD mesh catalog entry; refer to the source README for compatibility and use.",
+      "status": "mesh"
+    }
+  ],
+  "excluded_sources": [
+    {
+      "source": "cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiAssembly.20260909-113414.FCBak",
+      "reason": "FreeCAD backup file, retained as provenance only"
+    },
+    {
+      "source": "gantry/genmitsu_prover_v2_enclosure_d/EnclosureD.20260916-163826.FCBak",
+      "reason": "FreeCAD backup file, retained as provenance only"
+    }
+  ]
+}

@@ -50,7 +50,7 @@
         <div class="build-sub" id="build-cad">
           <h3>CAD assembly</h3>
           <p class="build-note">
-            Explore printed mounts, labware and calibration parts from Cubware. Select a
+            Explore mounts, labware, calibration parts and assemblies from Cubware, including nested folders and revisions. Select a
             part, drag to rotate, and scroll to zoom. Source STL / STEP files and per-part assembly notes
             live in the
             <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>
@@ -62,34 +62,16 @@
               <p class="cad-status" id="cad-status">Loading model&hellip;</p>
             </div>
             <aside class="cad-parts" aria-label="CAD part picker">
-              <p class="cad-group-label">Cub</p>
-              <div class="cad-part-buttons" role="group" aria-label="Cub">
-                <button class="cad-part-btn" data-part="cub-wellplate-holder" aria-pressed="false">Cub wellplate holder</button>
-              </div>
-              <p class="cad-group-label">CubXL</p>
-              <div class="cad-part-buttons" role="group" aria-label="CubXL">
-                <button class="cad-part-btn" data-part="front">Front housing</button>
-                <button class="cad-part-btn" data-part="back">Back housing</button>
-                <button class="cad-part-btn" data-part="cap">Cap</button>
-              </div>
-              <p class="cad-group-label">CubXL+</p>
-              <div class="cad-part-buttons" role="group" aria-label="CubXL+">
-                <button class="cad-part-btn" data-part="cubxl-plus-ot2-backboard" aria-pressed="false">OT-2 backboard</button>
-                <button class="cad-part-btn" data-part="cubxl-plus-ot2-backboard-spacers" aria-pressed="false">OT-2 backboard spacers</button>
-                <button class="cad-part-btn" data-part="cubxl-plus-vial-decapper-mount" aria-pressed="false">Vial decapper mount</button>
-                <button class="cad-part-btn" data-part="cubxl-plus-raspberry-pi-camera-mount" aria-pressed="false">Raspberry Pi camera mount</button>
-                <button class="cad-part-btn" data-part="cubxl-plus-ionic-conductivity-probe-mount" aria-pressed="false">Ionic conductivity probe mount</button>
-              </div>
-              <p class="cad-group-label">Labware</p>
-              <div class="cad-part-buttons" role="group" aria-label="Labware">
-                <button class="cad-part-btn" data-part="wellplate">CubXL wellplate holder</button>
-                <button class="cad-part-btn" data-part="block">Calibration block</button>
-                <button class="cad-part-btn" data-part="base1">Calibration base</button>
-                <button class="cad-part-btn" data-part="cubxl-plus-tip-rack" aria-pressed="false">CubXL+ tip rack</button>
-                <button class="cad-part-btn" data-part="cubxl-plus-panda-sbs-wellplate-holder" aria-pressed="false">CubXL+ wellplate holder</button>
-              </div>
+              <label class="cad-group-label" for="cad-search">Find a part</label>
+              <input id="cad-search" type="search" placeholder="Search parts or folders" autocomplete="off" />
+              <p id="cad-count" class="build-note" aria-live="polite">Loading catalog…</p>
+              <div id="cad-catalog" class="cad-catalog"></div>
+              <p class="cad-part-title" id="cad-part-title"></p>
               <p class="cad-part-desc" id="cad-part-desc"></p>
+              <p id="cad-part-source" class="cad-part-source"></p>
+              <a id="cad-download" class="build-card-cta" hidden download>Download preview mesh &rarr;</a>
               <a class="build-card-cta" href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Browse all CAD files &rarr;</a>
+              <noscript><p>Enable JavaScript for interactive previews, or browse the CAD files above.</p></noscript>
             </aside>
           </div>
         </div>
@@ -146,147 +128,7 @@
         }
       }
     </script>
-    <script type="module">
-      import * as THREE from 'three';
-      import { STLLoader } from 'three/addons/loaders/STLLoader.js';
-      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-      const PARTS = {
-        "cubxl-plus-ot2-backboard": {"file": "assets/cad/cubxl-plus-ot2-backboard.stl", "desc": "Central PAW-V2 mounting plate for the Opentrons OT-2 frame and CubXL+ instrument mounts."},
-        "cubxl-plus-ot2-backboard-spacers": {"file": "assets/cad/cubxl-plus-ot2-backboard-spacers.stl", "desc": "Spacers that set the standoff between the CubXL+ OT-2 backboard and the OT-2 frame."},
-        "cubxl-plus-vial-decapper-mount": {"file": "assets/cad/cubxl-plus-vial-decapper-mount.stl", "desc": "Printable electromagnet housing for the vial capper/decapper; bolts onto the OT-2 backboard."},
-        "cubxl-plus-raspberry-pi-camera-mount": {"file": "assets/cad/cubxl-plus-raspberry-pi-camera-mount.stl", "desc": "Printable mount for a Raspberry Pi Camera Module 3 that bolts onto the OT-2 backboard."},
-        "cubxl-plus-ionic-conductivity-probe-mount": {"file": "assets/cad/cubxl-plus-ionic-conductivity-probe-mount.stl", "desc": "Printable holder for the ionic conductivity probe read by the potentiostat; bolts onto the OT-2 backboard."},
-        "cubxl-plus-tip-rack": {"file": "assets/cad/cubxl-plus-tip-rack.stl", "desc": "Printable tip rack for disposable pipette tips on the PANDA-BEAR deck; CubXL+ only."},
-        "cubxl-plus-panda-sbs-wellplate-holder": {"file": "assets/cad/cubxl-plus-panda-sbs-wellplate-holder.stl", "desc": "Keyed printable holder for a standard SBS/ANSI 96-well plate on the CubXL+ PandaDeck."},
-        "cub-wellplate-holder": {"file": "assets/cad/cub-wellplate-holder.stl", "desc": "Printable holder for a standard wellplate on the Cub configuration deck; Cub only."},
-
-        front: {
-          file: 'assets/cad/ForceSensorMountFront.stl',
-          desc: 'Front half of the printed housing that seats the Vernier Go Direct force sensor.',
-        },
-        back: {
-          file: 'assets/cad/ForceSensorMountBack.stl',
-          desc: 'Back half of the force-sensor housing — mounts to the CubXL Z-carriage.',
-        },
-        cap: {
-          file: 'assets/cad/ForceSensorMountCap.stl',
-          desc: 'Cap that closes the housing once the sensor is seated.',
-        },
-        wellplate: {
-          file: 'assets/cad/wellplate_holder.stl',
-          desc: 'Holds SBS-format 96-well plates rigidly on the CubXL deck during indentation runs (REV 1).',
-        },
-        block: {
-          file: 'assets/cad/Block.stl',
-          desc: 'Reference block used to calibrate gantry position before a run — shared across every Cub configuration.',
-        },
-        base1: {
-          file: 'assets/cad/Base1.stl',
-          desc: 'Base the calibration block sits on during calibration.',
-        },
-      };
-
-      const canvas = document.getElementById('cad-canvas');
-      const status = document.getElementById('cad-status');
-      const descEl = document.getElementById('cad-part-desc');
-      const buttons = document.querySelectorAll('.cad-part-btn');
-      const wrap = canvas.parentElement;
-
-      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 5000);
-      scene.add(new THREE.HemisphereLight(0xffffff, 0x44506b, 1.1));
-      const keyLight = new THREE.DirectionalLight(0xffffff, 1.4);
-      keyLight.position.set(1, 2, 1.5);
-      scene.add(keyLight);
-      const fillLight = new THREE.DirectionalLight(0xbcd3ff, 0.5);
-      fillLight.position.set(-1.5, -0.5, -1);
-      scene.add(fillLight);
-
-      const controls = new OrbitControls(camera, canvas);
-      controls.enableDamping = true;
-      controls.autoRotate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      controls.autoRotateSpeed = 1.6;
-
-      const material = new THREE.MeshStandardMaterial({ color: 0x3f6fd1, metalness: 0.1, roughness: 0.55 });
-      const loader = new STLLoader();
-      let mesh = null;
-      let loadVersion = 0;
-
-      function resize() {
-        const w = wrap.clientWidth;
-        const h = wrap.clientHeight;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-      }
-      new ResizeObserver(resize).observe(wrap);
-      resize();
-
-      function frameObject(geometry) {
-        geometry.computeBoundingBox();
-        const box = geometry.boundingBox;
-        const center = new THREE.Vector3();
-        box.getCenter(center);
-        geometry.translate(-center.x, -center.y, -center.z);
-        // STLs are Z-up; three.js is Y-up
-        geometry.rotateX(-Math.PI / 2);
-        geometry.computeBoundingBox();
-        const size = new THREE.Vector3();
-        geometry.boundingBox.getSize(size);
-        const radius = size.length() / 2;
-        camera.position.set(radius * 2.2, radius * 1.4, radius * 2.2);
-        camera.near = radius / 100;
-        camera.far = radius * 100;
-        camera.updateProjectionMatrix();
-        controls.target.set(0, 0, 0);
-        controls.update();
-      }
-
-      function loadPart(id) {
-        const part = PARTS[id];
-        if (!part) return;
-        const version = ++loadVersion;
-        buttons.forEach((b) => {
-          const active = b.dataset.part === id;
-          b.classList.toggle('active', active);
-          b.setAttribute('aria-pressed', String(active));
-        });
-        descEl.textContent = part.desc;
-        status.textContent = 'Loading model…';
-        status.hidden = false;
-        loader.load(
-          part.file,
-          (geometry) => {
-            if (version !== loadVersion) { geometry.dispose(); return; }
-            if (mesh) {
-              scene.remove(mesh);
-              mesh.geometry.dispose();
-            }
-            frameObject(geometry);
-            mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
-            status.hidden = true;
-          },
-          undefined,
-          () => {
-            if (version !== loadVersion) return;
-            status.textContent = 'Could not load this model.';
-          }
-        );
-      }
-
-      buttons.forEach((btn) => btn.addEventListener('click', () => loadPart(btn.dataset.part)));
-      loadPart('front');
-
-      renderer.setAnimationLoop(() => {
-        controls.update();
-        renderer.render(scene, camera);
-      });
-    </script>
+    <script type="module" src="scripts/cad-viewer.js"></script>
     <script>
       // Scroll-reveal entrance (no-ops gracefully if reduced-motion or no IO support)
       const reveals = document.querySelectorAll('.reveal');

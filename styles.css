@@ -1513,3 +1513,17 @@ h3 {
 .doc-body figure { max-width: 100%; }
 .doc-body a, .doc-body code { overflow-wrap: anywhere; }
 .doc-body > table th { white-space: nowrap; }
+
+/* Recursive CAD catalog. */
+#cad-search { width: 100%; box-sizing: border-box; border: 1px solid var(--line); border-radius: 8px; padding: .7rem .8rem; font: inherit; background: #fff; color: var(--ink); }
+#cad-count { margin: .7rem 0; font-size: .85rem; }
+.cad-catalog { max-height: 420px; overflow-y: auto; overscroll-behavior: contain; }
+.cad-category { border-top: 1px solid var(--line); padding: .6rem 0; }
+.cad-category > summary { font-weight: 800; cursor: pointer; padding: .2rem 0; }
+.cad-folder { margin: .6rem 0 .6rem .6rem; }
+.cad-folder > summary { cursor: pointer; overflow-wrap: anywhere; color: var(--muted); font-size: .8rem; padding: .3rem 0; }
+.cad-folder .cad-part-buttons { margin: .4rem 0; display: grid; }
+.cad-folder .cad-part-btn { text-align: left; border-radius: 8px; overflow-wrap: anywhere; }
+.cad-part-title { margin: 1rem 0 .4rem; font-weight: 800; }
+.cad-part-source { font-size: .75rem; color: var(--muted); overflow-wrap: anywhere; margin: .6rem 0; }
+.cad-parts [hidden] { display: none !important; }

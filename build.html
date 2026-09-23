@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Build a Cub yourself — open-source bill of materials, CAD assembly files, and build instructions for the CubXL ASMI indentation system from Ursa Labs."
+      content="Browse Cub, CubXL and CubXL+ assembly, mounting and calibration guides, plus open-source CAD."
     />
-    <title>Build It | Ursa Laboratories</title>
+    <title>Build Guides | Ursa Laboratories</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <!-- Google tag (gtag.js) -->
@@ -20,7 +20,7 @@
       gtag('config', 'G-CFM3B0DT2P');
     </script>
   </head>
-  <body>
+  <body class="build-page">
 
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Ursa Laboratories — home">
@@ -39,21 +39,19 @@
 
     <main id="top">
       <section id="build" class="section build" aria-labelledby="build-title">
-        <div class="section-heading narrow reveal">
-          <p class="eyebrow">Open source</p>
-          <h1 id="build-title">Build it yourself.</h1>
-          <p>
-            Cub is open hardware. The first build we're publishing is the CubXL configured
-            for ASMI indentation — everything you need to source the parts, print the
-            mounts, and assemble a working system.
-          </p>
+        <div class="journey-intro">
+          <p class="eyebrow">Open hardware. Your way.</p>
+          <h1 id="build-title">Build guides</h1>
+          <p class="build-note"><strong>Build guides — work in progress</strong><br />These guides are still being written and reviewed. Some instructions and details are incomplete.</p>
+          <p>Browse assembly, mounting and calibration instructions for Cub, CubXL and CubXL+.</p>
+          <a href="#guide-library">Browse the guides &rarr;</a>
         </div>
 
-        <div class="build-sub reveal" id="build-cad">
+        <div class="build-sub" id="build-cad">
           <h3>CAD assembly</h3>
           <p class="build-note">
-            Every 3D-printed part of the CubXL + ASMI build, viewable right here. Drag to
-            rotate, scroll to zoom. Source STL / STEP files and per-part assembly notes
+            Explore printed mounts, labware and calibration parts from Cubware. Select a
+            part, drag to rotate, and scroll to zoom. Source STL / STEP files and per-part assembly notes
             live in the
             <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>
             repository.
@@ -76,28 +74,58 @@
                 <button class="cad-part-btn" data-part="block">Calibration block</button>
                 <button class="cad-part-btn" data-part="base1">Calibration base</button>
               </div>
+<p class="cad-group-label">CubXL+ instrument mounts</p><div class="cad-part-buttons" role="group" aria-label="CubXL+ instrument mounts">
+<button class="cad-part-btn" data-part="cubxl-plus-ot2-backboard" aria-pressed="false">OT-2 backboard</button>
+<button class="cad-part-btn" data-part="cubxl-plus-ot2-backboard-spacers" aria-pressed="false">OT-2 backboard spacers</button>
+<button class="cad-part-btn" data-part="cubxl-plus-vial-decapper-mount" aria-pressed="false">Vial decapper mount</button>
+<button class="cad-part-btn" data-part="cubxl-plus-raspberry-pi-camera-mount" aria-pressed="false">Raspberry Pi camera mount</button>
+<button class="cad-part-btn" data-part="cubxl-plus-ionic-conductivity-probe-mount" aria-pressed="false">Ionic conductivity probe mount</button>
+</div>
+<p class="cad-group-label">CubXL+ labware</p><div class="cad-part-buttons" role="group" aria-label="CubXL+ labware">
+<button class="cad-part-btn" data-part="cubxl-plus-tip-rack" aria-pressed="false">Pipette tip rack</button>
+<button class="cad-part-btn" data-part="cubxl-plus-panda-sbs-wellplate-holder" aria-pressed="false">PANDA SBS wellplate holder</button>
+</div>
+<p class="cad-group-label">Cub labware</p><div class="cad-part-buttons" role="group" aria-label="Cub labware">
+<button class="cad-part-btn" data-part="cub-wellplate-holder" aria-pressed="false">Cub wellplate holder</button>
+</div>
               <p class="cad-part-desc" id="cad-part-desc"></p>
               <a class="build-card-cta" href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Browse all CAD files &rarr;</a>
             </aside>
           </div>
         </div>
 
-        <div class="build-sub reveal" id="build-bom">
-          <h3>Bill of materials <span class="pill-soon">Coming soon</span></h3>
-          <p class="build-note">
-            A complete bill of materials for a self-sourced CubXL + ASMI indentation
-            build — components, estimated costs, and sourcing links — is on its way.
-          </p>
-        </div>
+        <div class="build-sub" id="guide-library">
+<h2>Go straight to the guide.</h2>
+<p class="build-note">Gantry assembly, instrument mounts and calibration instructions from KABLab. Match the gantry model and part revision to your kit before starting.</p>
+<h3>Gantry assembly</h3><div class="guide-library">
+<a href="docs/cub-gantry-build.html"><span>Gantry assembly</span><strong>Cub · full assembly</strong><span>3018-PROVer V2 · Rev. 0 &rarr;</span></a>
+<a href="docs/cub-gantry-shipped.html"><span>Gantry assembly</span><strong>Cub · shipped kit</strong><span>3018-PROVer V2 · preassembled components &rarr;</span></a>
+<a href="docs/cubxl-gantry-build.html"><span>Gantry assembly</span><strong>CubXL · gantry &amp; ASMI</strong><span>PROVerXL 4030 V2 · Rev. 2 &rarr;</span></a>
+<a href="docs/cubxl-2-gantry-build.html"><span>Gantry assembly</span><strong>CubXL 2.0 · gantry</strong><span>4040-PRO MAX · Rev. 0 &rarr;</span></a>
+<a href="docs/panda-gantry-build.html"><span>Gantry assembly</span><strong>PANDA · gantry &amp; wiring</strong><span>PROVerXL 4030 V2 · legacy Rev. 0 &rarr;</span></a>
+</div>
+<h3>Instruments & deck mounts</h3><div class="guide-library">
+<a href="docs/cub-vernier-mount.html"><span>Instruments &amp; deck mounts</span><strong>Cub Vernier force-sensor mount</strong><span>Dovetail mount · Rev. 0 &rarr;</span></a>
+<a href="docs/cubxl-vernier-mount.html"><span>Instruments &amp; deck mounts</span><strong>CubXL Vernier force-sensor mount</strong><span>Base and cover · Rev. 4 &rarr;</span></a>
+<a href="docs/cubxl-asmi-wellplate-holder.html"><span>Instruments &amp; deck mounts</span><strong>CubXL ASMI wellplate holder</strong><span>96-well plate · mounting instructions &rarr;</span></a>
+<a href="docs/cubxl-hamilton-holder.html"><span>Instruments &amp; deck mounts</span><strong>CubXL Hamilton heater/cooler holder</strong><span>Plate holder · mounting instructions &rarr;</span></a>
+<a href="docs/opentrons-pipette-setup.html"><span>Instruments &amp; deck mounts</span><strong>Opentrons OT-2 pipette</strong><span>CubXL+ / PANDA · build and wiring &rarr;</span></a>
+<a href="docs/vial-capper-decapper-build.html"><span>Instruments &amp; deck mounts</span><strong>Vial capper / decapper</strong><span>CubXL+ / PANDA · parts and assembly &rarr;</span></a>
+</div>
+<h3>Calibration blocks</h3><div class="guide-library">
+<a href="docs/cub-calibration.html"><span>Calibration blocks</span><strong>Cub calibration block</strong><span>Compact platform &rarr;</span></a>
+<a href="docs/cubxl-calibration.html"><span>Calibration blocks</span><strong>CubXL calibration block</strong><span>ASMI deck &rarr;</span></a>
+<a href="docs/cubxl-plus-calibration.html"><span>Calibration blocks</span><strong>CubXL+ calibration block</strong><span>PANDA deck &rarr;</span></a>
+</div>
+</div>
 
-        <div class="build-sub reveal" id="build-instructions">
-          <h3>Build instructions <span class="pill-soon">Coming soon</span></h3>
-          <p class="build-note">
-            A step-by-step assembly guide — from unboxing the gantry to a calibrated,
-            indentation-ready system — is on its way. In the meantime, per-part READMEs in
-            <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>
-            cover printing and mounting each component.
-          </p>
+        <div class="build-sub" id="build-bom">
+          <h3>BOM (coming soon)</h3>
+          <p class="build-note">Each mounting guide lists its printed parts and fasteners. The <a href="docs/cubxl-gantry-build.html#parts">CubXL manual includes its kit inventory</a>; the <a href="https://docs.google.com/spreadsheets/d/1aDGpYR9yXDgabfKWWN81PyqxCj9AD3PqM8ljZQacRUQ/edit">PANDA parts list</a> covers the legacy gantry and mounts. These are revision-specific inventories, without current prices.</p>
+        </div>
+        <div class="build-sub" id="build-instructions">
+          <h3>Assemble your CubXL + ASMI</h3>
+          <ol class="build-note"><li><a href="docs/cubxl-gantry-build.html">Assemble the gantry and connect its electronics.</a></li><li><a href="docs/cubxl-vernier-mount.html">Fit the Vernier force-sensor mount.</a></li><li><a href="docs/cubxl-asmi-wellplate-holder.html">Install the wellplate holder.</a></li><li><a href="docs/cubxl-calibration.html">Mount the calibration block.</a></li><li><a href="https://cubos.readthedocs.io/en/latest/">Continue with CubOS setup and calibration.</a></li></ol>
         </div>
       </section>
     </main>
@@ -125,6 +153,15 @@
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
       const PARTS = {
+        "cubxl-plus-ot2-backboard": {"file": "assets/cad/cubxl-plus-ot2-backboard.stl", "desc": "Central PAW-V2 mounting plate for the Opentrons OT-2 frame and CubXL+ instrument mounts."},
+        "cubxl-plus-ot2-backboard-spacers": {"file": "assets/cad/cubxl-plus-ot2-backboard-spacers.stl", "desc": "Spacers that set the standoff between the CubXL+ OT-2 backboard and the OT-2 frame."},
+        "cubxl-plus-vial-decapper-mount": {"file": "assets/cad/cubxl-plus-vial-decapper-mount.stl", "desc": "Printable electromagnet housing for the vial capper/decapper; bolts onto the OT-2 backboard."},
+        "cubxl-plus-raspberry-pi-camera-mount": {"file": "assets/cad/cubxl-plus-raspberry-pi-camera-mount.stl", "desc": "Printable mount for a Raspberry Pi Camera Module 3 that bolts onto the OT-2 backboard."},
+        "cubxl-plus-ionic-conductivity-probe-mount": {"file": "assets/cad/cubxl-plus-ionic-conductivity-probe-mount.stl", "desc": "Printable holder for the ionic conductivity probe read by the potentiostat; bolts onto the OT-2 backboard."},
+        "cubxl-plus-tip-rack": {"file": "assets/cad/cubxl-plus-tip-rack.stl", "desc": "Printable tip rack for disposable pipette tips on the PANDA-BEAR deck; CubXL+ only."},
+        "cubxl-plus-panda-sbs-wellplate-holder": {"file": "assets/cad/cubxl-plus-panda-sbs-wellplate-holder.stl", "desc": "Keyed printable holder for a standard SBS/ANSI 96-well plate on the CubXL+ PandaDeck."},
+        "cub-wellplate-holder": {"file": "assets/cad/cub-wellplate-holder.stl", "desc": "Printable holder for a standard wellplate on the Cub configuration deck; Cub only."},
+
         front: {
           file: 'assets/cad/ForceSensorMountFront.stl',
           desc: 'Front half of the printed housing that seats the Vernier Go Direct force sensor.',
@@ -172,12 +209,13 @@
 
       const controls = new OrbitControls(camera, canvas);
       controls.enableDamping = true;
-      controls.autoRotate = true;
+      controls.autoRotate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       controls.autoRotateSpeed = 1.6;
 
       const material = new THREE.MeshStandardMaterial({ color: 0x3f6fd1, metalness: 0.1, roughness: 0.55 });
       const loader = new STLLoader();
       let mesh = null;
+      let loadVersion = 0;
 
       function resize() {
         const w = wrap.clientWidth;
@@ -212,13 +250,19 @@
       function loadPart(id) {
         const part = PARTS[id];
         if (!part) return;
-        buttons.forEach((b) => b.classList.toggle('active', b.dataset.part === id));
+        const version = ++loadVersion;
+        buttons.forEach((b) => {
+          const active = b.dataset.part === id;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-pressed', String(active));
+        });
         descEl.textContent = part.desc;
         status.textContent = 'Loading model…';
         status.hidden = false;
         loader.load(
           part.file,
           (geometry) => {
+            if (version !== loadVersion) { geometry.dispose(); return; }
             if (mesh) {
               scene.remove(mesh);
               mesh.geometry.dispose();
@@ -230,6 +274,7 @@
           },
           undefined,
           () => {
+            if (version !== loadVersion) return;
             status.textContent = 'Could not load this model.';
           }
         );

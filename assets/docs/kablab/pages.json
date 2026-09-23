@@ -1,0 +1,84 @@
+{
+  "cub-gantry-shipped": [
+    "cub-gantry-shipped-1.jpg",
+    "cub-gantry-shipped-2.jpg",
+    "cub-gantry-shipped-3.jpg"
+  ],
+  "cubxl-plus-calibration": [
+    "cubxl-plus-calibration-1.jpg",
+    "cubxl-plus-calibration-2.jpg",
+    "cubxl-plus-calibration-3.jpg"
+  ],
+  "cubxl-hamilton-holder": [
+    "cubxl-hamilton-holder-1.jpg",
+    "cubxl-hamilton-holder-2.jpg",
+    "cubxl-hamilton-holder-3.jpg"
+  ],
+  "cubxl-calibration": [
+    "cubxl-calibration-1.jpg",
+    "cubxl-calibration-2.jpg",
+    "cubxl-calibration-3.jpg"
+  ],
+  "cubxl-gantry-build": [
+    "cubxl-gantry-build-1.jpg",
+    "cubxl-gantry-build-2.jpg",
+    "cubxl-gantry-build-3.jpg",
+    "cubxl-gantry-build-4.jpg",
+    "cubxl-gantry-build-5.jpg",
+    "cubxl-gantry-build-6.jpg",
+    "cubxl-gantry-build-7.jpg",
+    "cubxl-gantry-build-8.jpg",
+    "cubxl-gantry-build-9.jpg",
+    "cubxl-gantry-build-10.jpg",
+    "cubxl-gantry-build-11.jpg",
+    "cubxl-gantry-build-12.jpg"
+  ],
+  "cub-gantry-build": [
+    "cub-gantry-build-1.jpg",
+    "cub-gantry-build-2.jpg",
+    "cub-gantry-build-3.jpg",
+    "cub-gantry-build-4.jpg",
+    "cub-gantry-build-5.jpg",
+    "cub-gantry-build-6.jpg",
+    "cub-gantry-build-7.jpg"
+  ],
+  "cubxl-asmi-wellplate-holder": [
+    "cubxl-asmi-wellplate-holder-1.jpg",
+    "cubxl-asmi-wellplate-holder-2.jpg",
+    "cubxl-asmi-wellplate-holder-3.jpg"
+  ],
+  "cub-calibration": [
+    "cub-calibration-1.jpg",
+    "cub-calibration-2.jpg",
+    "cub-calibration-3.jpg"
+  ],
+  "panda-gantry-build": [
+    "panda-gantry-build-1.jpg",
+    "panda-gantry-build-2.jpg",
+    "panda-gantry-build-3.jpg",
+    "panda-gantry-build-4.jpg",
+    "panda-gantry-build-5.jpg",
+    "panda-gantry-build-6.jpg"
+  ],
+  "opentrons-wiring-schematic": [
+    "opentrons-wiring-schematic-1.jpg"
+  ],
+  "cubxl-2-gantry-build": [
+    "cubxl-2-gantry-build-1.jpg",
+    "cubxl-2-gantry-build-2.jpg"
+  ],
+  "cubxl-vernier-mount": [
+    "cubxl-vernier-mount-1.jpg",
+    "cubxl-vernier-mount-2.jpg",
+    "cubxl-vernier-mount-3.jpg",
+    "cubxl-vernier-mount-4.jpg",
+    "cubxl-vernier-mount-5.jpg"
+  ],
+  "cub-vernier-mount": [
+    "cub-vernier-mount-1.jpg",
+    "cub-vernier-mount-2.jpg",
+    "cub-vernier-mount-3.jpg",
+    "cub-vernier-mount-4.jpg",
+    "cub-vernier-mount-5.jpg"
+  ]
+}

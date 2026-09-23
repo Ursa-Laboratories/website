@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mount and wire an Opentrons OT-2 electronic pipette on a Cub gantry: BOM, printed parts, Arduino / TMC2209 control path, and commissioning steps." />
+    <title>Opentrons OT-2 Pipette Setup Guide | Ursa Laboratories</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CFM3B0DT2P');
+    </script>
+  </head>
+  <body>
+
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Ursa Laboratories — home">
+        <img class="brand-mark" src="../assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#instruments">Instruments</a>
+        <a href="../index.html#compare">Hardware</a>
+        <a href="../index.html#software">Software</a>
+        <a href="../build.html" aria-current="page">Build It</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="../index.html#airtable">Get in touch</a>
+    </header>
+
+    <main id="top">
+      <article class="section build doc" aria-labelledby="doc-title">
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+          <a href="../build.html">Build It</a>
+          <span aria-hidden="true">/</span>
+          <span>Build guides</span>
+        </nav>
+        <div class="section-heading narrow">
+          <p class="eyebrow">Build guide · CubXL+ / PANDA</p>
+          <h1 id="doc-title">Opentrons OT-2 Pipette Setup Guide</h1>
+          <p>This page consolidates the current build, wiring, calibration, and CubOS
+integration notes for using an Opentrons OT-2 electronic pipette on a PANDA/Cub
+gantry. It covers the PAW/OT2 mechanical mount, Arduino stepper-control path,
+tip rack expectations, and the CubOS implementation that maps the legacy
+PANDA-BEAR OT2 pipette functions into current protocol commands.</p>
+          <p class="doc-source">
+            Source: <a href="https://github.com/Ursa-Laboratories/Cubware/blob/main/documentation/opentrons-pipette-setup.md" target="_blank" rel="noopener">documentation/opentrons-pipette-setup.md</a> in the Cubware repository.
+          </p>
+        </div>
+
+        <div class="doc-layout">
+          <aside class="doc-toc" aria-label="On this page">
+            <p class="cad-group-label">On this page</p>
+            <ol>
+              <li><a href="#what-the-pipette-setup-does">What The Pipette Setup Does</a></li>
+              <li><a href="#standalone-bom">Standalone BOM</a></li>
+              <li><a href="#printed-fabricated-parts">Printed / Fabricated Parts</a></li>
+              <li><a href="#mount-the-pipette">Mount The Pipette</a></li>
+              <li><a href="#wire-the-arduino-control-path">Wire The Arduino Control Path</a></li>
+            </ol>
+          </aside>
+          <div class="doc-body">
+            <h2 id="what-the-pipette-setup-does">What The Pipette Setup Does</h2>
+            <p>The setup mounts an Opentrons electronic pipette on the PAW/OT2 backboard and
+            drives the pipette plunger through the PANDA Arduino firmware. CubOS moves the
+            gantry to source, destination, tip-rack, and tip-disposal coordinates, then sends
+            serial commands to the Arduino for plunger actions such as home, aspirate,
+            dispense, blowout, mix, pick-up-tip, and drop-tip.</p>
+            <p>The CubOS code path is implemented, but the OT2 pipette hardware path has not
+            yet been validated on the physical machine in this checkout. Treat every
+            position, model constant, and serial command as a commissioning value until it
+            has been tested with the installed pipette, tip rack, and firmware.</p>
+            <h2 id="standalone-bom">Standalone BOM</h2>
+            <p>Quantities are for one OT-2 pipette station unless noted.</p>
+            <div class="doc-table-wrap"><table>
+            <thead>
+            <tr>
+            <th>Qty</th>
+            <th>Item</th>
+            <th>Use</th>
+            <th>Part number / spec</th>
+            <th>Source</th>
+            <th>Cost in repo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1</td>
+            <td>OT-2 single-channel electronic pipette</td>
+            <td>Liquid handling instrument</td>
+            <td>P300, <code>999-00003</code> in legacy BOM</td>
+            <td><a target="_blank" rel="noopener" href="https://opentrons.com/products/single-channel-electronic-pipette-p20">Opentrons</a></td>
+            <td>USD 2,750</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Arduino Uno SMD R3</td>
+            <td>Serial control path to PAW firmware</td>
+            <td><code>A000073</code></td>
+            <td><a target="_blank" rel="noopener" href="https://www.digikey.com/en/products/detail/arduino/A000073/3476357">DigiKey</a></td>
+            <td>USD 26.30</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Adafruit TMC2209 stepper motor driver breakout</td>
+            <td>Drives the OT-2 pipette stepper motor</td>
+            <td>Adafruit <code>6121</code></td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/6121">Adafruit</a></td>
+            <td>USD 17.90</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>10-pin socket/socket IDC cable, 6 in</td>
+            <td>Connection to the OT-2 pipette</td>
+            <td>Adafruit <code>370</code></td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/370">Adafruit</a></td>
+            <td>USD 2.00</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Uno R3 proto shield or equivalent</td>
+            <td>PAW control circuitry</td>
+            <td>Legacy BOM used Adafruit <code>2077</code>; Cubware capper guide notes a generic Uno R3 protoshield alternative</td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/2077">Adafruit</a></td>
+            <td>USD 9.95</td>
+            </tr>
+            <tr>
+            <td>1 pack</td>
+            <td>Aluminum SMT heat sinks, 10-pack</td>
+            <td>Heat sink for the TMC2209 stepper driver</td>
+            <td>Adafruit <code>1515</code>, 0.27" x 0.27" x 0.14"</td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/1515">Adafruit</a></td>
+            <td>USD 4.95</td>
+            </tr>
+            <tr>
+            <td>1 set</td>
+            <td>Jumper wires</td>
+            <td>Arduino/protoshield wiring</td>
+            <td>Female-female <code>4447</code>, extension <code>4635</code>, male-male <code>4482</code></td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/4447">Adafruit 4447</a>, <a target="_blank" rel="noopener" href="https://www.adafruit.com/product/4635">Adafruit 4635</a>, <a target="_blank" rel="noopener" href="https://www.adafruit.com/product/4482">Adafruit 4482</a></td>
+            <td>USD 9.95, USD 11.95, USD 9.95</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>USB extension cable</td>
+            <td>Communication with PAW hardware</td>
+            <td>10-15 ft USB extension, UPC <code>686878976212</code></td>
+            <td><a target="_blank" rel="noopener" href="https://a.co/d/3PqFbSj">Amazon</a></td>
+            <td>USD 8.99</td>
+            </tr>
+            <tr>
+            <td>1 kit</td>
+            <td>M3-M6 bolt kit</td>
+            <td>Mounting hardware for PAW/backboard parts</td>
+            <td>Kwokker M3-M6 bolt kit, 20 sizes</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/gp/product/B0CLZC8SQ5/">Amazon</a></td>
+            <td>USD 23.99</td>
+            </tr>
+            <tr>
+            <td>As needed</td>
+            <td>Opentrons-compatible tips</td>
+            <td>Disposable pipette tips</td>
+            <td>Match the installed pipette model and tip rack geometry</td>
+            <td>Opentrons or equivalent</td>
+            <td>Not listed</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <h2 id="printed-fabricated-parts">Printed / Fabricated Parts</h2>
+            <div class="doc-table-wrap"><table>
+            <thead>
+            <tr>
+            <th>Qty</th>
+            <th>Part</th>
+            <th>File</th>
+            <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1</td>
+            <td>OT2 backboard mount</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/instrument_mounts/backboard/"><code>../cubxl_plus/instrument_mounts/backboard/</code></a></td>
+            <td>Main backboard that bolts to the OT-2 frame and carries the PAW-V2 mounts</td>
+            </tr>
+            <tr>
+            <td>1 set</td>
+            <td>OT2 mount spacers</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/instrument_mounts/backboard/"><code>../cubxl_plus/instrument_mounts/backboard/</code></a></td>
+            <td>Sets the backboard standoff from the OT-2 frame</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Legacy PAW-V2 OT2 mount</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/instrument_mounts/backboard/PAW-V2%20-%20OT2Mount_REV.%201%20-%20OT2Mount.stl"><code>../cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount_REV. 1 - OT2Mount.stl</code></a></td>
+            <td>Cubware STL copy of the legacy PANDA-BEAR OT2 mount</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Tip rack</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/labware/tip_rack_holder/"><code>../cubxl_plus/labware/tip_rack_holder/</code></a></td>
+            <td>CubOS tip-rack labware definition includes <code>tip_length</code>, pickup slots, and consumed-tip tracking</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Used-tip disposal target</td>
+            <td>CubOS deck YAML <code>tip_disposal</code> labware</td>
+            <td>Needed for <code>drop_tip</code> protocol commands</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <h2 id="mount-the-pipette">Mount The Pipette</h2>
+            <ol>
+            <li>Print the OT2 backboard and spacer parts from
+               <a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/instrument_mounts/backboard/"><code>../cubxl_plus/instrument_mounts/backboard/</code></a>.</li>
+            <li>Bolt the backboard to the OT-2 frame and confirm the plate is rigid before
+               adding the pipette.</li>
+            <li>Mount the Opentrons pipette with the PAW-V2 OT2 mount hardware.</li>
+            <li>Route the pipette cable and Arduino USB cable so they cannot enter the
+               gantry travel envelope.</li>
+            <li>Install the tip rack and used-tip disposal target on the deck.</li>
+            <li>Confirm the pipette nozzle can reach the intended tip-rack, source, and
+               destination positions without the pipette body, cable, or backboard colliding
+               with the deck or neighboring tools.</li>
+            </ol>
+            <p>The legacy PANDA-BEAR checkout contains only the OT2 mount STEP file and wiring
+            evidence for this assembly. It does not contain a full mechanical drawing with
+            all fastener lengths, cable clips, or installation dimensions.</p>
+            <h2 id="wire-the-arduino-control-path">Wire The Arduino Control Path</h2>
+            <p>The OT2 pipette is controlled by the PAW Arduino firmware, not by the Opentrons
+            robot API. CubOS talks to the Arduino over serial at <code>115200</code> baud by default.</p>
+            <p><img alt="Pipette control circuit" src="../assets/docs/PipetteControl.png" /></p>
+            <p>Use the diagram as the current wiring reference for the Arduino/TMC2209/pipette
+            control interface. The legacy PANDA-BEAR wiring docs point to the external
+            <a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA_Arduino">BU-KABlab/PANDA_Arduino</a>
+            repository for firmware source, pin assignments, and installation instructions.</p>
+            <h3 id="attach-the-heat-sink-to-the-tmc2209">Attach the Heat Sink to the TMC2209</h3>
+            <p>Before wiring the TMC2209 into the control circuit, fit it with the Adafruit
+            <code>1515</code> heat sink so the driver doesn't thermal-throttle or shut down under
+            sustained plunger moves:</p>
+            <ol>
+            <li>Peel the adhesive backing off one heat sink from the Adafruit <code>1515</code> pack.</li>
+            <li>Center the heat sink, fins up, over the TMC2209's driver IC (the largest
+               chip on the breakout) and press firmly for a few seconds to set the
+               thermal tape.</li>
+            <li>Check that the fins clear the breakout's pin headers and don't foul the
+               protoshield or neighboring components once seated.</li>
+            </ol>
+            <p>Before running pipette commands:</p>
+            <ol>
+            <li>Flash the PAW Arduino firmware that supports the pipette command set.</li>
+            <li>Connect the Arduino to the CubOS host.</li>
+            <li>Identify the serial port, for example <code>/dev/ttyUSB0</code>, <code>/dev/ttyACM0</code>, or a
+               macOS <code>/dev/tty.usb*</code> device.</li>
+            <li>Confirm no other process has the serial port open.</li>
+            <li>Keep the pipette clear of tips, liquids, and deck fixtures for the first
+               home/status checks.</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="../build.html">Build It</a>
+        <a href="../index.html#airtable">Contact</a>
+      </nav>
+      <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

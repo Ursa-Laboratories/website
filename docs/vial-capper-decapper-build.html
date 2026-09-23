@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Build the PANDA vial capper / decapper: BOM, magnetic cap fabrication, vial holder setup, Arduino wiring, and firmware notes." />
+    <title>Vial Capper / Decapper Build Guide | Ursa Laboratories</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CFM3B0DT2P');
+    </script>
+  </head>
+  <body>
+
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Ursa Laboratories — home">
+        <img class="brand-mark" src="../assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#instruments">Instruments</a>
+        <a href="../index.html#compare">Hardware</a>
+        <a href="../index.html#software">Software</a>
+        <a href="../build.html" aria-current="page">Build It</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="../index.html#airtable">Get in touch</a>
+    </header>
+
+    <main id="top">
+      <article class="section build doc" aria-labelledby="doc-title">
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+          <a href="../build.html">Build It</a>
+          <span aria-hidden="true">/</span>
+          <span>Build guides</span>
+        </nav>
+        <div class="section-heading narrow">
+          <p class="eyebrow">Build guide · CubXL+ / PANDA</p>
+          <h1 id="doc-title">Vial Capper / Decapper Build Guide</h1>
+          <p>This page consolidates the current build, wiring, calibration, and validation
+notes for the PANDA vial capper / decapper. It covers the custom magnetic vial
+caps, the deck vial holder, the PAW-mounted electromagnet, the cap-presence
+line-break sensor, and the software checks that prove the mechanism works.</p>
+          <p class="doc-source">
+            Source: <a href="https://github.com/Ursa-Laboratories/Cubware/blob/main/documentation/vial-capper-decapper-build.md" target="_blank" rel="noopener">documentation/vial-capper-decapper-build.md</a> in the Cubware repository.
+          </p>
+        </div>
+
+        <div class="doc-layout">
+          <aside class="doc-toc" aria-label="On this page">
+            <p class="cad-group-label">On this page</p>
+            <ol>
+              <li><a href="#what-the-mechanism-does">What The Mechanism Does</a></li>
+              <li><a href="#standalone-bom">Standalone BOM</a></li>
+              <li><a href="#fabricate-the-custom-vial-caps">Fabricate The Custom Vial Caps</a></li>
+              <li><a href="#install-the-vial-holder">Install The Vial Holder</a></li>
+              <li><a href="#build-and-wire-the-decapper">Build And Wire The Decapper</a></li>
+              <li><a href="#arduino-firmware-details">Arduino Firmware Details</a></li>
+              <li><a href="#arduino-control-contract">Arduino Control Contract</a></li>
+            </ol>
+          </aside>
+          <div class="doc-body">
+            <h2 id="what-the-mechanism-does">What The Mechanism Does</h2>
+            <p>The decapper is a PAW tool that uses an electromagnet to pick up a custom vial
+            cap, lift it off a vial, and later release it back onto the vial. The cap
+            itself is 3D printed, filled with cured PDMS, and topped with a thin ferrous
+            metal disc so the electromagnet can hold it.</p>
+            <p>For PANDA units with <code>PANDA.version &gt; 1.0</code>, production capping/decapping code
+            checks a line-break sensor after each operation. A broken line means the cap is
+            being held by the decapper; an unbroken line means the cap is not present at the
+            decapper.</p>
+            <h2 id="standalone-bom">Standalone BOM</h2>
+            <p>Quantities are for one PANDA vial capper / decapper station unless noted. The
+            local PANDA BOM does not specify quantities for every PAW subcomponent, so rows
+            marked "as needed" should be sized to the number of caps/vials or to the
+            existing PAW build.</p>
+            <h3 id="purchased-parts">Purchased Parts</h3>
+            <div class="doc-table-wrap"><table>
+            <thead>
+            <tr>
+            <th>Qty</th>
+            <th>Item</th>
+            <th>Use</th>
+            <th>Part number / spec</th>
+            <th>Source</th>
+            <th>Cost in repo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1</td>
+            <td>Electromagnet</td>
+            <td>Picks up the ferrous disc in the cap</td>
+            <td>uxcell 5V 50N; verify part number on listing</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/dp/B01NCVII18">Amazon</a></td>
+            <td>Verify on listing</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>IR break beam sensor, 5 mm LEDs</td>
+            <td>Detects whether a cap is present on the decapper</td>
+            <td>Adafruit 2168</td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/2168">Adafruit</a></td>
+            <td>USD 5.99</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Arduino Uno SMD R3</td>
+            <td>Controls PAW peripherals, including the electromagnet and line-break sensor</td>
+            <td>A000073</td>
+            <td><a target="_blank" rel="noopener" href="https://www.digikey.com/en/products/detail/arduino/A000073/3476357">DigiKey</a></td>
+            <td>USD 26.30</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Uno R3 proto shield, generic</td>
+            <td>PAW control circuitry</td>
+            <td>HiLetgo Uno R3 ProtoShield with SYB-170 mini breadboard, 2-pack</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/dp/B00HHYBWPO">Amazon</a></td>
+            <td>Verify on listing</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>MOSFET</td>
+            <td>Switches the electromagnet from the Arduino control signal</td>
+            <td>IRLZ44</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/dp/B0CBKH4XGL">Amazon</a></td>
+            <td>USD 9.99</td>
+            </tr>
+            <tr>
+            <td>1 each</td>
+            <td>Resistors</td>
+            <td>Electromagnet circuit</td>
+            <td>10 kOhm and 200 Ohm</td>
+            <td>Not specified</td>
+            <td>Not listed</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>Flyback diode</td>
+            <td>Protects the electromagnet circuit</td>
+            <td>1N5819</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/dp/B079KG1TN2">Amazon</a></td>
+            <td>USD 7.99</td>
+            </tr>
+            <tr>
+            <td>1 set</td>
+            <td>Jumper wires</td>
+            <td>Arduino/protoshield wiring</td>
+            <td>Female-female 4447, extension 4635, male-male 4482</td>
+            <td><a target="_blank" rel="noopener" href="https://www.adafruit.com/product/4447">Adafruit 4447</a>, <a target="_blank" rel="noopener" href="https://www.adafruit.com/product/4635">Adafruit 4635</a>, <a target="_blank" rel="noopener" href="https://www.adafruit.com/product/4482">Adafruit 4482</a></td>
+            <td>USD 9.95, USD 11.95, USD 9.95</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>USB extension cable</td>
+            <td>Communication with PAW hardware</td>
+            <td>10-15 ft USB extension, UPC 686878976212</td>
+            <td><a target="_blank" rel="noopener" href="https://a.co/d/3PqFbSj">Amazon</a></td>
+            <td>USD 8.99</td>
+            </tr>
+            <tr>
+            <td>1 kit</td>
+            <td>M3-M6 bolt kit</td>
+            <td>Mounting hardware for PAW components</td>
+            <td>Kwokker M3-M6 bolt kit, 20 sizes</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/gp/product/B0CLZC8SQ5/">Amazon</a></td>
+            <td>USD 23.99</td>
+            </tr>
+            <tr>
+            <td>As needed</td>
+            <td>20 mL stock vials</td>
+            <td>Vials used with the custom magnetic caps</td>
+            <td>Fisher 12-100-112</td>
+            <td><a target="_blank" rel="noopener" href="https://www.fishersci.com/shop/products/clear-voa-glass-vials-0-125in-septa/12-100-112">Fisher Sci</a></td>
+            <td>Not listed</td>
+            </tr>
+            <tr>
+            <td>1 per cap</td>
+            <td>Adhesive-backed ferrous metal disc</td>
+            <td>Magnetic target on each custom cap</td>
+            <td>25 mm diameter, 0.5 mm height</td>
+            <td><a target="_blank" rel="noopener" href="https://www.amazon.com/Metal-inch-Replacement-32-Mini/dp/B0CJZ7SLJN/">Amazon example</a></td>
+            <td>Not listed</td>
+            </tr>
+            <tr>
+            <td>About 2.6 mL per cap</td>
+            <td>PDMS base and crosslinker</td>
+            <td>Cured cap insert/seal</td>
+            <td>10:1 base:crosslinker</td>
+            <td>Not specified</td>
+            <td>Not listed</td>
+            </tr>
+            <tr>
+            <td>Optional</td>
+            <td>Super glue</td>
+            <td>Secures ferrous disc if its adhesive is insufficient</td>
+            <td>Not specified</td>
+            <td>Not specified</td>
+            <td>Not listed</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <h3 id="printed-fabricated-parts">Printed / Fabricated Parts</h3>
+            <div class="doc-table-wrap"><table>
+            <thead>
+            <tr>
+            <th>Qty</th>
+            <th>Part</th>
+            <th>File</th>
+            <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1 per capped vial, plus spares</td>
+            <td>Custom 16 mm vial cap</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/blob/main/documentation/3D-prints/VialCap/VialCap16mm.step"><code>3D-prints/VialCap/VialCap16mm.step</code></a></td>
+            <td>Print at 0.2 mm layer height; fill with PDMS and add ferrous disc</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>20 mL vial holder</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/blob/main/documentation/3D-prints/DeckAccessories/9VialHolder20mL_TightFit.step"><code>3D-prints/DeckAccessories/9VialHolder20mL_TightFit.step</code></a></td>
+            <td>Holds vials along the Y-axis</td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td>Vial holder pill pins</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/blob/main/documentation/3D-prints/DeckAccessories/9VialHolder20mL_TightFit%20-%20Pill.step"><code>3D-prints/DeckAccessories/9VialHolder20mL_TightFit - Pill.step</code></a></td>
+            <td>Construction guide says two are needed to place the holder on the deck</td>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>PAW electromagnet mount</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/blob/main/documentation/3D-prints/PAW/PAW-V2%20-%20ElectromagnetMount.step"><code>3D-prints/PAW/PAW-V2 - ElectromagnetMount.step</code></a></td>
+            <td>Mounts the electromagnet to the PAW</td>
+            </tr>
+            <tr>
+            <td>Existing PAW build</td>
+            <td>PAW body and neighboring tool mounts</td>
+            <td><a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/tree/main/documentation/3D-prints/PAW/"><code>3D-prints/PAW/</code></a></td>
+            <td>The capper/decapper assumes the PAW is installed on the gantry</td>
+            </tr>
+            </tbody>
+            </table></div>
+            <p>The closest Cubware part pages are the <a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/instrument_mounts/vial_capper_decapper_mount/">vial decapper mount</a>
+            and <a target="_blank" rel="noopener" href="https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl_plus/labware/vial_holder/">9-vial holder</a>. The legacy PANDA build
+            assets listed above came from the PANDA-BEAR documentation tree.</p>
+            <h2 id="fabricate-the-custom-vial-caps">Fabricate The Custom Vial Caps</h2>
+            <ol>
+            <li>Print <a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/blob/main/documentation/3D-prints/VialCap/VialCap16mm.step"><code>VialCap16mm.step</code></a>
+               at 0.2 mm layer height using the default Bambu Studio profile.</li>
+            <li>If the recessed geometry prints poorly, reduce print speed by 25%.</li>
+            <li>Mix PDMS at 10:1 base:crosslinker.</li>
+            <li>Add about 2.6 mL of mixed PDMS to each cap. The cap has a slightly recessed
+               interior fill line.</li>
+            <li>Cure for at least 48 hours. Do not use caps while tacky.</li>
+            <li>If the cap is still tacky after two days, rinse repeatedly with water until
+               it is no longer tacky.</li>
+            <li>Place a 25 mm diameter x 0.5 mm adhesive-backed ferrous metal disc into the
+               cap's recessed top area.</li>
+            <li>If the disc adhesive is not strong enough, secure it with super glue.</li>
+            <li>Confirm the metal disc is flush with the cap top. No edge or section should
+               protrude.</li>
+            </ol>
+            <p>Use caps only for the same solution composition. Some solutions degrade caps
+            faster than others, so confirm each cap can still be removed by hand before
+            starting a campaign.</p>
+            <h2 id="install-the-vial-holder">Install The Vial Holder</h2>
+            <ol>
+            <li>Print the 20 mL vial holder and two pill pins from the deck accessory files
+               listed above.</li>
+            <li>Mount the vial holder on the deck with the pill pins.</li>
+            <li>Place vials along the Y-axis. The construction guide says the first vial has
+               the lowest Y value.</li>
+            <li>Calibrate vial locations through the mill calibration menu. The current
+               calibration code uses 33.0 mm spacing between vials in the Y-axis when
+               recalculating a full holder from the first vial.</li>
+            </ol>
+            <h2 id="build-and-wire-the-decapper">Build And Wire The Decapper</h2>
+            <ol>
+            <li>Mount the electromagnet to the PAW using the PAW electromagnet mount from
+               <a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/tree/main/documentation/3D-prints/PAW/"><code>3D-prints/PAW/</code></a>.</li>
+            <li>Wire the electromagnet through the Arduino-controlled MOSFET circuit with a
+               flyback diode. The external firmware currently defines the electromagnet
+               output as PWM-capable Arduino Uno pin <code>11</code> in <code>include/Magnet.h</code>.</li>
+            <li>Install the IR break beam sensor so a cap held by the decapper breaks the
+               beam. The external firmware currently defines the line-break sensor input as
+               Arduino Uno pin <code>4</code> in <code>include/LineBreak.h</code>, enables the internal pullup,
+               and treats <code>LOW</code> as beam broken.</li>
+            <li>Connect the Arduino to the PANDA computer and set the serial port in the
+               config.</li>
+            </ol>
+            <p>The repository does not include exact electromagnet mounting dimensions in this
+            checkout. The PANDA <a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA-BEAR/blob/main/documentation/Arduino-Wiring.md">Arduino wiring guide</a>
+            points to the separate
+            <a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA_Arduino">BU-KABlab/PANDA_Arduino</a>
+            firmware repository for firmware, schematics, pin assignments, and installation
+            instructions.</p>
+            <h3 id="wiring-diagram">Wiring Diagram</h3>
+            <p>This diagram is copied from the PANDA Arduino wiring documentation and shows the
+            Arduino control system used by the capper/decapper hardware.</p>
+            <p><img alt="Arduino circuit diagram" src="../assets/docs/ArduinoCircuitDiagram_v3.png" /></p>
+            <h2 id="arduino-firmware-details">Arduino Firmware Details</h2>
+            <p>The external <a target="_blank" rel="noopener" href="https://github.com/BU-KABlab/PANDA_Arduino">BU-KABlab/PANDA_Arduino</a>
+            repository currently describes itself as firmware for the PANDA Arduino and uses
+            PlatformIO with:</p>
+            <ul>
+            <li><code>board = uno</code></li>
+            <li><code>framework = arduino</code></li>
+            <li><code>SERIAL_BAUD = 115200</code></li>
+            <li>Adafruit NeoPixel, ezButton, Adafruit Motor Shield V2, Adafruit PWM Servo
+              Driver, AccelStepper, Adafruit BusIO, and TMC2209 dependencies</li>
+            </ul>
+            <p>The firmware entry point <code>src/pawduino_v2.1.cpp</code> initializes the interface,
+            lights, magnet, line-break sensor, and pipette. It also calls
+            <code>checkMagnetTimer()</code> in the main loop. <code>include/Magnet.h</code> defines
+            <code>MAGNET_TIMER_DURATION</code> as 5 minutes, so the electromagnet should auto-off after
+            that duration if left energized.</p>
+            <p>The firmware's magnet module supports direct duty control, percent control,
+            full-on/full-off helpers, and <code>grabCap(holdPct, grabMs)</code>, which uses a
+            full-power pickup burst and then drops to a hold duty. The local PANDA-BEAR
+            Python control path currently uses command <code>5</code> (<code>CMD_EMAG_ON</code>) through
+            <code>no_cap()</code> and command <code>6</code> (<code>CMD_EMAG_OFF</code>) through <code>ALL_CAP()</code>.</p>
+            <h2 id="arduino-control-contract">Arduino Control Contract</h2>
+            <p>Integration into CubOS is in progress.</p>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="../build.html">Build It</a>
+        <a href="../index.html#airtable">Contact</a>
+      </nav>
+      <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

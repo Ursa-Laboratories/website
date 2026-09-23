@@ -1,0 +1,10 @@
+{
+  "cubxl-plus-ot2-backboard.stl": "cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount_REV. 1 - OT2Mount.stl",
+  "cubxl-plus-ot2-backboard-spacers.stl": "cubxl_plus/instrument_mounts/backboard/PAW-V2 - OT2Mount Spacers_REV. 0 - OT2Mount.stl",
+  "cubxl-plus-vial-decapper-mount.stl": "cubxl_plus/instrument_mounts/vial_capper_decapper_mount/VialDecapperMount.stl",
+  "cubxl-plus-raspberry-pi-camera-mount.stl": "cubxl_plus/instrument_mounts/raspberry_pi_mount/RaspberryPiCameraMount.stl",
+  "cubxl-plus-ionic-conductivity-probe-mount.stl": "cubxl_plus/instrument_mounts/potentiostat_mount/IonicConductivityProbeMount.stl",
+  "cubxl-plus-tip-rack.stl": "cubxl_plus/labware/tip_rack_holder/TipRack.stl",
+  "cubxl-plus-panda-sbs-wellplate-holder.stl": "cubxl_plus/labware/well_plate_holder/PandaSBSWellplateHolder.stl",
+  "cub-wellplate-holder.stl": "cub/labware/well_plate_holder/WellplateHolder.stl"
+}

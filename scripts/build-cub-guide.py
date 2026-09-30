@@ -38,13 +38,10 @@ PARTS = [
         "letter": "A",
         "title": "Assemble the gantry",
         "time": "2 hours",
-        "summary": "Build the Genmitsu 3018-PROVer V2 kit exactly as Genmitsu describes, except for the spindle, acrylic baffle and cable ties noted below. Then fit the ASMI force sensor.",
+        "summary": "Build the Genmitsu 3018-PROVer V2 kit exactly as Genmitsu describes, except for the spindle, acrylic baffle and cable ties noted below.",
         "need": [
             "Genmitsu 3018-PROVer V2 kit (includes the Allen wrenches, Phillips wrench, screws, T-nuts, limit switches and wire pack)",
             "The Genmitsu 3018-PROVer V2 user manual that came in the box (<a href=\"%s\" target=\"_blank\" rel=\"noopener\">online copy</a>)" % GENMITSU_MANUAL,
-            "Printed Cub 3018 mount and Cub Vernier Go Direct mount (see the <a href=\"../build.html#build-cad\">CAD viewer</a>)",
-            "Vernier Go Direct Force and Acceleration Sensor, plus a 3 mm or 5 mm ball indenter",
-            "2× M5 × 15 mm button-head screws and 2× M5 hex nuts",
         ],
         "intro": "The Genmitsu manual numbers its <em>Mechanical Installation</em> steps 1–12. Each step below matches the step with the same number, so you can keep the booklet open next to this page. The photos show what the finished step should look like on a Cub.",
         "steps": [
@@ -86,26 +83,60 @@ PARTS = [
              + fig("fig-16", caption="Finished Cub gantry, wired without a spindle.")),
             ("Skip: acrylic baffle", "genmitsu 12",
              "<p>The acrylic side baffles aren't used on the Cub. Stop here in the Genmitsu booklet; its software chapters (Candle, probing) don't apply.</p>"),
-            ("Fit the ASMI force sensor", "",
-             "<ol><li>Set the Vernier sensor into the rectangular opening in the back half of the Cub Vernier mount, and place the cover over it.</li>"
-             "<li>Push the two M5 × 15 mm screws through the holes above the sensor, drop two M5 nuts into the hex pockets on the back, and tighten with the 3 mm Allen wrench until the sensor is clamped.</li>"
-             "<li>Screw the 3 mm or 5 mm ball indenter into the sensor.</li>"
-             "<li>Slide the mount's dovetail into the Cub 3018 mount, then push the assembly into the round clamp on the Z axis as far as it goes. Tighten the clamp screw with the 3 mm Allen wrench.</li>"
-             "<li>Plug the sensor cable into the side of the sensor.</li></ol>"
-             "<p>Photos and print settings: <a href=\"cub-vernier-mount.html\">Cub Vernier Go Direct mount guide</a>.</p>"),
         ],
         "done": [
             "All four motors, three limit switches and the E-stop are plugged into the control board.",
             "Nothing is connected to the spindle port.",
             "Each axis turns smoothly by hand (with power off) over its full travel.",
-            "The force sensor is clamped firmly in the Z-axis clamp with its cable attached.",
         ],
     },
     {
-        "slug": "cub-asmi-2-bring-up",
+        "slug": "cub-asmi-2-sensor-mount",
         "letter": "B",
+        "title": "Mount the ASMI force sensor",
+        "time": "15 minutes",
+        "summary": "Clamp the Vernier force sensor in its printed mount and fit it to the gantry's Z axis. This is the ASMI's indenting head.",
+        "need": [
+            "Vernier Go Direct Force and Acceleration Sensor and its cable (<a href=\"https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/\" target=\"_blank\" rel=\"noopener\">Vernier</a>)",
+            "A 3 mm or 5 mm ball indenter",
+            "Printed parts: Cub Vernier Go Direct mount base and cover, and the Cub 3018 mount (STEP files in <a href=\"https://github.com/Ursa-Laboratories/Cubware/tree/main/cub/instrument_mounts\" target=\"_blank\" rel=\"noopener\">Cubware</a>, preview in the <a href=\"../build.html#build-cad\">CAD viewer</a>)",
+            "2× M5 × 15 mm button-head screws and 2× M5 hex nuts",
+            "3 mm Allen wrench (from the Genmitsu kit)",
+        ],
+        "intro": "The mount has three printed parts: a base that holds the sensor, a cover that closes over it, and the Cub 3018 mount that slides into the gantry's round Z-axis clamp (where the spindle would go).",
+        "steps": [
+            ("Print the parts", "",
+             "<p>Print the base, cover and Cub 3018 mount in PLA. Default settings work; the only change is to turn supports on for the overhangs (tree supports, Tree Slim style, 30° threshold). Our reference prints used a Bambu Lab X1-Carbon with Bambu PLA Basic.</p>"
+             + fig("sensor-000", "sensor-002", caption="Assembled mount, and the support settings used.")),
+            ("Seat the sensor in the base", "",
+             "<p>Set the Vernier sensor into the rectangular opening in the base, oriented as shown.</p>"
+             + fig("sensor-005", caption="Sensor seated in the base.")),
+            ("Fit the cover", "",
+             "<p>Place the cover over the sensor and base.</p>" + fig("sensor-006", caption="Cover in place.")),
+            ("Clamp the sensor", "",
+             "<p>Push the two M5 × 15 mm screws through the two holes above the sensor. Drop the two M5 nuts into the hex pockets on the back, then tighten the screws with the 3 mm Allen wrench until the mount is snug and clamps the sensor.</p>"
+             + fig("sensor-003", "sensor-004", "sensor-007", caption="M5 × 15 mm screw, M5 nut, and both screws tightened.")),
+            ("Fit the indenter", "",
+             "<p>Screw the 3 mm or 5 mm ball indenter into the sensor's threaded tip, whichever your test calls for. Finger-tight is enough.</p>"),
+            ("Attach the Cub 3018 mount", "",
+             "<p>Line up the dovetail on the back of the base with the dovetail slot on the Cub 3018 mount and slide them together.</p>"
+             + fig("sensor-008", "sensor-009", caption="Dovetail engaged, from the back and the side.")),
+            ("Install on the gantry", "",
+             "<p>Slide the Cub 3018 mount into the round clamp on the Z axis, pushing it in as far as it will go. Tighten the clamp screw with the 3 mm Allen wrench, then plug the sensor cable into the side of the sensor.</p>"
+             + note("Route the sensor cable so it has slack when the head moves to every corner and to the top of Z. A taut cable can pull the reading off.", "tip")
+             + fig("sensor-010", caption="Sensor mount installed in the Z-axis clamp.")),
+        ],
+        "done": [
+            "The sensor doesn't shift in the mount when you press on the indenter.",
+            "The mount is pushed fully into the Z clamp and the clamp screw is tight.",
+            "The sensor cable is plugged in and has slack across the whole travel.",
+        ],
+    },
+    {
+        "slug": "cub-asmi-3-bring-up",
+        "letter": "C",
         "title": "Bring up the gantry",
-        "time": "45 minutes",
+        "time": "30 minutes",
         "summary": "Set the controller's firmware so the machine homes to the back-right-top corner and every axis moves the right way. CubOS relies on this and never flips axes in software.",
         "need": [
             "The assembled gantry, its 24 V power supply and the USB A-to-B cable",
@@ -158,8 +189,8 @@ PARTS = [
         ],
     },
     {
-        "slug": "cub-asmi-3-install-cubos",
-        "letter": "C",
+        "slug": "cub-asmi-4-install-cubos",
+        "letter": "D",
         "title": "Install CubOS",
         "time": "15 minutes",
         "summary": "Install CubOS, the software that runs the gantry and the force sensor, and open its Operator window.",
@@ -194,15 +225,15 @@ PARTS = [
         ],
     },
     {
-        "slug": "cub-asmi-4-calibrate",
-        "letter": "D",
+        "slug": "cub-asmi-5-calibrate",
+        "letter": "E",
         "title": "Calibrate the gantry",
         "time": "15 minutes",
         "summary": "Teach CubOS where the deck is and how far each axis can travel, using a printed calibration block and the indenter tip.",
         "need": [
             "Printed Cub calibration block and Cub calibration base (<a href=\"cub-calibration.html\">print and mounting guide</a>)",
             "Calipers to measure the block height",
-            "The CubOS Operator from part C",
+            "The CubOS Operator from part D",
         ],
         "intro": "Calibration sets the deck's zero point, the indenter's height, and the machine's real travel, and saves them to your gantry file. Redo it after a crash or any mechanical change.",
         "steps": [
@@ -212,7 +243,7 @@ PARTS = [
             ("Load the Cub gantry file and connect", "",
              "<ol><li>In the <strong>Workflow</strong> tab, open <strong>Gantry</strong> and choose your Cub ASMI gantry file.</li>"
              "<li>Click <strong>Connect</strong> in the Gantry Control panel. The status dot turns green when the USB link is up. CubOS never moves on its own when it connects.</li></ol>"
-             + note("If CubOS reports a GRBL settings mismatch, the controller doesn't match what part B set. Go back and check <code>$3</code>, <code>$20</code>, <code>$22</code> and <code>$23</code>.", "warn")),
+             + note("If CubOS reports a GRBL settings mismatch, the controller doesn't match what part C set. Go back and check <code>$3</code>, <code>$20</code>, <code>$22</code> and <code>$23</code>.", "warn")),
             ("Run the calibration wizard", "",
              "<p>Click <strong>Calibrate</strong>. For a single-instrument Cub the wizard has five steps:</p>"
              "<ol><li><strong>Prepare</strong> — optionally enter a new output file name to keep the original file untouched.</li>"
@@ -230,14 +261,14 @@ PARTS = [
         ],
     },
     {
-        "slug": "cub-asmi-5-labware",
-        "letter": "E",
+        "slug": "cub-asmi-6-labware",
+        "letter": "F",
         "title": "Calibrate labware",
         "time": "5 minutes per plate",
         "summary": "Record exactly where your 96-well plate sits so the indenter lands in the centre of every well.",
         "need": [
             "A 96-well plate, seated firmly in its holder on the deck",
-            "A calibrated gantry (part D)",
+            "A calibrated gantry (part E)",
         ],
         "intro": "You'll touch the indenter to two wells, A1 and A2. CubOS works out every other well from those two points and the plate's well spacing.",
         "steps": [
@@ -368,10 +399,10 @@ def render_overview():
     body = (
         '<div class="section-heading narrow"><p class="eyebrow">Build process · Cub + ASMI</p>'
         '<h1 id="doc-title">Build a Cub with the ASMI indenter</h1>'
-        '<p>Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate. Work through the five parts in order; each ends with a short check so you know it worked before moving on.</p>'
+        '<p>Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate. Work through the six parts in order; each ends with a short check so you know it worked before moving on.</p>'
         '<p class="wiki-meta"><span>&#9201; About 3.5 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
         f'<div class="doc-layout">{sidebar(None)}<div class="doc-body">'
-        f'<h2>The five parts</h2><ol class="wiki-cards">{cards}</ol>'
+        f'<h2>The six parts</h2><ol class="wiki-cards">{cards}</ol>'
         '<h2>What you need</h2><h3>Hardware</h3><ul>'
         '<li>Genmitsu 3018-PROVer V2 CNC router kit</li>'
         '<li>Vernier Go Direct Force and Acceleration Sensor, with a 3 mm or 5 mm ball indenter</li>'
@@ -380,7 +411,7 @@ def render_overview():
         '<li>A 96-well plate</li>'
         '<li>A Mac or Windows computer</li></ul>'
         '<h3>Tools</h3><ul><li>The Allen wrenches and Phillips wrench included with the Genmitsu kit</li><li>Calipers</li><li>A 3D printer, if you\'re printing the mounts yourself</li></ul>'
-        '<h3>Software</h3><ul><li><a href="%s" target="_blank" rel="noopener">Universal Gcode Sender</a> (part B only)</li><li><a href="%s" target="_blank" rel="noopener">CubOS</a> (part C)</li></ul>' % (UGS, CUBOS_REPO)
+        '<h3>Software</h3><ul><li><a href="%s" target="_blank" rel="noopener">Universal Gcode Sender</a> (part C only)</li><li><a href="%s" target="_blank" rel="noopener">CubOS</a> (part D)</li></ul>' % (UGS, CUBOS_REPO)
         + note("Never leave the gantry running unattended during bring-up or calibration, and keep the E-stop within reach whenever it's powered.", "warn")
         + pager_overview() + "</div></div>"
     )

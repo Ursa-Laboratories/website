@@ -1584,3 +1584,4 @@ h3 {
 }
 .wiki-nav a { text-decoration: none; }
 .wiki-nav { max-height: calc(100vh - 8rem); overflow-y: auto; }
+.wiki-fig img { object-fit: contain; background: #fff; }

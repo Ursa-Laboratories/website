@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Install CubOS, the software that runs the gantry and the force sensor, and open its Operator window." />
+    <title>Part D: Install CubOS · CubXL + ASMI build | Ursa Laboratories</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CFM3B0DT2P');
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Ursa Laboratories — home">
+        <img class="brand-mark" src="../assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#instruments">Instruments</a>
+        <a href="../index.html#compare">Hardware</a>
+        <a href="../index.html#software">Software</a>
+        <a href="../build.html" aria-current="page">Build It</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="../index.html#airtable">Get in touch</a>
+    </header>
+    <main id="top">
+      <article class="section build doc wiki" aria-labelledby="doc-title">
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb"><a href="../build.html">Build It</a><span aria-hidden="true">/</span><a href="../build.html#build-process">Build process</a><span aria-hidden="true">/</span><span>CubXL + ASMI · Part D</span></nav>
+<div class="section-heading narrow"><p class="eyebrow">Part D of 6 · CubXL + ASMI</p><h1 id="doc-title">Install CubOS</h1><p>Install CubOS, the software that runs the gantry and the force sensor, and open its Operator window.</p><p class="wiki-meta"><span>&#9201; 15 minutes</span><span>Genmitsu PROVerXL 4030 V2</span></p></div><div class="doc-layout"><aside class="doc-toc wiki-nav" aria-label="Build process"><p class="cad-group-label">CubXL + ASMI build</p><ol><li><a href="cubxl-asmi-build.html">Overview</a></li><li class=""><a href="cubxl-asmi-1-gantry.html"><span class="wiki-nav-letter">A</span>Assemble the gantry<span class="wiki-nav-time">3 hours</span></a></li><li class=""><a href="cubxl-asmi-2-sensor-mount.html"><span class="wiki-nav-letter">B</span>Mount the ASMI force sensor and plate holder<span class="wiki-nav-time">45 minutes</span></a></li><li class=""><a href="cubxl-asmi-3-bring-up.html"><span class="wiki-nav-letter">C</span>Bring up the gantry<span class="wiki-nav-time">30 minutes</span></a></li><li class="is-current"><a href="cubxl-asmi-4-install-cubos.html" aria-current="page"><span class="wiki-nav-letter">D</span>Install CubOS<span class="wiki-nav-time">15 minutes</span></a><ol><li><a href="#step-1">Windows: run the installer</a></li><li><a href="#step-2">Mac: install the tools</a></li><li><a href="#step-3">Mac: download and install CubOS</a></li><li><a href="#step-4">Mac: build the Operator screen</a></li><li><a href="#step-5">Mac: start CubOS</a></li><li><a href="#done">Check your work</a></li></ol></li><li class=""><a href="cubxl-asmi-5-calibrate.html"><span class="wiki-nav-letter">E</span>Calibrate the gantry<span class="wiki-nav-time">15 minutes</span></a></li><li class=""><a href="cubxl-asmi-6-labware.html"><span class="wiki-nav-letter">F</span>Calibrate labware<span class="wiki-nav-time">5 minutes per plate</span></a></li></ol></aside><div class="doc-body"><div class="wiki-need"><h2>What you need</h2><ul><li>A Mac or a Windows PC with the gantry's USB cable plugged in</li><li>Mac only: an internet connection and about 1 GB of disk space</li></ul></div><p>Choose the path for your computer. Both end with the CubOS Operator open, showing the <strong>Workflow</strong>, <strong>Visualize</strong>, <strong>State</strong> and <strong>Results</strong> tabs.</p><h2>Steps</h2><section class="wiki-step" id="step-1"><h3><span class="wiki-step-num">1</span>Windows: run the installer</h3><ol><li>Go to the <a href="https://github.com/Ursa-Laboratories/CubOS/releases/latest" target="_blank" rel="noopener">latest CubOS release</a> and download <code>CubOS-Setup-….exe</code> under <strong>Assets</strong>.</li><li>Run it. It doesn't need administrator rights, Python or Git.</li><li>Open <strong>CubOS</strong> from the Start menu or desktop shortcut. The Operator opens in its own window.</li></ol><p>Your configuration files live in <code>%LOCALAPPDATA%\UrsaLabs\CubOS\configs</code>.</p></section><section class="wiki-step" id="step-2"><h3><span class="wiki-step-num">2</span>Mac: install the tools</h3><p>If you don't have <a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a>, install it first. Then, in Terminal:</p><pre><code>brew install python@3.11 git node</code></pre></section><section class="wiki-step" id="step-3"><h3><span class="wiki-step-num">3</span>Mac: download and install CubOS</h3><pre><code>git clone https://github.com/Ursa-Laboratories/CubOS.git
+cd CubOS
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e &quot;packages/core[dev,asmi-vernier]&quot;
+python -m pip install -e services/api</code></pre><p><code>asmi-vernier</code> adds the driver for the Vernier force sensor.</p></section><section class="wiki-step" id="step-4"><h3><span class="wiki-step-num">4</span>Mac: build the Operator screen</h3><p>This only needs doing once (and again after updating CubOS):</p><pre><code>cd apps/operator-web &amp;&amp; npm ci &amp;&amp; npm run build &amp;&amp; cd ../..</code></pre></section><section class="wiki-step" id="step-5"><h3><span class="wiki-step-num">5</span>Mac: start CubOS</h3><pre><code>source .venv/bin/activate
+python -m cubos_api</code></pre><p>Open <a href="http://127.0.0.1:8742">http://127.0.0.1:8742</a> in your browser. Leave the Terminal window open while you use CubOS.</p><aside class="wiki-callout wiki-callout--tip"><strong>Tip</strong><p><code>No module named cubos_api</code> means the <code>source .venv/bin/activate</code> line was skipped. A page saying compiled web assets weren't found means the build step above didn't run.</p></aside></section><div class="wiki-done" id="done"><h2>Check your work</h2><ul><li>The CubOS Operator is open with the Workflow, Visualize, State and Results tabs.</li><li>UGS is closed, so CubOS can use the USB port.</li></ul></div><nav class="wiki-pager" aria-label="Part navigation"><a href="cubxl-asmi-3-bring-up.html"><span>&larr; Previous</span>Part C · Bring up the gantry</a><a class="wiki-pager-next" href="cubxl-asmi-5-calibrate.html"><span>Next &rarr;</span>Part E · Calibrate the gantry</a></nav></div></div>      </article>
+    </main>
+    <footer class="site-footer">
+      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="../build.html">Build It</a>
+        <a href="../index.html#airtable">Contact</a>
+      </nav>
+      <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

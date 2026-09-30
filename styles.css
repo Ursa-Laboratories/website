@@ -1563,8 +1563,8 @@ h3 {
 .wiki-callout { margin: 1rem 0; padding: .8rem 1.1rem; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; background: rgba(20, 87, 217, .06); }
 .wiki-callout strong { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-dark); }
 .wiki-callout p { margin: .2rem 0 0; }
-.wiki-callout--cub { border-color: var(--teal); background: rgba(7, 166, 166, .07); }
-.wiki-callout--cub strong { color: #057a7a; }
+.wiki-callout--cub, .wiki-callout--xl { border-color: var(--teal); background: rgba(7, 166, 166, .07); }
+.wiki-callout--cub strong, .wiki-callout--xl strong { color: #057a7a; }
 .wiki-callout--warn { border-color: var(--gold); background: rgba(245, 184, 75, .12); }
 .wiki-callout--warn strong { color: #8a5a00; }
 .wiki-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }

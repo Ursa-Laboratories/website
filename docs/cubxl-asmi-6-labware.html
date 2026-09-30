@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Record exactly where your 96-well plate sits so the indenter lands in the centre of every well." />
+    <title>Part F: Calibrate labware · CubXL + ASMI build | Ursa Laboratories</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CFM3B0DT2P');
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Ursa Laboratories — home">
+        <img class="brand-mark" src="../assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#instruments">Instruments</a>
+        <a href="../index.html#compare">Hardware</a>
+        <a href="../index.html#software">Software</a>
+        <a href="../build.html" aria-current="page">Build It</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="../index.html#airtable">Get in touch</a>
+    </header>
+    <main id="top">
+      <article class="section build doc wiki" aria-labelledby="doc-title">
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb"><a href="../build.html">Build It</a><span aria-hidden="true">/</span><a href="../build.html#build-process">Build process</a><span aria-hidden="true">/</span><span>CubXL + ASMI · Part F</span></nav>
+<div class="section-heading narrow"><p class="eyebrow">Part F of 6 · CubXL + ASMI</p><h1 id="doc-title">Calibrate labware</h1><p>Record exactly where your 96-well plate sits so the indenter lands in the centre of every well.</p><p class="wiki-meta"><span>&#9201; 5 minutes per plate</span><span>Genmitsu PROVerXL 4030 V2</span></p></div><div class="doc-layout"><aside class="doc-toc wiki-nav" aria-label="Build process"><p class="cad-group-label">CubXL + ASMI build</p><ol><li><a href="cubxl-asmi-build.html">Overview</a></li><li class=""><a href="cubxl-asmi-1-gantry.html"><span class="wiki-nav-letter">A</span>Assemble the gantry<span class="wiki-nav-time">3 hours</span></a></li><li class=""><a href="cubxl-asmi-2-sensor-mount.html"><span class="wiki-nav-letter">B</span>Mount the ASMI force sensor and plate holder<span class="wiki-nav-time">45 minutes</span></a></li><li class=""><a href="cubxl-asmi-3-bring-up.html"><span class="wiki-nav-letter">C</span>Bring up the gantry<span class="wiki-nav-time">30 minutes</span></a></li><li class=""><a href="cubxl-asmi-4-install-cubos.html"><span class="wiki-nav-letter">D</span>Install CubOS<span class="wiki-nav-time">15 minutes</span></a></li><li class=""><a href="cubxl-asmi-5-calibrate.html"><span class="wiki-nav-letter">E</span>Calibrate the gantry<span class="wiki-nav-time">15 minutes</span></a></li><li class="is-current"><a href="cubxl-asmi-6-labware.html" aria-current="page"><span class="wiki-nav-letter">F</span>Calibrate labware<span class="wiki-nav-time">5 minutes per plate</span></a><ol><li><a href="#step-1">Open the labware calibration dialog</a></li><li><a href="#step-2">Select the plate</a></li><li><a href="#step-3">Record A1 and A2</a></li><li><a href="#step-4">Review and save</a></li><li><a href="#step-5">Check a well</a></li><li><a href="#done">Check your work</a></li></ol></li></ol></aside><div class="doc-body"><div class="wiki-need"><h2>What you need</h2><ul><li>A 96-well plate (the holder is sized for a Greiner CELLSTAR 96-well F-bottom plate), seated in the holder from part B</li><li>A calibrated gantry (part E)</li></ul></div><p>You'll touch the indenter to two wells, A1 and A2. CubOS works out every other well from those two points and the plate's well spacing.</p><h2>Steps</h2><section class="wiki-step" id="step-1"><h3><span class="wiki-step-num">1</span>Open the labware calibration dialog</h3><p>In the <strong>Workflow</strong> tab, open <strong>Deck</strong>, pick your deck file and click <strong>Calibrate labware</strong>.</p></section><section class="wiki-step" id="step-2"><h3><span class="wiki-step-num">2</span>Select the plate</h3><p>Choose <strong>Well plate</strong>, then pick an existing plate or click <strong>Add new</strong> and start from the 96-well SBS template. Give it a name, set the reference instrument to the ASMI indenter, leave <strong>Calibrate with a tip attached</strong> unticked, and click <strong>Continue</strong>.</p><aside class="wiki-callout wiki-callout--tip"><strong>Tip</strong><p>For a plate that isn't in the templates, create it with <strong>New Labware</strong> first and enter its rows, columns and well spacing.</p></aside></section><section class="wiki-step" id="step-3"><h3><span class="wiki-step-num">3</span>Record A1 and A2</h3><ol><li>Jog the indenter over well <strong>A1</strong>, centre it, and lower it until it's just at the top of the well. Click <strong>Record</strong>.</li><li>Jog one well along the row to <strong>A2</strong> and click <strong>Record</strong>. CubOS snaps A2 to exactly one well spacing (9 mm on a 96-well plate) in the direction you moved.</li></ol></section><section class="wiki-step" id="step-4"><h3><span class="wiki-step-num">4</span>Review and save</h3><p>Check the positions on the review screen and click <strong>Save labware calibration</strong>. It's written to your deck file straight away.</p></section><section class="wiki-step" id="step-5"><h3><span class="wiki-step-num">5</span>Check a well</h3><p>Use <strong>Move To</strong> on A1 and a far well such as H12. The indenter should sit over the centre of each one. If it doesn't, the plate has probably moved in its holder; reseat it and redo this part.</p></section><div class="wiki-done" id="done"><h2>Check your work</h2><ul><li>Move To A1 and H12 both land in the centre of the well.</li><li>Your CubXL is ready to run an ASMI indentation protocol.</li></ul></div><nav class="wiki-pager" aria-label="Part navigation"><a href="cubxl-asmi-5-calibrate.html"><span>&larr; Previous</span>Part E · Calibrate the gantry</a><a class="wiki-pager-next" href="../build.html#guide-library"><span>Next &rarr;</span>Browse all guides</a></nav></div></div>      </article>
+    </main>
+    <footer class="site-footer">
+      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="../build.html">Build It</a>
+        <a href="../index.html#airtable">Contact</a>
+      </nav>
+      <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

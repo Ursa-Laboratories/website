@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the Cub + ASMI build process (overview + one page per part) into docs/.
+"""Render the build-process guides (overview + one page per part) for each platform into docs/.
 
 Usage: python3 scripts/build-cub-guide.py
 """
@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs"
-FIG = "../assets/docs/cub-build"
+FIG = "../assets/docs"
 GENMITSU_MANUAL = "https://www.manualslib.com/manual/3567589/Genmitsu-3018-Prover-V2.html"
 CUBOS_REPO = "https://github.com/Ursa-Laboratories/CubOS"
 UGS = "https://winder.github.io/ugs_website/download/"
@@ -24,7 +24,7 @@ def fig(*names, caption=""):
 
 
 def note(text, kind="note"):
-    label = {"note": "Note", "warn": "Caution", "tip": "Tip", "cub": "Cub change"}[kind]
+    label = {"note": "Note", "warn": "Caution", "tip": "Tip", "cub": "Cub change", "xl": "CubXL change"}[kind]
     return f'<aside class="wiki-callout wiki-callout--{kind}"><strong>{label}</strong><p>{text}</p></aside>'
 
 
@@ -32,7 +32,7 @@ def code(text):
     return f"<pre><code>{escape(text)}</code></pre>"
 
 
-PARTS = [
+CUB_PARTS = [
     {
         "slug": "cub-asmi-1-gantry",
         "letter": "A",
@@ -47,40 +47,40 @@ PARTS = [
         "steps": [
             ("Secure the XY-axis lead screw holder", "genmitsu 1",
              "<p>Turn the XY base assembly upside down and cut the shipping cable ties. Slide the aluminum platform until its holes line up with the lead screw holder, then fix the holder with the two M6 × 10 mm socket screws and the 5 mm Allen wrench.</p>"
-             + fig("fig-00", caption="Lead screw holder fixed under the platform.")),
+             + fig("cub-build/fig-00", caption="Lead screw holder fixed under the platform.")),
             ("Install the rubber feet", "genmitsu 2",
-             "<p>Screw the four rubber feet into the corners of the base with the 3 mm Allen wrench.</p>" + fig("fig-01", caption="One of the four feet installed.")),
+             "<p>Screw the four rubber feet into the corners of the base with the 3 mm Allen wrench.</p>" + fig("cub-build/fig-01", caption="One of the four feet installed.")),
             ("Install the Y-axis limit switches", "genmitsu 3",
              "<p>Mount one limit switch on the front module and one on the rear module, two M3 × 8 mm round-head screws each.</p>"
              + note("Genmitsu says to use the 3 mm Allen wrench here. Use the included Phillips wrench instead.", "cub")
-             + fig("fig-02", "fig-03", caption="Front and rear Y limit switches.")),
+             + fig("cub-build/fig-02", "cub-build/fig-03", caption="Front and rear Y limit switches.")),
             ("Wire the Y-axis limit switches", "genmitsu 4",
              "<p>Take the 410 mm and 430 mm Y-limit cables from the wire pack. Plug the 6-wire connector into the rear switch and the longer 3-wire connector into the front switch. Leave the short free end loose for now; it plugs into the control board in step 11. Tie the cable at the tie points and press it into the profile slot with the 270 mm profile seal.</p>"
-             + fig("fig-04", "fig-05", "fig-06", caption="Y-limit cable, then routed into the profile slot.")),
+             + fig("cub-build/fig-04", "cub-build/fig-05", "cub-build/fig-06", caption="Y-limit cable, then routed into the profile slot.")),
             ("Install the X-axis limit switches", "genmitsu 5",
              "<p>On the motor-side X plate, mount a switch using the two M3 × 7 mm PCB standoffs and M3 × 14 mm screws. On the opposite plate, mount the second switch directly with two M3 × 8 mm screws (no standoffs on that side).</p>"
-             + fig("fig-07", "fig-08", caption="Motor-side and opposite-side X limit switches.")),
+             + fig("cub-build/fig-07", "cub-build/fig-08", caption="Motor-side and opposite-side X limit switches.")),
             ("Install the E-stop switch", "genmitsu 6",
              "<p>Unscrew the black plastic nut and square gasket from the E-stop. Push the wire through the hole in the X plate from the outside, then refit the square gasket and black nut from the inside and tighten.</p>"
              + note("Put the iron square gasket and black nut back in the same orientation they came in.", "cub")
-             + fig("fig-09", caption="E-stop fitted through the X plate.")),
+             + fig("cub-build/fig-09", caption="E-stop fitted through the X plate.")),
             ("Wire the X-axis limit switches", "genmitsu 7",
              "<p>Take the 415 mm and 170 mm X-limit cables. Plug the 6-wire connector into the switch on the motor-side plate and the 3-wire connector into the switch on the other plate. Press the cable into the profile slot with the 340 mm profile seal.</p>"
              + note("Genmitsu calls for cable ties at this step. Skip them; they aren't needed yet.", "cub")
-             + fig("fig-10", "fig-11", "fig-12", caption="X-limit cable and both switches connected.")),
+             + fig("cub-build/fig-10", "cub-build/fig-11", "cub-build/fig-12", caption="X-limit cable and both switches connected.")),
             ("Install the control board", "genmitsu 8",
              "<p>Thread four M3 T-nuts one turn onto four M3 × 8 mm screws through the control board's mounting points. Turn the T-nuts flat, slide them into the profile channel, and tighten all four screws with the Phillips wrench.</p>"
              + note("Check every T-nut has rotated and seated in the channel after tightening. A loose board will shift when the gantry moves.", "cub")
-             + fig("fig-13", caption="Control board mounted on the XZ frame.")),
+             + fig("cub-build/fig-13", caption="Control board mounted on the XZ frame.")),
             ("Install the XZ-axis assembly", "genmitsu 9",
              "<p>Stand the XZ assembly on the XY base and fix it with the eight M5 × 22 mm round-head screws (four each side) using the 3 mm Allen wrench.</p>"
-             + fig("fig-14", "fig-15", caption="Both sides of the XZ assembly bolted to the base.")),
+             + fig("cub-build/fig-14", "cub-build/fig-15", caption="Both sides of the XZ assembly bolted to the base.")),
             ("Skip: spindle", "genmitsu 10",
              "<p>The Cub doesn't use the spindle. Leave the spindle, collet and 13/17 mm wrenches in the box.</p>"),
             ("Wire the control board", "genmitsu 11",
              "<p>Follow Genmitsu's control board diagram: X, Y and Z motor cables to their motor ports; X, Y and Z limit cables to their limit ports; E-stop to the E-stop port. Tidy the wires with the cable wrap and ties.</p>"
              + note("Skip the spindle wiring (the red/black M+ M− pair). Nothing is plugged into the spindle port.", "cub")
-             + fig("fig-16", caption="Finished Cub gantry, wired without a spindle.")),
+             + fig("cub-build/fig-16", caption="Finished Cub gantry, wired without a spindle.")),
             ("Skip: acrylic baffle", "genmitsu 12",
              "<p>The acrylic side baffles aren't used on the Cub. Stop here in the Genmitsu booklet; its software chapters (Candle, probing) don't apply.</p>"),
         ],
@@ -107,24 +107,24 @@ PARTS = [
         "steps": [
             ("Print the parts", "",
              "<p>Print the base, cover and Cub 3018 mount in PLA. Default settings work; the only change is to turn supports on for the overhangs (tree supports, Tree Slim style, 30° threshold). Our reference prints used a Bambu Lab X1-Carbon with Bambu PLA Basic.</p>"
-             + fig("sensor-000", "sensor-002", caption="Assembled mount, and the support settings used.")),
+             + fig("cub-build/sensor-000", "cub-build/sensor-002", caption="Assembled mount, and the support settings used.")),
             ("Seat the sensor in the base", "",
              "<p>Set the Vernier sensor into the rectangular opening in the base, oriented as shown.</p>"
-             + fig("sensor-005", caption="Sensor seated in the base.")),
+             + fig("cub-build/sensor-005", caption="Sensor seated in the base.")),
             ("Fit the cover", "",
-             "<p>Place the cover over the sensor and base.</p>" + fig("sensor-006", caption="Cover in place.")),
+             "<p>Place the cover over the sensor and base.</p>" + fig("cub-build/sensor-006", caption="Cover in place.")),
             ("Clamp the sensor", "",
              "<p>Push the two M5 × 15 mm screws through the two holes above the sensor. Drop the two M5 nuts into the hex pockets on the back, then tighten the screws with the 3 mm Allen wrench until the mount is snug and clamps the sensor.</p>"
-             + fig("sensor-003", "sensor-004", "sensor-007", caption="M5 × 15 mm screw, M5 nut, and both screws tightened.")),
+             + fig("cub-build/sensor-003", "cub-build/sensor-004", "cub-build/sensor-007", caption="M5 × 15 mm screw, M5 nut, and both screws tightened.")),
             ("Fit the indenter", "",
              "<p>Screw the 3 mm or 5 mm ball indenter into the sensor's threaded tip, whichever your test calls for. Finger-tight is enough.</p>"),
             ("Attach the Cub 3018 mount", "",
              "<p>Line up the dovetail on the back of the base with the dovetail slot on the Cub 3018 mount and slide them together.</p>"
-             + fig("sensor-008", "sensor-009", caption="Dovetail engaged, from the back and the side.")),
+             + fig("cub-build/sensor-008", "cub-build/sensor-009", caption="Dovetail engaged, from the back and the side.")),
             ("Install on the gantry", "",
              "<p>Slide the Cub 3018 mount into the round clamp on the Z axis, pushing it in as far as it will go. Tighten the clamp screw with the 3 mm Allen wrench, then plug the sensor cable into the side of the sensor.</p>"
              + note("Route the sensor cable so it has slack when the head moves to every corner and to the top of Z. A taut cable can pull the reading off.", "tip")
-             + fig("sensor-010", caption="Sensor mount installed in the Z-axis clamp.")),
+             + fig("cub-build/sensor-010", caption="Sensor mount installed in the Z-axis clamp.")),
         ],
         "done": [
             "The sensor doesn't shift in the mount when you press on the indenter.",
@@ -293,28 +293,176 @@ PARTS = [
 ]
 
 
-BOM = [
+GENMITSU_XL_MANUAL = "https://genmitsu.s3.us-east-1.amazonaws.com/101-60-XL4030V2/PROVerXL_4030V2_User_Manual_v1.0-202306.pdf"
+
+CUBXL_GANTRY = {
+    "slug": "cubxl-asmi-1-gantry",
+    "letter": "A",
+    "title": "Assemble the gantry",
+    "time": "3 hours",
+    "summary": "Build the Genmitsu PROVerXL 4030 V2 kit, skipping the steps Ursa Labs has already done before shipping and everything to do with the spindle.",
+    "need": [
+        "Genmitsu PROVerXL 4030 V2 kit: XY axis base module, X-axis module with the XZ module and Z motor already fitted, X-axis motor, pre-wired X/Y drag chain, drag chain brackets, power supply, power cord and USB A-to-B cable",
+        "The Genmitsu PROVerXL 4030 V2 user manual that came in the box (<a href=\"%s\" target=\"_blank\" rel=\"noopener\">online copy</a>)" % GENMITSU_XL_MANUAL,
+        "Screws from the kit: 8× M5 × 14 mm flat-head, 4× M4 × 12 mm socket-head, 8× M4 × 6 mm flat-head",
+        "Hexagonal lead-screw driver and 2, 2.5, 3 and 4 mm Allen wrenches",
+    ],
+    "intro": "Genmitsu's <em>Mechanical Installation</em> section runs steps 1–9. Each step below matches the step with the same number. Some of the kit arrives already assembled, so a few steps are skipped; where this page and the booklet disagree, follow this page. The booklet's pictures don't always match what's in the box.",
+    "steps": [
+        ("Check the Y-axis roller modules", "genmitsu 1",
+         "<p>The roller modules on both sides of the base should already sit behind the green tape, pushed up against the mechanical stop as close to the Y motors as they'll go. Measure from each roller module to the motor-end plate; both sides should match. If they don't, turn the Y lead screw with the hexagonal driver until they do.</p>"),
+        ("Install the X-axis module", "genmitsu 2",
+         "<p>Set the X-axis module (which already carries the XZ module and Z motor) onto the base and fix it with four M5 × 14 mm flat-head screws on each side.</p>"
+         + note("Peel off the green tape once the X-axis module is bolted down.", "xl")),
+        ("Skip: XZ-axis module", "genmitsu 3",
+         "<p>The XZ module is already mounted on the X-axis module, and it ships without a spindle. Ignore every spindle reference in the Genmitsu booklet.</p>"),
+        ("Install the lead-screw coupler and X-axis motor", "genmitsu 4",
+         "<p>The coupler is already on the X motor. Push the coupler onto the X lead screw, fix the motor with four M4 × 12 mm socket-head screws, then tighten the coupler's two grub screws onto the lead screw.</p>"
+         + note("Make sure the X motor goes on in the orientation the booklet shows before you tighten it.", "xl")),
+        ("Install the Y-axis drag chain brackets", "genmitsu 5",
+         "<p>Fix bracket A with its two M5 × 12 mm socket-head screws and bracket B with its two M4 × 6 mm socket-head screws.</p>"),
+        ("Install the Y-axis drag chain", "genmitsu 6",
+         "<p>The X/Y drag chain arrives with all the wiring already threaded through it. Attach the Y end to the brackets with M4 × 6 mm flat-head screws.</p>"
+         + note("The end with the twelve screw-lock cables goes on bracket A. Check orientation before you screw it down.", "xl")
+         + fig("cubxl-build/fig-000", "cubxl-build/fig-001", caption="Which end goes on bracket A, and the finished Y drag chain.")),
+        ("Skip: X-axis drag chain brackets", "genmitsu 7",
+         "<p>Brackets A and B are already installed on the X-axis module.</p>"),
+        ("Install the X-axis drag chain", "genmitsu 8",
+         "<p>Attach the free end of the X/Y drag chain to X-axis bracket B with two M4 × 6 mm flat-head screws.</p>"
+         + fig("cubxl-build/fig-002", caption="Finished X drag chain.")),
+        ("Skip: spindle mount", "genmitsu 9",
+         "<p>There's no spindle, so leave the 52 mm and 65 mm spindle mounts as they are.</p>"),
+        ("Wire the gantry", "",
+         "<p>Follow Genmitsu's wiring pages: connect the X, Y and Z limit-switch cables and the X, Y and Z motor/signal cables to the controller, then the USB cable.</p>"
+         + note("Skip the spindle motor wiring (the red/blue pair). Nothing is connected to the spindle output.", "xl")
+         + note("Before powering on, check the voltage switch on the power supply is set for your region.", "warn")),
+    ],
+    "done": [
+        "All three motors and all three limit switches are connected; nothing is on the spindle output.",
+        "The drag chains move freely over the full travel without pulling on any cable.",
+        "Each axis turns smoothly by hand (with power off) using the hexagonal driver.",
+    ],
+}
+
+CUBXL_SENSOR = {
+    "slug": "cubxl-asmi-2-sensor-mount",
+    "letter": "B",
+    "title": "Mount the ASMI force sensor and plate holder",
+    "time": "45 minutes",
+    "summary": "Clamp the Vernier force sensor in its printed mount, bolt it to the X-axis carriage, and fit the 96-well plate holder to the bed.",
+    "need": [
+        "Vernier Go Direct Force and Acceleration Sensor and its cable (<a href=\"https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/\" target=\"_blank\" rel=\"noopener\">Vernier</a>)",
+        "A 3 mm or 5 mm ball indenter",
+        "Printed parts: CubXL Vernier Go Direct mount (base and cover) and CubXL ASMI wellplate holder (files in <a href=\"https://github.com/Ursa-Laboratories/Cubware/tree/main/cubxl\" target=\"_blank\" rel=\"noopener\">Cubware</a>, preview in the <a href=\"../build.html#build-cad\">CAD viewer</a>)",
+        "6× M4 × 16 mm socket-head screws, 6× M5 × 15 mm button-head screws, 6× M5 hex nuts",
+        "3 mm Allen wrench",
+    ],
+    "intro": "The sensor mount bolts straight onto six holes on the X-axis carriage. The plate holder bolts through the bed.",
+    "steps": [
+        ("Print the parts", "",
+         "<p>Print the mount base, mount cover and wellplate holder in PLA. Default settings work; turn supports on for the overhangs (tree supports, Tree Slim style, 30° threshold). Our reference prints used a Bambu Lab X1-Carbon with Bambu PLA Basic.</p>"
+         + fig("cubxl-build/fig-003", caption="Mount parts, sensor, cable and screws laid out.")),
+        ("Seat the sensor in the base", "",
+         "<p>Set the sensor into the rectangular opening in the back half of the mount, oriented as shown.</p>"
+         + fig("cubxl-build/fig-004", caption="Sensor seated in the base.")),
+        ("Fit the cover", "",
+         "<p>Place the cover over the sensor and base.</p>" + fig("cubxl-build/fig-005", caption="Cover in place.")),
+        ("Clamp the sensor", "",
+         "<p>Drop the six M4 × 16 mm socket-head screws into the six holes above the sensor (they'll bolt the mount to the gantry in step 6). Push two M5 × 15 mm button-head screws through the two holes below the sensor, put two M5 nuts in the hex pockets on the back, and tighten with the 3 mm Allen wrench until the sensor is clamped.</p>"
+         + fig("cubxl-build/fig-006", "cubxl-build/fig-007", caption="Screws in place, front and back.")),
+        ("Fit the indenter", "",
+         "<p>Screw the 3 mm or 5 mm ball indenter into the sensor. Finger-tight is enough.</p>"
+         + fig("cubxl-build/fig-008", caption="5 mm ball indenter fitted.")),
+        ("Bolt the mount to the X-axis carriage", "",
+         "<p>Line up the six M4 screws with the six holes on the X-axis carriage and tighten them with the 3 mm Allen wrench until snug. Plug the cable into the side of the sensor, leaving enough slack for the full travel.</p>"
+         + fig("cubxl-build/fig-009", "cubxl-build/fig-010", caption="Mount bolted to the carriage.")),
+        ("Fit the wellplate holder", "",
+         "<p>Set the ASMI wellplate holder on the bed where you want your plate, with its four holes over four holes in the baseplate. Push four M5 × 15 mm button-head screws through from above and tighten four M5 nuts from underneath until it doesn't move.</p>"
+         + fig("cubxl-build/fig-011", "cubxl-build/fig-012", caption="Holder on the bed, and the nuts underneath.")),
+    ],
+    "done": [
+        "The sensor doesn't shift in the mount when you press on the indenter.",
+        "All six M4 screws are tight and the mount doesn't rock on the carriage.",
+        "The plate holder is bolted down and doesn't move.",
+        "The sensor cable is plugged in and has slack across the whole travel.",
+    ],
+}
+
+
+def _xl(part, slug, repl=()):
+    import copy, json
+    text = json.dumps(part)
+    for a, b in repl:
+        assert a in text, a
+        text = text.replace(a, b)
+    out = json.loads(text)
+    out["steps"] = [tuple(s) for s in out["steps"]]
+    out["slug"] = slug
+    return out
+
+
+def cubxl_later_parts(cub_parts):
+    bring_up, install, calibrate, labware = cub_parts[2:6]
+    return [
+        _xl(bring_up, "cubxl-asmi-3-bring-up", [
+            ("Plug in the gantry's power and USB, and switch it on.",
+             "Plug in the gantry's power and USB, and switch it on. On Windows, install the CH340 USB driver from the Genmitsu USB stick first if the port doesn't show up."),
+            ("The assembled gantry, its 24 V power supply", "The assembled gantry, its power supply"),
+        ]),
+        _xl(install, "cubxl-asmi-4-install-cubos"),
+        _xl(calibrate, "cubxl-asmi-5-calibrate", [
+            ('Printed Cub calibration block and Cub calibration base (<a href=\\"cub-calibration.html\\">',
+             'Printed calibration block and CubXL calibration base (<a href=\\"cubxl-calibration.html\\">'),
+            ("Seat the calibration base's two pegs in two holes near a corner of the baseplate",
+             "Seat the CubXL calibration base's peg in a hole near a corner of the baseplate"),
+            ("choose your Cub ASMI gantry file.", "choose <code>cub_xl_asmi.yaml</code> (or the gantry file that shipped with your machine)."),
+            ("For a single-instrument Cub the wizard", "For a single-instrument CubXL the wizard"),
+        ]),
+        _xl(labware, "cubxl-asmi-6-labware", [
+            ("A 96-well plate, seated firmly in its holder on the deck", "A 96-well plate (the holder is sized for a Greiner CELLSTAR 96-well F-bottom plate), seated in the holder from part B"),
+            ("Your Cub is ready", "Your CubXL is ready"),
+        ]),
+    ]
+
+
+CUBXL_PARTS = [CUBXL_GANTRY, CUBXL_SENSOR] + cubxl_later_parts(CUB_PARTS)
+
+MC_SCREW_M5 = '<a href="https://www.mcmaster.com/92095A127/" target="_blank" rel="noopener">McMaster-Carr 92095A127</a>'
+MC_NUT_M5 = '<a href="https://www.mcmaster.com/91828A241/" target="_blank" rel="noopener">McMaster-Carr 91828A241</a>'
+MC_SCREW_M4 = '<a href="https://www.mcmaster.com/91292A118/" target="_blank" rel="noopener">McMaster-Carr 91292A118</a>'
+VERNIER = '<a href="https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/" target="_blank" rel="noopener">Vernier</a>'
+CUBWARE = '<a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>'
+
+CUB_BOM = [
     # (item, qty, where, used in part)
     ("Genmitsu 3018-PROVer V2 CNC router kit", "1", "SainSmart / Amazon", "A"),
-    ("Vernier Go Direct Force and Acceleration Sensor (GDX-FOR), includes USB cable", "1",
-     '<a href="https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/" target="_blank" rel="noopener">Vernier</a>', "B"),
+    ("Vernier Go Direct Force and Acceleration Sensor (GDX-FOR), includes USB cable", "1", VERNIER, "B"),
     ("Ball indenter, 3 mm or 5 mm, with a #6-32 threaded stud to fit the sensor", "1", "McMaster-Carr (part number to be confirmed)", "B"),
-    ("PLA filament: sensor mount base and cover, Cub 3018 mount, calibration block and base", "~100 g",
-     'Any PLA; files in <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>', "B, E"),
-    ("M5 × 0.8 × 15 mm 18-8 stainless button-head hex-drive screw", "2", '<a href="https://www.mcmaster.com/92095A127/" target="_blank" rel="noopener">McMaster-Carr 92095A127</a>', "B"),
-    ("M5 × 0.8 18-8 stainless hex nut", "2", '<a href="https://www.mcmaster.com/91828A241/" target="_blank" rel="noopener">McMaster-Carr 91828A241</a>', "B"),
+    ("PLA filament: sensor mount base and cover, Cub 3018 mount, calibration block and base", "~100 g", "Any PLA; files in " + CUBWARE, "B, E"),
+    ("M5 × 0.8 × 15 mm 18-8 stainless button-head hex-drive screw", "2", MC_SCREW_M5, "B"),
+    ("M5 × 0.8 18-8 stainless hex nut", "2", MC_NUT_M5, "B"),
     ("96-well plate (SBS format)", "1", "Any lab supplier", "F"),
+]
+CUBXL_BOM = [
+    ("Genmitsu PROVerXL 4030 V2 CNC router kit", "1", "SainSmart / Amazon", "A"),
+    ("Vernier Go Direct Force and Acceleration Sensor (GDX-FOR), includes USB cable", "1", VERNIER, "B"),
+    ("Ball indenter, 3 mm or 5 mm, with a #6-32 threaded stud to fit the sensor", "1", "McMaster-Carr (part number to be confirmed)", "B"),
+    ("PLA filament: CubXL sensor mount base and cover, ASMI wellplate holder, calibration block and CubXL base", "~250 g", "Any PLA; files in " + CUBWARE, "B, E"),
+    ("M4 × 0.7 × 16 mm 18-8 stainless socket-head screw", "6", MC_SCREW_M4, "B"),
+    ("M5 × 0.8 × 15 mm 18-8 stainless button-head hex-drive screw", "6", MC_SCREW_M5, "B"),
+    ("M5 × 0.8 18-8 stainless hex nut", "6", MC_NUT_M5, "B"),
+    ("96-well plate: Greiner CELLSTAR 96-well F-bottom (655160) or equivalent", "1", "Greiner Bio-One or any lab supplier", "F"),
 ]
 PI = ("Raspberry Pi 5 with power supply, SD card and case", "Raspberry Pi reseller",
       "Runs CubOS on the machine itself, so no lab computer is tied up")
 
 
-def bom_table():
-    rows = "".join(f"<tr><td>{i}</td><td>{q}</td><td>{w}</td><td>{p}</td></tr>" for i, q, w, p in BOM)
+def bom_table(build):
+    rows = "".join(f"<tr><td>{i}</td><td>{q}</td><td>{w}</td><td>{p}</td></tr>" for i, q, w, p in build["bom"])
     pi_item, pi_where, pi_why = PI
     return (
         '<h2 id="bom">Bill of materials</h2>'
-        '<p>Everything needed for one Cub + ASMI. The Part column shows where each item is used.</p>'
+        f'<p>Everything needed for one {build["name"]}. The Part column shows where each item is used.</p>'
         '<div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Qty</th><th>Where</th><th>Part</th></tr></thead><tbody>'
         f'{rows}</tbody></table></div>'
         '<h3>Optional</h3><div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Where</th><th>Why</th></tr></thead><tbody>'
@@ -378,10 +526,10 @@ FOOTER = """      </article>
 """
 
 
-def sidebar(current):
+def sidebar(build, current):
     cur = ' aria-current="page"'
-    items = [f'<li><a href="cub-asmi-build.html"{cur if current is None else ""}>Overview</a></li>']
-    for p in PARTS:
+    items = [f'<li><a href="{build["key"]}-build.html"{cur if current is None else ""}>Overview</a></li>']
+    for p in build["parts"]:
         here = current is p
         sub = ""
         if here:
@@ -390,17 +538,18 @@ def sidebar(current):
             f'<li class="{"is-current" if here else ""}"><a href="{p["slug"]}.html"{cur if here else ""}>'
             f'<span class="wiki-nav-letter">{p["letter"]}</span>{escape(p["title"])}<span class="wiki-nav-time">{p["time"]}</span></a>{sub}</li>'
         )
-    return f'<aside class="doc-toc wiki-nav" aria-label="Build process"><p class="cad-group-label">Cub + ASMI build</p><ol>{"".join(items)}</ol></aside>'
+    return f'<aside class="doc-toc wiki-nav" aria-label="Build process"><p class="cad-group-label">{build["name"]} build</p><ol>{"".join(items)}</ol></aside>'
 
 
-def pager(idx):
-    prev = ("cub-asmi-build.html", "Overview") if idx == 0 else (PARTS[idx - 1]["slug"] + ".html", f'Part {PARTS[idx - 1]["letter"]} · {PARTS[idx - 1]["title"]}')
-    nxt = (PARTS[idx + 1]["slug"] + ".html", f'Part {PARTS[idx + 1]["letter"]} · {PARTS[idx + 1]["title"]}') if idx + 1 < len(PARTS) else ("../build.html#guide-library", "Browse all guides")
+def pager(build, idx):
+    parts = build["parts"]
+    prev = (f'{build["key"]}-build.html', "Overview") if idx == 0 else (parts[idx - 1]["slug"] + ".html", f'Part {parts[idx - 1]["letter"]} · {parts[idx - 1]["title"]}')
+    nxt = (parts[idx + 1]["slug"] + ".html", f'Part {parts[idx + 1]["letter"]} · {parts[idx + 1]["title"]}') if idx + 1 < len(parts) else ("../build.html#guide-library", "Browse all guides")
     return (f'<nav class="wiki-pager" aria-label="Part navigation"><a href="{prev[0]}"><span>&larr; Previous</span>{escape(prev[1])}</a>'
             f'<a class="wiki-pager-next" href="{nxt[0]}"><span>Next &rarr;</span>{escape(nxt[1])}</a></nav>')
 
 
-def render_part(idx, p):
+def render_part(build, idx, p):
     steps = []
     for i, (title, ref, body) in enumerate(p["steps"], 1):
         tag = f'<span class="wiki-step-ref">Genmitsu step {ref.split()[1]}</span>' if ref else ""
@@ -408,50 +557,77 @@ def render_part(idx, p):
     need = "".join(f"<li>{n}</li>" for n in p["need"])
     done = "".join(f"<li>{d}</li>" for d in p["done"])
     body = (
-        f'<div class="section-heading narrow"><p class="eyebrow">Part {p["letter"]} of {len(PARTS)} · Cub + ASMI</p>'
+        f'<div class="section-heading narrow"><p class="eyebrow">Part {p["letter"]} of {len(build["parts"])} · {build["name"]}</p>'
         f'<h1 id="doc-title">{escape(p["title"])}</h1><p>{p["summary"]}</p>'
-        f'<p class="wiki-meta"><span>&#9201; {p["time"]}</span><span>Genmitsu 3018-PROVer V2</span></p></div>'
-        f'<div class="doc-layout">{sidebar(p)}<div class="doc-body">'
+        f'<p class="wiki-meta"><span>&#9201; {p["time"]}</span><span>{build["gantry"]}</span></p></div>'
+        f'<div class="doc-layout">{sidebar(build, p)}<div class="doc-body">'
         f'<div class="wiki-need"><h2>What you need</h2><ul>{need}</ul></div>'
         f'<p>{p["intro"]}</p><h2>Steps</h2>{"".join(steps)}'
         f'<div class="wiki-done" id="done"><h2>Check your work</h2><ul>{done}</ul></div>'
-        f'{pager(idx)}</div></div>'
+        f'{pager(build, idx)}</div></div>'
     )
-    head = HEADER.format(title=f'Part {p["letter"]}: {p["title"]} · Cub + ASMI build', description=p["summary"].replace('"', "&quot;"), crumb=f'Part {p["letter"]}')
+    head = HEADER.format(title=f'Part {p["letter"]}: {p["title"]} · {build["name"]} build', description=p["summary"].replace('"', "&quot;"), crumb=f'{build["name"]} · Part {p["letter"]}')
     (OUT / f'{p["slug"]}.html').write_text(head + body + FOOTER)
 
 
-def render_overview():
+def render_overview(build):
+    parts = build["parts"]
     cards = "".join(
         f'<li><a href="{p["slug"]}.html"><span class="wiki-nav-letter">{p["letter"]}</span><strong>{escape(p["title"])}</strong>'
         f'<span class="wiki-card-time">{p["time"]}</span><span class="wiki-card-sum">{p["summary"]}</span></a></li>'
-        for p in PARTS
+        for p in parts
     )
+    first = parts[0]
     body = (
-        '<div class="section-heading narrow"><p class="eyebrow">Build process · Cub + ASMI</p>'
-        '<h1 id="doc-title">Build a Cub with the ASMI indenter</h1>'
-        '<p>Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate. Work through the six parts in order; each ends with a short check so you know it worked before moving on.</p>'
-        '<p class="wiki-meta"><span>&#9201; About 4 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
-        f'<div class="doc-layout">{sidebar(None)}<div class="doc-body">'
+        f'<div class="section-heading narrow"><p class="eyebrow">Build process · {build["name"]}</p>'
+        f'<h1 id="doc-title">{build["title"]}</h1>'
+        f'<p>{build["intro"]} Work through the six parts in order; each ends with a short check so you know it worked before moving on.</p>'
+        f'<p class="wiki-meta"><span>&#9201; {build["total"]} total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
+        f'<div class="doc-layout">{sidebar(build, None)}<div class="doc-body">'
         f'<h2>The six parts</h2><ol class="wiki-cards">{cards}</ol>'
-        + bom_table()
+        + bom_table(build)
         + '<h2>What else you need</h2>'
-        '<h3>Tools</h3><ul><li>A Mac or Windows computer</li><li>The Allen wrenches and Phillips wrench included with the Genmitsu kit</li><li>Calipers</li><li>A 3D printer, if you\'re printing the mounts yourself</li></ul>'
-        '<h3>Software</h3><ul><li><a href="%s" target="_blank" rel="noopener">Universal Gcode Sender</a> (part C only)</li><li><a href="%s" target="_blank" rel="noopener">CubOS</a> (part D)</li></ul>' % (UGS, CUBOS_REPO)
+        f'<h3>Tools</h3><ul><li>A Mac or Windows computer</li><li>{build["tools"]}</li><li>Calipers</li><li>A 3D printer, if you\'re printing the mounts yourself</li></ul>'
+        f'<h3>Software</h3><ul><li><a href="{UGS}" target="_blank" rel="noopener">Universal Gcode Sender</a> (part C only)</li><li><a href="{CUBOS_REPO}" target="_blank" rel="noopener">CubOS</a> (part D)</li></ul>'
         + note("Never leave the gantry running unattended during bring-up or calibration, and keep the E-stop within reach whenever it's powered.", "warn")
-        + pager_overview() + "</div></div>"
+        + f'<nav class="wiki-pager" aria-label="Part navigation"><span></span><a class="wiki-pager-next" href="{first["slug"]}.html"><span>Start &rarr;</span>Part {first["letter"]} · {escape(first["title"])}</a></nav>'
+        + "</div></div>"
     )
-    head = HEADER.format(title="Cub + ASMI build process", description="Step-by-step build of a Cub (Genmitsu 3018-PROVer V2) with the ASMI indenter: assembly, bring-up, CubOS install and calibration.", crumb="Cub + ASMI")
-    (OUT / "cub-asmi-build.html").write_text(head + body + FOOTER)
+    head = HEADER.format(title=f'{build["name"]} build process', description=build["description"], crumb=build["name"])
+    (OUT / f'{build["key"]}-build.html').write_text(head + body + FOOTER)
 
 
-def pager_overview():
-    p = PARTS[0]
-    return f'<nav class="wiki-pager" aria-label="Part navigation"><span></span><a class="wiki-pager-next" href="{p["slug"]}.html"><span>Start &rarr;</span>Part {p["letter"]} · {escape(p["title"])}</a></nav>'
+BUILDS = [
+    {
+        "key": "cub-asmi",
+        "name": "Cub + ASMI",
+        "title": "Build a Cub with the ASMI indenter",
+        "gantry": "Genmitsu 3018-PROVer V2",
+        "total": "About 4 hours",
+        "intro": "Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate.",
+        "description": "Step-by-step build of a Cub (Genmitsu 3018-PROVer V2) with the ASMI indenter: assembly, bring-up, CubOS install and calibration.",
+        "tools": "The Allen wrenches and Phillips wrench included with the Genmitsu kit",
+        "parts": CUB_PARTS,
+        "bom": CUB_BOM,
+    },
+    {
+        "key": "cubxl-asmi",
+        "name": "CubXL + ASMI",
+        "title": "Build a CubXL with the ASMI indenter",
+        "gantry": "Genmitsu PROVerXL 4030 V2",
+        "total": "About 5 hours",
+        "intro": "Turn a Genmitsu PROVerXL 4030 V2 into a larger-format automated indentation tester, with room for several plates on its 400 × 300 mm bed.",
+        "description": "Step-by-step build of a CubXL (Genmitsu PROVerXL 4030 V2) with the ASMI indenter: assembly, bring-up, CubOS install and calibration.",
+        "tools": "The Allen wrenches and hexagonal lead-screw driver included with the Genmitsu kit",
+        "parts": CUBXL_PARTS,
+        "bom": CUBXL_BOM,
+    },
+]
 
 
 if __name__ == "__main__":
-    render_overview()
-    for i, part in enumerate(PARTS):
-        render_part(i, part)
-    print(f"wrote {len(PARTS) + 1} pages to {OUT}")
+    for build in BUILDS:
+        render_overview(build)
+        for i, part in enumerate(build["parts"]):
+            render_part(build, i, part)
+    print(f"wrote {sum(len(b['parts']) + 1 for b in BUILDS)} pages to {OUT}")

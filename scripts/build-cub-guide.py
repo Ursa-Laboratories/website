@@ -94,7 +94,7 @@ PARTS = [
         "slug": "cub-asmi-2-sensor-mount",
         "letter": "B",
         "title": "Mount the ASMI force sensor",
-        "time": "15 minutes",
+        "time": "45 minutes",
         "summary": "Clamp the Vernier force sensor in its printed mount and fit it to the gantry's Z axis. This is the ASMI's indenting head.",
         "need": [
             "Vernier Go Direct Force and Acceleration Sensor and its cable (<a href=\"https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/\" target=\"_blank\" rel=\"noopener\">Vernier</a>)",
@@ -400,7 +400,7 @@ def render_overview():
         '<div class="section-heading narrow"><p class="eyebrow">Build process · Cub + ASMI</p>'
         '<h1 id="doc-title">Build a Cub with the ASMI indenter</h1>'
         '<p>Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate. Work through the six parts in order; each ends with a short check so you know it worked before moving on.</p>'
-        '<p class="wiki-meta"><span>&#9201; About 3.5 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
+        '<p class="wiki-meta"><span>&#9201; About 4 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
         f'<div class="doc-layout">{sidebar(None)}<div class="doc-body">'
         f'<h2>The six parts</h2><ol class="wiki-cards">{cards}</ol>'
         '<h2>What you need</h2><h3>Hardware</h3><ul>'

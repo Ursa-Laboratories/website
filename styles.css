@@ -1585,3 +1585,6 @@ h3 {
 .wiki-nav a { text-decoration: none; }
 .wiki-nav { max-height: calc(100vh - 8rem); overflow-y: auto; }
 .wiki-fig img { object-fit: contain; background: #fff; }
+.wiki-bom tbody td:first-child { white-space: normal; width: 40%; }
+.wiki-bom td:nth-child(2), .wiki-bom td:nth-child(3) { white-space: nowrap; }
+.wiki-bom .wiki-bom-total td { font-weight: 700; color: var(--ink); }

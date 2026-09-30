@@ -292,6 +292,38 @@ PARTS = [
     },
 ]
 
+
+BOM = [
+    # (item, qty, cost shown, cost counted in total, where, used in part)
+    ("Genmitsu 3018-PROVer V2 CNC router kit", "1", "$269", 269, "SainSmart / Amazon", "A"),
+    ("Vernier Go Direct Force and Acceleration Sensor (GDX-FOR), includes USB cable", "1", "$124", 124,
+     '<a href="https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/" target="_blank" rel="noopener">Vernier</a>', "B"),
+    ("Ball indenter, 3 mm or 5 mm", "1", "Ask us", 0, "Ursa Labs", "B"),
+    ("PLA filament: sensor mount base and cover, Cub 3018 mount, calibration block and base", "~100 g", "$5", 5,
+     'Any PLA; files in <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>', "B, E"),
+    ("M5 × 15 mm stainless button-head screws", "2", "~$10 for both packs", 10, "Hardware store or McMaster-Carr", "B"),
+    ("M5 hex nuts", "2", "", 0, "Hardware store or McMaster-Carr", "B"),
+    ("96-well plate (SBS format)", "1", "Consumable", 0, "Any lab supplier", "F"),
+]
+PI = ("Raspberry Pi 5 with power supply, SD card and case", "~$150", 150, "Raspberry Pi reseller",
+      "Runs CubOS on the machine itself, so no lab computer is tied up")
+
+
+def bom_table():
+    total = sum(row[3] for row in BOM)
+    rows = "".join(f"<tr><td>{i}</td><td>{q}</td><td>{c}</td><td>{w}</td><td>{p}</td></tr>" for i, q, c, _, w, p in BOM)
+    pi_item, pi_cost, pi_value, pi_where, pi_why = PI
+    return (
+        '<h2 id="bom">Bill of materials</h2>'
+        f'<p>One Cub + ASMI comes to about <strong>${total:,}</strong>, plus the ball indenter and plates. Prices are USD list prices as of September 2026.</p>'
+        '<div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Qty</th><th>Cost</th><th>Where</th><th>Part</th></tr></thead><tbody>'
+        f'{rows}<tr class="wiki-bom-total"><td>Total</td><td></td><td><strong>${total:,}</strong></td><td></td><td></td></tr></tbody></table></div>'
+        '<h3>Optional</h3><div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Cost</th><th>Where</th><th>Why</th></tr></thead><tbody>'
+        f'<tr><td>{pi_item}</td><td>{pi_cost}</td><td>{pi_where}</td><td>{pi_why}</td></tr></tbody></table></div>'
+        f'<p>Without the Pi, CubOS runs on your own Mac or Windows computer (part D). With the Pi, the total is about <strong>${total + pi_value:,}</strong>.</p>'
+    )
+
+
 HEADER = """<!doctype html>
 <html lang="en">
   <head>
@@ -403,14 +435,9 @@ def render_overview():
         '<p class="wiki-meta"><span>&#9201; About 4 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
         f'<div class="doc-layout">{sidebar(None)}<div class="doc-body">'
         f'<h2>The six parts</h2><ol class="wiki-cards">{cards}</ol>'
-        '<h2>What you need</h2><h3>Hardware</h3><ul>'
-        '<li>Genmitsu 3018-PROVer V2 CNC router kit</li>'
-        '<li>Vernier Go Direct Force and Acceleration Sensor, with a 3 mm or 5 mm ball indenter</li>'
-        '<li>Printed parts: Cub 3018 mount, Cub Vernier Go Direct mount, Cub calibration block and base (STL files in the <a href="../build.html#build-cad">CAD viewer</a> and <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>)</li>'
-        '<li>2× M5 × 15 mm button-head screws and 2× M5 hex nuts</li>'
-        '<li>A 96-well plate</li>'
-        '<li>A Mac or Windows computer</li></ul>'
-        '<h3>Tools</h3><ul><li>The Allen wrenches and Phillips wrench included with the Genmitsu kit</li><li>Calipers</li><li>A 3D printer, if you\'re printing the mounts yourself</li></ul>'
+        + bom_table()
+        + '<h2>What else you need</h2>'
+        '<h3>Tools</h3><ul><li>A Mac or Windows computer</li><li>The Allen wrenches and Phillips wrench included with the Genmitsu kit</li><li>Calipers</li><li>A 3D printer, if you\'re printing the mounts yourself</li></ul>'
         '<h3>Software</h3><ul><li><a href="%s" target="_blank" rel="noopener">Universal Gcode Sender</a> (part C only)</li><li><a href="%s" target="_blank" rel="noopener">CubOS</a> (part D)</li></ul>' % (UGS, CUBOS_REPO)
         + note("Never leave the gantry running unattended during bring-up or calibration, and keep the E-stop within reach whenever it's powered.", "warn")
         + pager_overview() + "</div></div>"

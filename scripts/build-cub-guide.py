@@ -37,7 +37,7 @@ PARTS = [
         "slug": "cub-asmi-1-gantry",
         "letter": "A",
         "title": "Assemble the gantry",
-        "time": "1.5–2 hours",
+        "time": "2 hours",
         "summary": "Build the Genmitsu 3018-PROVer V2 kit exactly as Genmitsu describes, except for the spindle, acrylic baffle and cable ties noted below. Then fit the ASMI force sensor.",
         "need": [
             "Genmitsu 3018-PROVer V2 kit (includes the Allen wrenches, Phillips wrench, screws, T-nuts, limit switches and wire pack)",
@@ -105,7 +105,7 @@ PARTS = [
         "slug": "cub-asmi-2-bring-up",
         "letter": "B",
         "title": "Bring up the gantry",
-        "time": "30–45 minutes",
+        "time": "45 minutes",
         "summary": "Set the controller's firmware so the machine homes to the back-right-top corner and every axis moves the right way. CubOS relies on this and never flips axes in software.",
         "need": [
             "The assembled gantry, its 24 V power supply and the USB A-to-B cable",
@@ -197,7 +197,7 @@ PARTS = [
         "slug": "cub-asmi-4-calibrate",
         "letter": "D",
         "title": "Calibrate the gantry",
-        "time": "15–20 minutes",
+        "time": "15 minutes",
         "summary": "Teach CubOS where the deck is and how far each axis can travel, using a printed calibration block and the indenter tip.",
         "need": [
             "Printed Cub calibration block and Cub calibration base (<a href=\"cub-calibration.html\">print and mounting guide</a>)",
@@ -233,7 +233,7 @@ PARTS = [
         "slug": "cub-asmi-5-labware",
         "letter": "E",
         "title": "Calibrate labware",
-        "time": "10 minutes per plate",
+        "time": "5 minutes per plate",
         "summary": "Record exactly where your 96-well plate sits so the indenter lands in the centre of every well.",
         "need": [
             "A 96-well plate, seated firmly in its holder on the deck",
@@ -369,7 +369,7 @@ def render_overview():
         '<div class="section-heading narrow"><p class="eyebrow">Build process · Cub + ASMI</p>'
         '<h1 id="doc-title">Build a Cub with the ASMI indenter</h1>'
         '<p>Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate. Work through the five parts in order; each ends with a short check so you know it worked before moving on.</p>'
-        '<p class="wiki-meta"><span>&#9201; About 3–4 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
+        '<p class="wiki-meta"><span>&#9201; About 3.5 hours total</span><span>No soldering</span><span>Mac or Windows</span></p></div>'
         f'<div class="doc-layout">{sidebar(None)}<div class="doc-body">'
         f'<h2>The five parts</h2><ol class="wiki-cards">{cards}</ol>'
         '<h2>What you need</h2><h3>Hardware</h3><ul>'

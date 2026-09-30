@@ -294,33 +294,32 @@ PARTS = [
 
 
 BOM = [
-    # (item, qty, cost shown, cost counted in total, where, used in part)
-    ("Genmitsu 3018-PROVer V2 CNC router kit", "1", "$269", 269, "SainSmart / Amazon", "A"),
-    ("Vernier Go Direct Force and Acceleration Sensor (GDX-FOR), includes USB cable", "1", "$124", 124,
+    # (item, qty, where, used in part)
+    ("Genmitsu 3018-PROVer V2 CNC router kit", "1", "SainSmart / Amazon", "A"),
+    ("Vernier Go Direct Force and Acceleration Sensor (GDX-FOR), includes USB cable", "1",
      '<a href="https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/" target="_blank" rel="noopener">Vernier</a>', "B"),
-    ("Ball indenter, 3 mm or 5 mm", "1", "Ask us", 0, "Ursa Labs", "B"),
-    ("PLA filament: sensor mount base and cover, Cub 3018 mount, calibration block and base", "~100 g", "$5", 5,
+    ("Ball indenter, 3 mm or 5 mm, with a #6-32 threaded stud to fit the sensor", "1", "McMaster-Carr (part number to be confirmed)", "B"),
+    ("PLA filament: sensor mount base and cover, Cub 3018 mount, calibration block and base", "~100 g",
      'Any PLA; files in <a href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Cubware</a>', "B, E"),
-    ("M5 × 15 mm stainless button-head screws", "2", "~$10 for both packs", 10, "Hardware store or McMaster-Carr", "B"),
-    ("M5 hex nuts", "2", "", 0, "Hardware store or McMaster-Carr", "B"),
-    ("96-well plate (SBS format)", "1", "Consumable", 0, "Any lab supplier", "F"),
+    ("M5 × 0.8 × 15 mm 18-8 stainless button-head hex-drive screw", "2", '<a href="https://www.mcmaster.com/92095A127/" target="_blank" rel="noopener">McMaster-Carr 92095A127</a>', "B"),
+    ("M5 × 0.8 18-8 stainless hex nut", "2", '<a href="https://www.mcmaster.com/91828A241/" target="_blank" rel="noopener">McMaster-Carr 91828A241</a>', "B"),
+    ("96-well plate (SBS format)", "1", "Any lab supplier", "F"),
 ]
-PI = ("Raspberry Pi 5 with power supply, SD card and case", "~$150", 150, "Raspberry Pi reseller",
+PI = ("Raspberry Pi 5 with power supply, SD card and case", "Raspberry Pi reseller",
       "Runs CubOS on the machine itself, so no lab computer is tied up")
 
 
 def bom_table():
-    total = sum(row[3] for row in BOM)
-    rows = "".join(f"<tr><td>{i}</td><td>{q}</td><td>{c}</td><td>{w}</td><td>{p}</td></tr>" for i, q, c, _, w, p in BOM)
-    pi_item, pi_cost, pi_value, pi_where, pi_why = PI
+    rows = "".join(f"<tr><td>{i}</td><td>{q}</td><td>{w}</td><td>{p}</td></tr>" for i, q, w, p in BOM)
+    pi_item, pi_where, pi_why = PI
     return (
         '<h2 id="bom">Bill of materials</h2>'
-        f'<p>One Cub + ASMI comes to about <strong>${total:,}</strong>, plus the ball indenter and plates. Prices are USD list prices as of September 2026.</p>'
-        '<div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Qty</th><th>Cost</th><th>Where</th><th>Part</th></tr></thead><tbody>'
-        f'{rows}<tr class="wiki-bom-total"><td>Total</td><td></td><td><strong>${total:,}</strong></td><td></td><td></td></tr></tbody></table></div>'
-        '<h3>Optional</h3><div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Cost</th><th>Where</th><th>Why</th></tr></thead><tbody>'
-        f'<tr><td>{pi_item}</td><td>{pi_cost}</td><td>{pi_where}</td><td>{pi_why}</td></tr></tbody></table></div>'
-        f'<p>Without the Pi, CubOS runs on your own Mac or Windows computer (part D). With the Pi, the total is about <strong>${total + pi_value:,}</strong>.</p>'
+        '<p>Everything needed for one Cub + ASMI. The Part column shows where each item is used.</p>'
+        '<div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Qty</th><th>Where</th><th>Part</th></tr></thead><tbody>'
+        f'{rows}</tbody></table></div>'
+        '<h3>Optional</h3><div class="doc-table-wrap wiki-bom"><table><thead><tr><th>Item</th><th>Where</th><th>Why</th></tr></thead><tbody>'
+        f'<tr><td>{pi_item}</td><td>{pi_where}</td><td>{pi_why}</td></tr></tbody></table></div>'
+        '<p>Without the Pi, CubOS runs on your own Mac or Windows computer (part D).</p>'
     )
 
 

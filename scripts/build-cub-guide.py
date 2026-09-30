@@ -441,7 +441,6 @@ CUB_BOM = [
     ("PLA filament: sensor mount base and cover, Cub 3018 mount, calibration block and base", "~100 g", "Any PLA; files in " + CUBWARE, "B, E"),
     ("M5 × 0.8 × 15 mm 18-8 stainless button-head hex-drive screw", "2", MC_SCREW_M5, "B"),
     ("M5 × 0.8 18-8 stainless hex nut", "2", MC_NUT_M5, "B"),
-    ("96-well plate (SBS format)", "1", "Any lab supplier", "F"),
 ]
 CUBXL_BOM = [
     ("Genmitsu PROVerXL 4030 V2 CNC router kit", "1", "SainSmart / Amazon", "A"),
@@ -451,7 +450,6 @@ CUBXL_BOM = [
     ("M4 × 0.7 × 16 mm 18-8 stainless socket-head screw", "6", MC_SCREW_M4, "B"),
     ("M5 × 0.8 × 15 mm 18-8 stainless button-head hex-drive screw", "6", MC_SCREW_M5, "B"),
     ("M5 × 0.8 18-8 stainless hex nut", "6", MC_NUT_M5, "B"),
-    ("96-well plate: Greiner CELLSTAR 96-well F-bottom (655160) or equivalent", "1", "Greiner Bio-One or any lab supplier", "F"),
 ]
 PI = ("Raspberry Pi 5 with power supply, SD card and case", "Raspberry Pi reseller",
       "Runs CubOS on the machine itself, so no lab computer is tied up")

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Set the controller's firmware so the machine homes to the back-right-top corner and every axis moves the right way. CubOS relies on this and never flips axes in software." />
+    <title>Part B: Bring up the gantry · Cub + ASMI build | Ursa Laboratories</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CFM3B0DT2P');
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Ursa Laboratories — home">
+        <img class="brand-mark" src="../assets/favicon.svg" alt="" aria-hidden="true" />
+        <span>Ursa Labs</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#instruments">Instruments</a>
+        <a href="../index.html#compare">Hardware</a>
+        <a href="../index.html#software">Software</a>
+        <a href="../build.html" aria-current="page">Build It</a>
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <a class="btn btn-primary btn-nav" href="../index.html#airtable">Get in touch</a>
+    </header>
+    <main id="top">
+      <article class="section build doc wiki" aria-labelledby="doc-title">
+        <nav class="doc-breadcrumb" aria-label="Breadcrumb"><a href="../build.html">Build It</a><span aria-hidden="true">/</span><a href="../build.html#build-process">Build process</a><span aria-hidden="true">/</span><span>Part B</span></nav>
+<div class="section-heading narrow"><p class="eyebrow">Part B of 5 · Cub + ASMI</p><h1 id="doc-title">Bring up the gantry</h1><p>Set the controller's firmware so the machine homes to the back-right-top corner and every axis moves the right way. CubOS relies on this and never flips axes in software.</p><p class="wiki-meta"><span>&#9201; 30–45 minutes</span><span>Genmitsu 3018-PROVer V2</span></p></div><div class="doc-layout"><aside class="doc-toc wiki-nav" aria-label="Build process"><p class="cad-group-label">Cub + ASMI build</p><ol><li><a href="cub-asmi-build.html">Overview</a></li><li class=""><a href="cub-asmi-1-gantry.html"><span class="wiki-nav-letter">A</span>Assemble the gantry<span class="wiki-nav-time">1.5–2 hours</span></a></li><li class="is-current"><a href="cub-asmi-2-bring-up.html" aria-current="page"><span class="wiki-nav-letter">B</span>Bring up the gantry<span class="wiki-nav-time">30–45 minutes</span></a><ol><li><a href="#step-1">Connect with UGS</a></li><li><a href="#step-2">Record the current settings</a></li><li><a href="#step-3">Turn on hard limits and homing</a></li><li><a href="#step-4">Check each axis moves the right way</a></li><li><a href="#step-5">Home to the back-right-top corner</a></li><li><a href="#step-6">Set the pull-off and turn on soft limits</a></li><li><a href="#step-7">Close UGS</a></li><li><a href="#done">Check your work</a></li></ol></li><li class=""><a href="cub-asmi-3-install-cubos.html"><span class="wiki-nav-letter">C</span>Install CubOS<span class="wiki-nav-time">15 minutes</span></a></li><li class=""><a href="cub-asmi-4-calibrate.html"><span class="wiki-nav-letter">D</span>Calibrate the gantry<span class="wiki-nav-time">15–20 minutes</span></a></li><li class=""><a href="cub-asmi-5-labware.html"><span class="wiki-nav-letter">E</span>Calibrate labware<span class="wiki-nav-time">10 minutes per plate</span></a></li></ol></aside><div class="doc-body"><div class="wiki-need"><h2>What you need</h2><ul><li>The assembled gantry, its 24 V power supply and the USB A-to-B cable</li><li>A computer with <a href="https://winder.github.io/ugs_website/download/" target="_blank" rel="noopener">Universal Gcode Sender (UGS)</a> installed</li><li>A clear deck (remove plates and anything the indenter could hit)</li></ul></div><p>You'll talk to the controller directly with UGS in this part, not with CubOS. The controller runs GRBL; you change it by typing short <code>$</code> commands into the UGS console. Write down every setting before you change it so you can put it back.</p><h2>Steps</h2><section class="wiki-step" id="step-1"><h3><span class="wiki-step-num">1</span>Connect with UGS</h3><ol><li>Plug in the gantry's power and USB, and switch it on.</li><li>Open UGS. Pick the port (on a Mac it looks like <code>/dev/tty.usbserial-…</code>, on Windows <code>COM3</code> or similar; unplug the USB to see which one disappears). Set the baud rate to <strong>115200</strong> and click <strong>Connect</strong>.</li></ol><aside class="wiki-callout wiki-callout--tip"><strong>Tip</strong><p>If every reply says <code>Estop is activated</code>, twist the red E-stop button to release it.</p></aside></section><section class="wiki-step" id="step-2"><h3><span class="wiki-step-num">2</span>Record the current settings</h3><p>Type <code>$$</code> and press Enter. Copy the full list into a text file and keep it. The settings this part changes are:</p><div class="doc-table-wrap"><table><thead><tr><th>Setting</th><th>What it does</th></tr></thead><tbody><tr><td>$3</td><td>Reverses the direction of individual axes</td></tr><tr><td>$10</td><td>What the status line reports; 0 = work position (WPos)</td></tr><tr><td>$20</td><td>Soft limits (refuse moves outside the travel)</td></tr><tr><td>$21</td><td>Hard limits (stop when a limit switch is hit)</td></tr><tr><td>$22</td><td>Homing enabled</td></tr><tr><td>$23</td><td>Which way each axis looks for its limit switch when homing</td></tr><tr><td>$27</td><td>How far the head backs off a switch after homing (mm)</td></tr></tbody></table></div></section><section class="wiki-step" id="step-3"><h3><span class="wiki-step-num">3</span>Turn on hard limits and homing</h3><pre><code>$21=1
+$22=1
+$10=0</code></pre><p>Then type <code>?</code>. The status line should include <code>WPos:</code>. If it shows <code>MPos:</code>, <code>$10=0</code> didn't take; send it again.</p></section><section class="wiki-step" id="step-4"><h3><span class="wiki-step-num">4</span>Check each axis moves the right way</h3><p>Stand at the front of the machine. Using the UGS jog buttons with a small step (1–5 mm), jog one axis at a time and watch which way the head moves:</p><ul><li><strong>+X</strong> moves the head to the <strong>right</strong>.</li><li><strong>+Y</strong> moves the head (or the bed's work point) <strong>away from you</strong>, toward the back.</li><li><strong>+Z</strong> moves the head <strong>up</strong>.</li></ul><p>If an axis goes the wrong way, reverse it with <code>$3</code>. Add up the numbers for every axis that needs reversing: X = 1, Y = 2, Z = 4. For example, reversing only Y is <code>$3=2</code>; reversing X and Y is <code>$3=3</code>. Re-test after each change.</p><aside class="wiki-callout wiki-callout--warn"><strong>Caution</strong><p>Keep a hand near the E-stop while jogging. If the head runs toward the frame, press it.</p></aside></section><section class="wiki-step" id="step-5"><h3><span class="wiki-step-num">5</span>Home to the back-right-top corner</h3><p>Type <code>$H</code>. The machine should lift Z first, then move X and Y until it touches the switches at the <strong>back-right</strong> corner with the head at the top.</p><p>If an axis heads the wrong way (away from its switch, or into the frame), press the E-stop, then flip that axis in <code>$23</code> using the same numbers (X = 1, Y = 2, Z = 4). Release the E-stop, send <code>$X</code> to unlock, and run <code>$H</code> again. Repeat until homing finishes cleanly every time.</p><aside class="wiki-callout wiki-callout--tip"><strong>Tip</strong><p>If the head stops on a switch and won't move, send <code>$X</code> and jog it a few millimetres away from the switch.</p></aside></section><section class="wiki-step" id="step-6"><h3><span class="wiki-step-num">6</span>Set the pull-off and turn on soft limits</h3><p>Once homing works, set a small pull-off so the switches release after homing, then enable soft limits:</p><pre><code>$27=2
+$20=1</code></pre><p>Run <code>$H</code> once more to confirm. Save the final <code>$$</code> output next to the original. CubOS checks these values every time it connects and warns you if they change.</p></section><section class="wiki-step" id="step-7"><h3><span class="wiki-step-num">7</span>Close UGS</h3><p>Click <strong>Disconnect</strong> and quit UGS. Only one program can use the USB port at a time, and CubOS needs it next.</p></section><div class="wiki-done" id="done"><h2>Check your work</h2><ul><li><code>?</code> reports <code>WPos:</code>.</li><li><code>$H</code> reliably finishes at the back-right-top corner.</li><li>+X moves right, +Y moves toward the back, +Z moves up.</li><li>Soft limits (<code>$20=1</code>) and hard limits (<code>$21=1</code>) are on.</li></ul></div><nav class="wiki-pager" aria-label="Part navigation"><a href="cub-asmi-1-gantry.html"><span>&larr; Previous</span>Part A · Assemble the gantry</a><a class="wiki-pager-next" href="cub-asmi-3-install-cubos.html"><span>Next &rarr;</span>Part C · Install CubOS</a></nav></div></div>      </article>
+    </main>
+    <footer class="site-footer">
+      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <nav class="site-footer-links" aria-label="Footer">
+        <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
+        <a href="../build.html">Build It</a>
+        <a href="../index.html#airtable">Contact</a>
+      </nav>
+      <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

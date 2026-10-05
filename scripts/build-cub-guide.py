@@ -37,7 +37,7 @@ CUB_PARTS = [
         "slug": "cub-asmi-1-gantry",
         "letter": "A",
         "title": "Assemble the gantry",
-        "time": "2 hours",
+        "time": "4 hours",
         "summary": "Build the Genmitsu 3018-PROVer V2 kit exactly as Genmitsu describes, except for the spindle, acrylic baffle and cable ties noted below.",
         "need": [
             "Genmitsu 3018-PROVer V2 kit (includes the Allen wrenches, Phillips wrench, screws, T-nuts, limit switches and wire pack)",
@@ -94,7 +94,7 @@ CUB_PARTS = [
         "slug": "cub-asmi-2-sensor-mount",
         "letter": "B",
         "title": "Mount the ASMI force sensor",
-        "time": "45 minutes",
+        "time": "90 minutes",
         "summary": "Clamp the Vernier force sensor in its printed mount and fit it to the gantry's Z axis. This is the ASMI's indenting head.",
         "need": [
             "Vernier Go Direct Force and Acceleration Sensor and its cable (<a href=\"https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/\" target=\"_blank\" rel=\"noopener\">Vernier</a>)",
@@ -136,7 +136,7 @@ CUB_PARTS = [
         "slug": "cub-asmi-3-bring-up",
         "letter": "C",
         "title": "Bring up the gantry",
-        "time": "30 minutes",
+        "time": "60 minutes",
         "summary": "Set the controller's firmware so the machine homes to the back-right-top corner and every axis moves the right way. CubOS relies on this and never flips axes in software.",
         "need": [
             "The assembled gantry, its 24 V power supply and the USB A-to-B cable",
@@ -192,7 +192,7 @@ CUB_PARTS = [
         "slug": "cub-asmi-4-install-cubos",
         "letter": "D",
         "title": "Install CubOS",
-        "time": "15 minutes",
+        "time": "30 minutes",
         "summary": "Install CubOS, the software that runs the gantry and the force sensor, and open its Operator window.",
         "need": [
             "A Mac or a Windows PC with the gantry's USB cable plugged in",
@@ -228,7 +228,7 @@ CUB_PARTS = [
         "slug": "cub-asmi-5-calibrate",
         "letter": "E",
         "title": "Calibrate the gantry",
-        "time": "15 minutes",
+        "time": "30 minutes",
         "summary": "Teach CubOS where the deck is and how far each axis can travel, using a printed calibration block and the indenter tip.",
         "need": [
             "Printed Cub calibration block and Cub calibration base (<a href=\"cub-calibration.html\">print and mounting guide</a>)",
@@ -264,7 +264,7 @@ CUB_PARTS = [
         "slug": "cub-asmi-6-labware",
         "letter": "F",
         "title": "Calibrate labware",
-        "time": "5 minutes per plate",
+        "time": "10 minutes per plate",
         "summary": "Record exactly where your 96-well plate sits so the indenter lands in the centre of every well.",
         "need": [
             "A 96-well plate, seated firmly in its holder on the deck",
@@ -299,7 +299,7 @@ CUBXL_GANTRY = {
     "slug": "cubxl-asmi-1-gantry",
     "letter": "A",
     "title": "Assemble the gantry",
-    "time": "3 hours",
+    "time": "6 hours",
     "summary": "Build the Genmitsu PROVerXL 4030 V2 kit, skipping the steps Ursa Labs has already done before shipping and everything to do with the spindle.",
     "need": [
         "Genmitsu PROVerXL 4030 V2 kit: XY axis base module, X-axis module with the XZ module and Z motor already fitted, X-axis motor, pre-wired X/Y drag chain, drag chain brackets, power supply, power cord and USB A-to-B cable",
@@ -348,7 +348,7 @@ CUBXL_SENSOR = {
     "slug": "cubxl-asmi-2-sensor-mount",
     "letter": "B",
     "title": "Mount the ASMI force sensor and plate holder",
-    "time": "45 minutes",
+    "time": "90 minutes",
     "summary": "Clamp the Vernier force sensor in its printed mount, bolt it to the X-axis carriage, and fit the 96-well plate holder to the bed.",
     "need": [
         "Vernier Go Direct Force and Acceleration Sensor and its cable (<a href=\"https://www.vernier.com/product/go-direct-force-and-acceleration-sensor/\" target=\"_blank\" rel=\"noopener\">Vernier</a>)",
@@ -601,7 +601,7 @@ BUILDS = [
         "name": "Cub + ASMI",
         "title": "Build a Cub with the ASMI indenter",
         "gantry": "Genmitsu 3018-PROVer V2",
-        "total": "About 4 hours",
+        "total": "About 8 hours",
         "intro": "Turn a Genmitsu 3018-PROVer V2 into an automated indentation tester that measures the mechanical properties of samples in a 96-well plate.",
         "description": "Step-by-step build of a Cub (Genmitsu 3018-PROVer V2) with the ASMI indenter: assembly, bring-up, CubOS install and calibration.",
         "tools": "The Allen wrenches and Phillips wrench included with the Genmitsu kit",
@@ -613,7 +613,7 @@ BUILDS = [
         "name": "CubXL + ASMI",
         "title": "Build a CubXL with the ASMI indenter",
         "gantry": "Genmitsu PROVerXL 4030 V2",
-        "total": "About 5 hours",
+        "total": "About 10 hours",
         "intro": "Turn a Genmitsu PROVerXL 4030 V2 into a larger-format automated indentation tester, with room for several plates on its 400 × 300 mm bed.",
         "description": "Step-by-step build of a CubXL (Genmitsu PROVerXL 4030 V2) with the ASMI indenter: assembly, bring-up, CubOS install and calibration.",
         "tools": "The Allen wrenches and hexagonal lead-screw driver included with the Genmitsu kit",

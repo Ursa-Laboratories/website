@@ -418,6 +418,73 @@ h3 {
   padding: clamp(4rem, 8vw, 7rem) 0;
 }
 
+/* Featured liquid handler demo */
+.liquid-handling-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-bottom: 2.5rem;
+}
+
+.liquid-handling-heading h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.liquid-handling-copy p {
+  max-width: 46ch;
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.liquid-handling-link {
+  color: var(--blue-dark);
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: color 180ms ease;
+}
+
+.liquid-handling-link:hover {
+  color: var(--blue);
+}
+
+.liquid-handling-demo {
+  margin: 0;
+}
+
+.liquid-handling-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--navy);
+  border-radius: var(--radius-sm);
+}
+
+.liquid-handling-demo figcaption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .liquid-handling-heading {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
 /* Alternating full-bleed navy section band */
 .section--navy {
   position: relative;
@@ -1588,3 +1655,40 @@ h3 {
 .wiki-bom tbody td:first-child { white-space: normal; width: 40%; }
 .wiki-bom td:nth-child(2) { white-space: nowrap; }
 .wiki-bom .wiki-bom-total td { font-weight: 700; color: var(--ink); }
+
+/* Contact: one calm navy surface with a clear writing area. */
+.airtable.section--navy {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  padding: clamp(3rem, 7vw, 6rem) clamp(.75rem, 2vw, 1.5rem);
+  background: none;
+}
+.airtable-copy { text-align: left; }
+.airtable-copy h2 { margin: 1rem 0 1.5rem; font-size: clamp(2.5rem, 4.5vw, 3.8rem); line-height: 1.08; letter-spacing: -.045em; }
+.airtable-copy p:not(.eyebrow) { max-width: 31ch; color: #becbdb; font-size: 1rem; line-height: 1.7; }
+.airtable-copy > a { display: inline-block; margin-top: 1rem; color: #eef4ff; text-underline-offset: 6px; }
+.contact-form { display: grid; gap: 1.5rem; min-width: 0; color: #eef4ff; }
+.contact-fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; }
+.contact-form label { display: grid; gap: .6rem; font-size: .88rem; font-weight: 600; text-align: left; }
+.contact-label { display: flex; align-items: baseline; gap: .6rem; }
+.contact-label small { color: #a8b9cf; font-size: .8rem; font-weight: 400; }
+.contact-form input, .contact-form textarea, .contact-form select {
+  width: 100%; min-width: 0; border: 1px solid #40536d; border-radius: 8px;
+  padding: .85rem 1rem; background: #12263f; color: #f4f7fc; font: inherit; font-size: 1rem; font-weight: 400;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+.contact-form input:hover, .contact-form textarea:hover, .contact-form select:hover { border-color: #758aa6; }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { outline: 2px solid #8ab5ff; outline-offset: 3px; border-color: #8ab5ff; background: #172e4a; }
+.contact-form textarea { resize: vertical; min-height: 10rem; }
+.contact-form textarea::placeholder { color: #9fb1c8; opacity: 1; }
+.contact-send { display: grid; justify-items: start; gap: 1rem; }
+.contact-form button { border: 0; border-radius: 8px; cursor: pointer; padding: .85rem 1.3rem; font: inherit; font-weight: 650; box-shadow: none; }
+.contact-form p { margin: 0; max-width: 48ch; font-size: .82rem; line-height: 1.6; color: #b6c6da; }
+@media (max-width: 920px) {
+  .airtable.section--navy { grid-template-columns: minmax(0, 1fr); }
+  .airtable-copy p:not(.eyebrow) { max-width: 45ch; }
+}
+@media (max-width: 480px) { .contact-fields { grid-template-columns: minmax(0, 1fr); } }
+
+.contact-form select { color-scheme: dark; }
+.contact-message-hint { color: #b6c6da; font-size: .82rem; font-weight: 400; line-height: 1.6; }

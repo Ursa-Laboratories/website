@@ -9,7 +9,7 @@
     />
     <title>Ursa Laboratories | Self-Driving Labs for Materials Discovery</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=contact-3" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
     <script>
@@ -47,11 +47,11 @@
             <p class="eyebrow">Built by Ursa Laboratories</p>
             <h1 id="hero-title">Autonomous Materials Characterization, Made Easy.</h1>
             <p class="hero-subtitle">
-              An open source Self-Driving Lab platform to automate high-throughput materials characterization.
+              An open-source self-driving lab platform, starting with affordable liquid handling.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#airtable">Get in touch</a>
-              <a class="btn btn-ghost" href="#instruments">Explore instruments</a>
+              <a class="btn btn-ghost" href="#liquid-handling">See Cub in action</a>
             </div>
           </div>
         </div>
@@ -70,6 +70,31 @@
           Researchers are using Ursa Labs systems to automate materials
           characterization, electrochemistry, and autonomous experimentation.
         </p>
+      </section>
+
+      <section id="liquid-handling" class="section liquid-handling" aria-labelledby="liquid-handling-title">
+        <div class="liquid-handling-heading">
+          <div>
+            <p class="eyebrow">Our first product</p>
+            <h2 id="liquid-handling-title">Affordable<br />liquid handling.</h2>
+          </div>
+          <div class="liquid-handling-copy">
+            <p>Meet Cub, our first product. Affordable liquid handling that brings automated pipetting to your lab bench, powered by open-source CubOS software.</p>
+            <a class="liquid-handling-link" href="#airtable">Talk to us about liquid handling <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <figure class="liquid-handling-demo">
+          <video autoplay muted loop controls playsinline preload="metadata" width="1280" height="720"
+            poster="assets/cub-liquid-handling-poster.jpg"
+            aria-label="Cub liquid handler demonstration" aria-describedby="liquid-handling-caption">
+            <source src="assets/cub-liquid-handling.mp4" type="video/mp4" />
+            <a href="assets/cub-liquid-handling.mp4">Watch the Cub liquid handling demo.</a>
+          </video>
+          <figcaption id="liquid-handling-caption">
+            <span>Cub in action — automated pipetting on the lab bench.</span>
+            <span>27 seconds &middot; No audio</span>
+          </figcaption>
+        </figure>
       </section>
 
       <section id="instruments" class="section instruments" aria-labelledby="instruments-title">
@@ -272,11 +297,44 @@
 
       <section id="airtable" class="section section--navy airtable" aria-labelledby="airtable-title">
         <div class="airtable-copy">
-          <h2 id="airtable-title">Tell us how we can accelerate your materials research.</h2>
+          <p class="eyebrow">Get in touch</p>
+          <h2 id="airtable-title">Let’s talk<br />about your lab.</h2>
+          <p>From your first liquid handler to a new experiment, tell us what you have in mind.</p>
+          <a href="mailto:alex@ursalabs.ai">alex@ursalabs.ai</a>
         </div>
-        <div class="airtable-embed">
-          <iframe class="airtable-embed" src="https://airtable.com/embed/appkft46LDFlip29o/pag9RQk14NLlZZe4i/form" frameborder="0" onmousewheel="" width="100%" height="960" style="background: #ffffff; border: none; border-radius: 14px; box-shadow: 0 24px 60px rgba(2, 8, 20, 0.4);"></iframe>
-        </div>
+        <form class="contact-form" id="contact-form" action="mailto:alex@ursalabs.ai" method="post" enctype="text/plain" aria-describedby="contact-help">
+          <div class="contact-fields">
+            <label for="contact-name">Name
+              <input id="contact-name" name="name" autocomplete="name" required maxlength="120" />
+            </label>
+            <label for="contact-email">Email
+              <input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+            </label>
+          </div>
+          <label for="contact-organization"><span class="contact-label">Lab or organization</span>
+            <input id="contact-organization" name="organization" autocomplete="organization" required maxlength="200" />
+          </label>
+          <label for="contact-interest"><span class="contact-label">What are you interested in?</span>
+            <select id="contact-interest" name="interest" required>
+              <option value="">Select an interest</option>
+              <option>Buying a liquid handler</option>
+              <option>Building a Cub</option>
+              <option>Automating another workflow</option>
+              <option>Collaboration</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label for="contact-message">What do you want to automate?
+            <span class="contact-message-hint" id="contact-message-hint">Helpful details include your liquids, typical volumes, samples per day, and when you’d like to get started.</span>
+            <textarea id="contact-message" name="message" rows="6" required maxlength="5000" aria-describedby="contact-message-hint" placeholder="Tell us about your workflow, or ask us a question."></textarea>
+          </label>
+          <div class="contact-send">
+            <button class="btn btn-primary" type="submit">Open email draft <span aria-hidden="true">&#8599;</span></button>
+            <p id="contact-help">Opens your email app with a draft to Alex. You review and send it there.</p>
+          </div>
+          <p id="contact-status" role="status" hidden></p>
+          <noscript><p>Email us directly at <a href="mailto:alex@ursalabs.ai">alex@ursalabs.ai</a>.</p></noscript>
+        </form>
       </section>
     </main>
 
@@ -289,6 +347,7 @@
       </nav>
       <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
     </footer>
+    <script src="scripts/contact.js?v=2"></script>
     <script>
       let current = 0;
       const slides = document.querySelectorAll('.carousel-slide');

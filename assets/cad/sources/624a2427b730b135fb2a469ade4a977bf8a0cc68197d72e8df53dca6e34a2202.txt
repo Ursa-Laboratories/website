@@ -1,0 +1,213 @@
+# Concentric ASMI Genmitsu V2
+
+![Concentric ASMI assembly](ConcentricAsmiAssembly.png)
+
+A new two-piece mount for the **Vernier Go Direct Force and Acceleration
+sensor (GDX-FOR)** on the **Genmitsu V2 52 mm spindle holder**. The sensor
+stands above the holder and its force post points down through the original
+spindle centerline. Remove the spindle and the 43 mm holder/adapter; use the
+52 mm holder supplied with the purchased kit.
+
+**Prototype CAD, not physically validated.** The printed parts have passed
+offline solid, mesh, and nominal fit checks. Actual sensor retention,
+concentricity, clamp grip, connector access, full-machine clearance and
+measurement compliance still require the checks below. The gray holder and
+orange sensor in the illustrations are simplified reference envelopes.
+
+## Files
+
+| File | Purpose |
+| --- | --- |
+| [ConcentricAsmiAssembly.FCStd](ConcentricAsmiAssembly.FCStd) | FreeCAD assembly with separately selectable bodies and a dimensions reference sheet. |
+| [ConcentricAsmiAssembly.step](ConcentricAsmiAssembly.step) | CAD assembly including simplified sensor, holder and indenter references. |
+| [ConcentricAsmiBody.step](ConcentricAsmiBody.step), [STL](ConcentricAsmiBody.stl) | One-piece hollow stem, shoulder, bottom seat and rear cradle. Print one. |
+| [ConcentricAsmiCover.step](ConcentricAsmiCover.step), [STL](ConcentricAsmiCover.stl) | Removable front cradle. Print one. |
+| [SpindleFitCoupon.step](SpindleFitCoupon.step), [STL](SpindleFitCoupon.stl) | Small ring for checking the spindle bore fit. Print first. |
+| `SensorEnvelope.*`, `HolderEnvelope.*`, `IndenterReference.*` | Reference geometry only; do not print as assembly parts. |
+| [parameters.json](parameters.json) | Editable dimensions for regenerating the CAD. |
+| [geometry_checks.json](geometry_checks.json) | Geometry results, source STEP hashes and original datum measurements. |
+| [Build script](../../../tools/build_concentric_asmi.py) | Rebuilds STEP, STL, FreeCAD assembly and checks from parameters. |
+
+The FreeCAD document contains solid features, not a sketch-constrained feature
+history. Its spreadsheet is a reference table: changing a spreadsheet cell does
+not rebuild the parts. Edit the JSON and rerun the build script for dimensional
+changes; the individual STEP solids can also be edited in your CAD application.
+
+| Body | Cover | Fit coupon |
+| --- | --- | --- |
+| ![Body](ConcentricAsmiBody.png) | ![Cover](ConcentricAsmiCover.png) | ![Fit coupon](SpindleFitCoupon.png) |
+
+## Dimensions and evidence
+
+All dimensions are millimeters. Z=0 is the **top face of the metal spindle
+holder**. Z increases upward; X=Y=0 is the spindle/indenter axis. The sensor's
+wide face runs across X; its thickness runs along Y.
+
+| Feature | Value | Basis |
+| --- | --- | --- |
+| Purchased mount | ASIN B0BXRX85WM, V2 for 3018-PROVer series | Selected option on the user's Amazon link, checked 2026-09-09. |
+| Holder bore | 52 | Product listing and manufacturer's drawing. |
+| Holder height | 36 | Manufacturer's PROVer-series drawing, page 01. Measure received part. |
+| V2 listed travel | 56, versus 40 for V1 | Manufacturer/listing claim for the Z assembly. Not a verified travel result with this sensor. |
+| GDX-FOR housing | 57 wide × 33 thick × 76 long | Vernier manual, excluding posts and accessories. |
+| Original Cub pocket | 59 wide × 32 deep × 77 long | Cubware REV.0 base/cover planar faces. Mount dimensions, not a sensor measurement. |
+| Original post passage | Diameter 12, centered across pocket | Original base cylinder axis X=54.5, Y=22.0. |
+| New pocket | 57.6 × 33.6 × 76.6 | Published housing plus 0.3 clearance per side. Provisional fit. |
+| New mounting stem | Diameter 51.8 × 34 long | Design choice; 0.1 nominal radial clearance, 2 above holder underside. |
+| Shoulder | Diameter 60 × 4 thick | Design choice; sits on top of the metal holder. |
+| Floor / sensor seat | Z=8 | Design choice; no front cantilever. |
+| New body envelope | 78 × 60 × 124.6 | Exported CAD, including stem. |
+| Cradle height above holder | 90.6 | Exported CAD. |
+| Force-post passage | Diameter 20 | Non-contact clearance, not a guide bearing. |
+| Cover seam / floor gap | 0.4 | Assembly clearance. |
+| Four cover screws | Diameter 4.4 clearance, X=±33.8, Z=15 and 77.6 | M4 clearance; axes parallel to Y. |
+
+The original pocket is shallower than Vernier's published housing size, so this
+design does **not** assume the old pocket is a dimensionally exact sensor model.
+The centered post passage in the old CAD informs the alignment; measure the
+actual force-post axis against the purchased housing before accepting this as
+a concentric installation. `force_axis_x` and `force_axis_y` compensate a
+measured post offset by shifting the housing pocket while keeping the spindle
+passage at X=Y=0. Their defaults are zero.
+
+## Indenter reach and Z clearance
+
+The bracket uses the upgraded assembly's existing stroke; it does not create
+additional Z travel. Moving the sensor above the holder requires sufficient
+probe length to reach through it. With the nominal centered housing, its lower
+face is at Z=8.3 and the holder underside is at Z=-36. The total projection
+from the housing's lower face to the tip must therefore exceed **44.3 mm**
+just to emerge below the holder.
+
+The illustration uses a **6 mm diameter, 62 mm projection** dummy probe, giving
+17.7 mm nominal exposed length below the holder. Those are visualization
+parameters, not measurements of your indenter and not a fabricated probe
+design. For 15 mm exposed length, the minimum projection is 59.3 mm with this
+housing position. Increasing length affects stiffness, buckling and usable
+working height. Check your existing indenter before printing the full mount.
+
+The force accessory uses **#6-32 threading**, per Vernier; do not substitute
+an M3 or M4 screw. Thread engagement and probe construction require the actual
+accessory dimensions. The sensor's force range is not a load rating for this
+printed mount or an extended indenter.
+
+The reference holder is only a 76 × 76 block with its 52 bore and 36 height;
+its square outside, carriage, guides, motor, screws, switches and cables are
+not a manufacturer CAD assembly. In particular, the 90.6 mm tall sensor cage
+must be checked against the fixed Z mechanism at the upper endpoint. No
+full-machine collision-free stroke is claimed.
+
+## Hardware and printing
+
+- One body, one cover; the fit coupon is not installed in the final assembly.
+- Four M4 × 45 socket-head screws and four standard M4 hex nuts. The cover has
+  8 mm diameter × 4.5 deep head recesses; the rear has 7.3 across-flats × 3.5
+  deep nut pockets. Verify the purchased hardware's head and nut dimensions.
+  At nominal dimensions each screw projects about 3.9 mm behind the rear face;
+  include that projection in the carriage clearance check.
+- Thin, hard shims selected after measuring the actual housing. Nominally
+  0.3 mm per face; use equal opposing shims to preserve the axis. Do not use
+  compressible foam in the axial force path. No tightening torque is specified
+  until the printed material and actual housing fit are validated.
+
+For an initial fit prototype, use PETG or a material you have already qualified
+for fixture use; start with 0.2 mm layers, 6 perimeters and 50% infill. These are
+prototype print settings, not a strength qualification. Print the body upright
+on its cylindrical end with a brim and supports under the projecting floor
+and upper cradle roof. Keep support scars out of the seating and bore surfaces.
+Print the cover with its broad outer face down and pocket upward; inspect
+bridges around the access windows and head recesses. Print the coupon flat.
+All STL coordinates use the assembled position; let the slicer place each part
+on its bed. Do not print the reference envelopes.
+
+## Assembly and operator validation
+
+![Exploded cover](ConcentricAsmiExploded.png)
+
+1. **Measure first.** Confirm GDX-FOR housing width, thickness, length, force
+   axis relative to both opposing housing faces, post/indenter projection,
+   actual 52 mm holder bore and its height. Check that the metal holder has a
+   flat annular top seat for the 60 mm shoulder.
+2. **Try the coupon.** With the spindle removed and machine power off, insert
+   the ring in the 52 mm holder. It should enter by hand and grip securely when
+   the clamp is tightened normally. An undersized or loose part needs a revised
+   stem diameter; forcing an oversized print or tightening the clamp to its
+   closed stop is not a fit solution. The short coupon does not qualify the
+   full stem's grip or taper.
+3. **Prepare the cradle.** Clear supports and burrs. Trial-fit the four nuts
+   and screws without the sensor. Keep all hardware out of the sensor pocket.
+   Set the body in the 52 mm holder with the shoulder seated. Orient the broad
+   sensor face across the gantry, and check rear nut/screw access and clearance.
+4. **Fit the sensor.** Place it in the rear cradle with force post downward.
+   Fit equal opposing hard shims as measured, including the axial seats. Attach
+   the cover evenly; retain its designed split gap. The sensor must not rock
+   or translate under reversal of a small manual load, and its case must not
+   visibly distort. If either occurs, revise the fit rather than tightening
+   harder. The cover fasteners assemble the cage; they do not compensate the
+   nominal housing clearance automatically.
+5. **Check the force path.** Fit the actual indenter and any required correctly
+   threaded accessory. Ensure only the sensor's force post carries the probe;
+   the probe must remain clear of the entire 20 mm tunnel. Verify coaxiality
+   against the spindle datum in both horizontal directions. Nominal CAD offset
+   is zero; actual clearance and shimming introduce positioning uncertainty.
+6. **Check the machine envelope.** With power off and the Z axis supported,
+   the operator can use the kit's manual knob to inspect both Z endpoints.
+   Check sensor roof, rear screws, shoulder, USB cable and indenter against
+   the carriage, motor, guides, limits, sample holder and deck. Do not force a
+   hard stop. Record the usable stroke and lowest/highest tip positions with
+   the intended sample holder. The published 56 mm stroke is not a substitute.
+7. **Check retention and compliance.** The shoulder supports downward loading;
+   upward indentation reaction is resisted by the metal clamp's grip on the
+   printed stem. It has no positive anti-pullout fastener. Before experiments,
+   use a supported bench fixture and controlled low loads in both directions
+   to check slip, rotation, backlash and sensor zero shift. Progress only within
+   a separately chosen test load; record deflection against an independent
+   reference and define acceptance limits appropriate to the experiment.
+   Polymer creep and long-probe bending can affect indentation results.
+8. **Re-establish the instrument datum.** After physical acceptance, the
+   operator must re-zero the force sensor in its installed orientation and
+   re-establish XY/tool-height and surface references in CubOS. Previous offsets
+   from the front-mounted ASMI are not valid for this geometry. This design
+   task has not changed or exercised any CubOS machine configuration.
+
+## Offline verification
+
+The builder checks one valid closed solid per printable part, reloads every
+exported STEP to confirm validity and volume, reloads every printable STL to
+check closed-solid status, one connected component and consistent orientation,
+and checks nominal intersections among body, cover, housing, holder and probe.
+The body and cover have zero modeled overlap with each other or the reference
+hardware. Both the probe and holder bore use X=Y=0. These checks validate the
+modeled geometry, not physical alignment, stiffness or an unmodeled carriage.
+
+## Regenerate
+
+From the Cubware repository, using a Python environment with FreeCAD and VTK:
+
+```sh
+python tools/build_concentric_asmi.py --params cub/instrument_mounts/concentric_asmi_genmitsu_v2/parameters.json
+python scripts/render_preview.py cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiBody.stl cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiBody.png
+python scripts/render_preview.py cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiCover.stl cub/instrument_mounts/concentric_asmi_genmitsu_v2/ConcentricAsmiCover.png
+python scripts/render_preview.py cub/instrument_mounts/concentric_asmi_genmitsu_v2/SpindleFitCoupon.stl cub/instrument_mounts/concentric_asmi_genmitsu_v2/SpindleFitCoupon.png
+python tools/render_concentric_asmi.py cub/instrument_mounts/concentric_asmi_genmitsu_v2
+```
+
+This design was generated with FreeCAD 1.0.2 and its bundled Python/VTK. On the
+macOS installation used here the executable is
+`/Applications/FreeCAD.app/Contents/Resources/bin/python`, with the app's own
+`/Applications/FreeCAD.app/Contents/Resources/lib` in its module search path.
+
+## Compatibility and sources
+
+- Target: the **3018-PROVer-series V2 upgrade** in the
+  [purchased listing](https://www.amazon.com/dp/B0BXRX85WM?th=1), using its 52 mm
+  holder. Not automatically compatible with every 3018 or Cub/CubXL variant.
+  Filed under Cub instrument mounts as the small-gantry ASMI variant.
+- Sensor: [GDX-FOR manual](https://www.vernier.com/files/manuals.php?part_code=gdx-for)
+  and [Vernier accessory/specification FAQ](https://turbo.vernier.com/til/3924/).
+- Mount dimensions: [SainSmart PROVer-series V2 assembly guide, page 01](https://genmitsu.s3.us-east-1.amazonaws.com/101-63-SPHV2/Aluminum%20Z%20Axis%20Assembly%20V2%20for%203018-PROVer%20Series%20Assembly%20Guide%20V1.0-20230113.pdf).
+- Prior designs: [Cub REV.0 mount](../asmi/README.md) and
+  [CubXL mounts](../../../cubxl/instrument_mounts/asmi/README.md).
+
+Design date: 2026-09-09. Hardware validation: **pending; no hardware motion or
+protocol was performed by the design agent**.

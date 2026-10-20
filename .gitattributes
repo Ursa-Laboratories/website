@@ -1,0 +1,4 @@
+# Download snapshots must remain byte-identical to Cubware, including STEP/OBJ
+# whitespace and line endings. Review their metadata and hashes in catalog.json.
+assets/cad/sources/* binary linguist-generated=true
+assets/cad/catalog/* binary linguist-generated=true

@@ -1,0 +1,82 @@
+# Genmitsu PROVer V2 Enclosure D
+
+![Concept D CAD assembly](output/EnclosureD.png)
+
+An initial CAD mockup of the selected **D / Fitted Covers** design for an Ursa science workcell based on a stock Genmitsu 3018-PROVer V2. A stationary modular cabinet surrounds independent hollow covers for the gantry, moving head, and moving deck.
+
+**Design and packaging mockup only. Do not print this as a finished kit.** The shell sections are real CAD solids, but joints, retaining strips, mounting holes, fasteners, and load support have not been engineered. The inner machine is schematic reference geometry, not vendor CAD. No protective, containment, clean-environment, or chemical-resistance rating is implied.
+
+## Open the model
+
+| File | Purpose |
+| --- | --- |
+| [EnclosureD.FCStd](EnclosureD.FCStd) | FreeCAD document, grouped separate solids, hidden reference envelopes, and dimension reference sheet. |
+| [EnclosureD.step](EnclosureD.step) | Neutral CAD assembly including the schematic machine and illustrative science tool/plate. |
+| [EnclosureDCosmeticParts.step](EnclosureDCosmeticParts.step) | Enclosure, fitted covers, and windows without the reference machine. |
+| [parameters.json](parameters.json) | Editable regeneration inputs, all lengths in mm. |
+| [geometry_checks.json](geometry_checks.json) | Offline validity, mesh, print-bound, and nominal swept-envelope checks. |
+| [PARTS.md](PARTS.md) | Individual STEP/STL/PNG links for all 47 proposed printed parts and three sheet windows. |
+| [assembly_manifest.json](assembly_manifest.json) | Part categories, colors, motion groups, and world-coordinate meshes for rendering. |
+
+The FreeCAD document contains solid features, not a constrained sketch/history model. Its spreadsheet is a reference table; changing a cell does not rebuild geometry. Change the JSON and rerun the builder. STEP solids can be edited in other CAD software. The STEP assembly omits the hidden swept envelopes, which remain available in FreeCAD.
+
+## Dimensions and their evidence
+
+| Dimension | mm | Basis |
+| --- | --- | --- |
+| Stock machine width x depth x height | 425 x 353 x 301 | Manufacturer's October 2023 manual, printed pp. 3 and 8; drawing confirms orientation. |
+| Stock X / Y / Z travel | 284 / 180 / 40 | Same manual, printed p. 3. |
+| Cabinet width x depth x height | 520 x 540 x 410 | Proposed design; not a measured requirement. |
+| Machine bottom above cabinet floor datum | 20 | Assumed placement. |
+| Physical deck width x depth | 300 x 180 | Assumed reference geometry, **not** the published work area. |
+| Deck skirt width x depth | 316 x 196 | Assumed deck plus 8 mm per side. |
+| Deck/skirt swept plan envelope | 316 x 376 | Assumed skirt depth plus published 180 mm Y stroke, centered on Y=0. |
+| Printed cover walls / clear windows | 3 / 3 | Design choices; materials and retention remain open. |
+| H2S build volume | 340 x 320 x 340 | Bambu published specification; all printed-part boxes fit with at least 4 mm allowance per build dimension in a possible orthogonal orientation. |
+
+Sources: [Genmitsu manufacturer manual](https://images.thdstatic.com/catalog/pdfImages/e9/e95200b7-7d0a-4bdf-9724-66f04f7fd4cd.pdf), [Bambu H2S](https://us.store.bambulab.com/en/products/h2s). Checked 2026-09-16. The manual's overall dimensions do not establish the full swept footprint or cable envelope. Those are separate measurements.
+
+The earlier [concentric ASMI mount](../../cub/instrument_mounts/concentric_asmi_genmitsu_v2/README.md) uses an upgraded Z assembly with a listed 56 mm stroke. It is not silently substituted for the stock 40 mm stroke here. The generic science probe shown here is illustrative; ASMI fit and reachable plate height are not validated.
+
+## How the covers work
+
+- **Stationary cabinet:** four base tiles, four roof tiles, corner segments, front/side rims and rear panels. It is independent of the moving deck. The rear opening is provisional cable/service access.
+- **Fixed gantry:** two open-back pillar covers and two bridge-cover halves conceal brackets and the X structure. The bridge's front slot leaves space for the translating carriage interface.
+- **Moving head:** one hollow cover follows the carriage, with rear/bottom access. Its mass, attachment and motor/cable ventilation need design work.
+- **Moving deck:** two hollow skirt halves cover the deck perimeter. An illustrative adapter plate covers the work surface; the actual labware layout remains open.
+- **Windows:** one clear front sheet and two clear side sheets. Their STL files are shape references for sheet cutting, not instructions to FDM-print transparent panels. The mockup does not yet include retaining strips or latches.
+
+The seams show a possible H2S segmentation, not finished connectors. The roof and front pieces can be hidden individually in CAD to inspect the interior.
+
+![Front and roof removed](output/FrontOpen.png)
+
+![Nominal motion envelopes](output/Envelope.png)
+
+Blue volumes indicate modeled head/deck travel, including cover width. A separate amber published-machine envelope is hidden in the FreeCAD document. Neither is an as-built machine scan.
+
+## Offline checks and what remains
+
+The exported components are valid single solids with closed STL meshes. The assembly STEP was reloaded and checked for validity and solid count. All 47 printed component bounds fit an H2S orientation; this does not validate supports, warping, tolerances, stiffness, or a sliced print job. The schematic deck and head envelopes do not intersect the stationary cosmetic parts across their modeled travel.
+
+Before making a fit prototype, measure:
+
+1. Deck dimensions and its front/rear extremes, including adapter, clamps, and attachments.
+2. Upright profiles, bridge depth/height, motor protrusions, and suitable attachment locations.
+3. Installed head/tool at all travel limits and the complete cable/tubing loops.
+4. Electronics and emergency-stop access, connector clearances, and ventilation openings.
+
+Then revise parameters and cover geometry, design mounting/retention and structural support, and print small fit coupons. Physical clearance and operation remain operator checks; no hardware was moved for this mockup.
+
+## Rebuild
+
+From the Cubware directory, using the installed FreeCAD runtime:
+
+```sh
+/Applications/FreeCAD.app/Contents/Resources/bin/python tools/build_genmitsu_enclosure.py --parameters gantry/genmitsu_prover_v2_enclosure_d/parameters.json
+/Applications/FreeCAD.app/Contents/Resources/bin/python tools/render_genmitsu_enclosure.py --part-previews
+/Applications/FreeCAD.app/Contents/Resources/bin/python tools/style_genmitsu_enclosure.py
+```
+
+The renderer requires a macOS graphics session. Per-part previews use the repository's `scripts/render_preview.py`. Every STL uses assembly coordinates in mm; local print placement/orientation is not supplied.
+
+Canonical plan: [Ursa enclosure D plan](../../../Ursa_Context/docs/plans/2026-09-16-genmitsu-enclosure-d.md).

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore the Cubware parts library. View 3D models, find revisions, and download CAD for Cub, CubXL and CubXL+." />
+  <title>Cubware Parts Library | Ursa Labs</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/cubware.css" />
+</head>
+<body class="parts-page">
+  <a class="skip-link" href="#library">Skip to parts</a>
+  <header class="site-header">
+    <a class="brand" href="index.html"><img class="brand-mark" src="assets/favicon.svg" alt="" /><span>Ursa Labs</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="build.html">Build It</a>
+      <a href="cubware.html" aria-current="page">Cubware</a>
+    </nav>
+    <a class="repo-link" href="https://github.com/Ursa-Laboratories/Cubware" target="_blank" rel="noopener">Repository ↗</a>
+  </header>
+  <main>
+    <section class="library-intro" aria-labelledby="library-title">
+      <div>
+        <p class="library-kicker">The open hardware library</p>
+        <h1 id="library-title">Every part, in view.</h1>
+        <p>Explore Cubware. Find a part, inspect its geometry, and take the source files with you.</p>
+      </div>
+      <dl class="library-totals" aria-label="Catalog overview">
+        <div><dt>Parts &amp; revisions</dt><dd id="total-parts">…</dd></div>
+        <div><dt>Source files</dt><dd id="total-files">…</dd></div>
+        <div><dt>3D previews</dt><dd id="total-previews">…</dd></div>
+      </dl>
+    </section>
+
+    <section id="library" class="parts-workspace" aria-label="Parts library">
+      <aside class="parts-browser" aria-label="Find a part">
+        <div class="parts-filters">
+          <label for="parts-search">Search the library</label>
+          <input id="parts-search" type="search" placeholder="Name, folder, revision…" autocomplete="off" />
+          <div class="filter-pair">
+            <label>Configuration<select id="configuration"><option value="">All configurations</option></select></label>
+            <label>Category<select id="category"><option value="">All categories</option></select></label>
+          </div>
+          <div class="filter-pair">
+            <label>Files<select id="format"><option value="">All formats</option></select></label>
+            <label>Show<select id="availability">
+              <option value="">Everything</option>
+              <option value="preview">Has 3D preview</option>
+              <option value="missing">Missing 3D preview</option>
+              <option value="notes">Has part notes</option>
+              <option value="local">Local changes</option>
+            </select></label>
+          </div>
+          <div class="results-bar"><p id="result-count" role="status">Loading catalog…</p><button id="clear-filters" type="button">Clear filters</button></div>
+        </div>
+        <div id="parts-list" class="parts-list" aria-label="Matching parts"></div>
+        <p id="empty-results" class="empty-results" hidden>No parts match these filters. Try a different name or clear the filters.</p>
+      </aside>
+
+      <section class="part-inspector" aria-labelledby="part-title">
+        <div class="inspector-heading">
+          <p id="part-location" class="part-location">Cubware</p>
+          <div class="part-heading-row"><h2 id="part-title">Choose a part</h2><button id="share-part" type="button" disabled>Copy link</button></div>
+          <p id="share-status" class="visually-hidden" role="status"></p>
+        </div>
+        <div class="model-stage">
+          <canvas id="part-canvas" tabindex="0" aria-label="3D part preview. Arrow keys rotate; plus and minus zoom."></canvas>
+          <div id="model-status" class="model-status" role="status">Loading the parts library…</div>
+          <div class="view-toolbar" aria-label="3D view controls">
+            <button type="button" data-view="iso" aria-label="Isometric view" disabled>Iso</button>
+            <button type="button" data-view="top" disabled>Top</button>
+            <button type="button" data-view="front" disabled>Front</button>
+            <button type="button" data-view="side" disabled>Side</button>
+            <span class="toolbar-divider"></span>
+            <button id="wireframe" type="button" aria-pressed="false" disabled>Wireframe</button>
+            <button id="reset-view" type="button" disabled>Reset</button>
+          </div>
+          <p class="view-hint">Drag to orbit · Scroll to zoom · Right-drag to pan</p>
+        </div>
+        <div class="part-information">
+          <div class="part-facts"><p id="part-formats"></p><p id="part-dimensions"></p></div>
+          <p id="part-summary"></p>
+          <p id="part-notice" class="part-notice"></p>
+          <p id="local-notice" class="part-notice" hidden>Includes local changes from the catalog snapshot. These files differ from the pinned repository commit.</p>
+          <div class="files-heading"><h3>Source files</h3><a id="part-notes" hidden target="_blank" rel="noopener">Part notes ↗</a></div>
+          <ul id="part-files" class="part-files"></ul>
+          <p class="preview-download"><a id="preview-download" hidden download>Download preview mesh</a></p>
+        </div>
+      </section>
+    </section>
+    <footer class="library-footer">
+      <p id="catalog-snapshot">Catalog snapshot from Cubware.</p>
+      <p>Geometry previews do not confirm fit or print readiness. Check the part notes for compatibility.</p>
+      <a href="assets/cad/CATALOG.md">How to refresh this library ↗</a>
+    </footer>
+    <noscript><p class="noscript">Enable JavaScript to explore the library, or <a href="https://github.com/Ursa-Laboratories/Cubware">browse the source repository</a>.</p></noscript>
+  </main>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
+  </script>
+  <script type="module" src="scripts/parts-library.js"></script>
+</body>
+</html>

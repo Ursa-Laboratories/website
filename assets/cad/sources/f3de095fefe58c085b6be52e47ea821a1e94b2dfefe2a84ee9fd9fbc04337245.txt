@@ -1,0 +1,112 @@
+# Genmitsu Front Fascia
+
+A three-piece, 3D-printed front cover for the CUB built around a **Genmitsu
+3018-PROVer V2**. It follows the graphite folded-metal appearance of the selected
+concept 02: a continuous face, rounded top return, obround knob opening and
+separate rearward side mounts.
+
+**Measured prototype, not physically fit-tested.** Width, bar height, knob
+position/diameter/projection and side-slot heights use the user's measurements.
+Clearances, wall thicknesses and fore-aft placement are design choices. See the
+[measurement record](MEASUREMENTS.md) and
+[manufacturer evidence](SOURCES.md).
+
+![Front fascia assembly](FrontFasciaAssembly.png)
+
+## Files
+
+| File | Purpose |
+| --- | --- |
+| [FrontFascia.FCStd](FrontFascia.FCStd) | Native FreeCAD solids, construction stages and a parameter reference table. |
+| [FrontFasciaAssembly.step](FrontFasciaAssembly.step) | Three separate solid components for importing into another CAD package. |
+| [parameters.json](parameters.json) | Editable dimensions and their evidence status; used by the generator. |
+| [FrontFascia.step](FrontFascia.step) / [FrontFascia.stl](FrontFascia.stl) | Front panel CAD and review mesh. |
+| [LeftMountBracket.step](LeftMountBracket.step) / [LeftMountBracket.stl](LeftMountBracket.stl) | Left side bracket CAD and review mesh. |
+| [RightMountBracket.step](RightMountBracket.step) / [RightMountBracket.stl](RightMountBracket.stl) | Right side bracket CAD and review mesh. |
+| [FrontFasciaH2S.stl](print_layout/FrontFasciaH2S.stl) | Same front panel laid face-down and rotated 45 degrees for the H2S. Not sliced. |
+| [geometry_checks.json](geometry_checks.json) | Offline solid, mesh, export and assembly checks. |
+| [SelectedConcept02.png](references/SelectedConcept02.png) | Original selected appearance reference; not dimensional evidence. |
+
+## Construction and fit
+
+The front panel bolts to two separate L-shaped printed brackets. The brackets
+wrap rearward to the machine's stationary side fixtures. The proposed side
+fasteners use M5 clearance slots; the stock manual confirms M5 T-slot mounting for
+the side guards. The user's machine has no acrylic guards. The vertical slot
+centers are 17.46 and 36.51 mm above the front bar's bottom. Front holes are an M4 through-bolt
+connection; nut access and clearance to the original crossmember must be checked
+against the measured assembly.
+
+| Feature | Model dimension (mm) |
+| --- | --- |
+| User-measured machine width | 360.36 |
+| Front panel / inside bracket spacing | 362.36, including 1 mm clearance per side |
+| Panel height / face thickness | 46.04 / 3 |
+| Bracket thickness | 4 |
+| Knob opening | 80 x 28 obround |
+| Opening center above bottom | 26.99 |
+| Knob diameter / original projection | About 19.84 / 19.05 |
+
+Use **four 1 mm hard shim washers/spacers** between the side brackets and the
+aluminum mounting faces to fill the intended side clearance. These are hardware,
+not included in the three printed meshes. Front attachment uses four M4 bolts
+and nuts; side attachment uses four M5 bolts and compatible 20M5 T-slot nuts.
+Bolt lengths and washers must suit the actual stack and engagement without
+bottoming. The model does not include hardware solids.
+
+The front opening leaves the existing knob accessible. Its size and the fascia's
+installed distance ahead of the original bar must be set from the actual knob,
+not the screw-shaft diameter. A provisional 12 mm distance from the new front
+face back to the original bar face leaves a predicted 7.05 mm knob projection
+beyond the cover. The side-slot positions allow fore-aft placement on the
+continuous rails; inspect existing screw heads, nuts and finger access before
+tightening. The top return must stay below the lowest part of
+the moving deck. Later side covers can share the side-mount region; their joint
+details are not designed in this first part.
+
+The front panel is continuous. Face-down at 45 degrees, its bounding footprint
+is approximately 288.78 x 288.78 mm. With an 8 mm brim allowance all around, it is
+304.78 x 304.78 mm, inside the H2S's 340 x 320 mm build area. The included
+`print_layout` STL has this orientation; inspect support needs under the rounded
+top return in Bambu Studio. The two brackets are separate prints; their final
+orientation should be reviewed for strength and supports. These meshes are not
+a sliced or print-tested job. No material,
+wall count, infill or print orientation has been physically validated.
+
+## Changing dimensions
+
+Edit each relevant `value` in `parameters.json`, then run from the Cubware folder:
+
+```sh
+/Applications/FreeCAD.app/Contents/Resources/bin/python tools/build_front_fascia.py \
+  --parameters gantry/genmitsu_front_fascia/parameters.json
+/Applications/FreeCAD.app/Contents/Resources/bin/python tools/render_front_fascia.py \
+  --part-previews
+/Applications/FreeCAD.app/Contents/Resources/bin/python tools/style_front_fascia.py
+```
+
+The source is [build_front_fascia.py](../../tools/build_front_fascia.py). Dimensions
+are controlled by the generator. The FreeCAD file contains native solid shapes,
+not a live spreadsheet-driven feature tree: editing its reference spreadsheet
+does **not** rebuild the parts. Regenerate after changing the JSON. No custom
+workbench is required to open the native file or import the STEP.
+
+Coordinates: X across the front, Y rearward, Z upward. The front panel spans
+negative to positive X about its centerline; the nominal front lower center is
+X=0, Y=0, Z=0.
+
+## Compatibility and validation boundary
+
+- Intended for **CUB / Genmitsu 3018-PROVer V2**, pending measured fit.
+- No verified compatibility with Cub-XL, other Genmitsu 3018 variants or modified
+  side fixtures.
+- Offline CAD validation does not establish machine fit, screw engagement,
+  finger access, printed strength, or motion clearance.
+- The three final parts passed valid-single-solid, closed-mesh, zero-interference
+  and STEP roundtrip checks. Front fastener holes align; a nominal measured-size
+  knob cylinder clears the opening. The saved FreeCAD file reopens without
+  object errors. The front print-layout mesh fits the H2S bounds screen.
+- No hardware movement was performed. A stationary fit check and subsequent
+  operator-controlled clearance check are required before use.
+
+Canonical status: [front fascia plan](../../../Ursa_Context/docs/plans/2026-09-27-cub-front-fascia.md).

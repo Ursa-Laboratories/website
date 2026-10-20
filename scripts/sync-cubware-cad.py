@@ -21,11 +21,53 @@ import subprocess
 import sys
 import tempfile
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 
 CAD_SUFFIXES = (".stl", ".step", ".stp", ".glb", ".3mf", ".fcstd", ".obj")
 BACKUP_SUFFIXES = (".fcbak",)
+REPOSITORY = "https://github.com/Ursa-Laboratories/Cubware"
+
+
+def git_output(root: Path, *args: str) -> str:
+    return subprocess.run(
+        ["git", "-C", str(root), *args], capture_output=True, text=True, check=True
+    ).stdout.strip()
+
+
+def configuration_for(path: Path) -> str:
+    return {
+        "cub": "Cub", "cubxl": "CubXL", "cubxl_plus": "CubXL+",
+        "shared": "Shared", "gantry": "Gantry", "misc": "Unassigned",
+    }.get(path.parts[0], "Unassigned")
+
+
+def category_for(path: Path) -> str:
+    if "labware" in path.parts or path.parts[0] == "shared":
+        return "Labware"
+    if "instrument_mounts" in path.parts:
+        return "Instrument mounts"
+    if "deck" in path.parts:
+        return "Decks"
+    if path.parts[0] == "gantry":
+        return "Gantry & enclosure"
+    return "Other"
+
+
+def summary_from_readme(path: Path | None) -> str:
+    if not path:
+        return ""
+    text = path.read_text(errors="replace")
+    for paragraph in re.split(r"\n\s*\n", text):
+        paragraph = paragraph.strip()
+        if not paragraph or paragraph.startswith(("#", "!", "|", "```", "-", ">")):
+            continue
+        paragraph = re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", paragraph)
+        paragraph = re.sub(r"[*`]", "", paragraph)
+        return " ".join(paragraph.split())[:500]
+    return ""
 
 
 def slug(value: str) -> str:
@@ -70,6 +112,8 @@ def status_for(relative: Path) -> tuple[str, str]:
         return "mockup", "Design and packaging mockup; Cubware says this enclosure is not a finished kit."
     if "concentric_asmi_genmitsu_v2" in text:
         return "prototype", "Prototype CAD; Cubware marks physical validation as pending."
+    if "genmitsu_front_fascia" in text:
+        return "prototype", "Measured prototype; Cubware says physical fit, print strength, and clearance checks are pending."
     if relative.suffix.lower() in {".step", ".stp", ".fcstd"}:
         return "source-cad", "Source CAD companion; the landing page exposes a generated mesh preview."
     return "mesh", "CAD mesh catalog entry; refer to the source README for compatibility and use."
@@ -202,11 +246,42 @@ def main() -> int:
     script = Path(__file__).resolve()
     landing = (args.landing_page or script.parents[1]).resolve()
     cubware = (args.cubware or landing.parents[1] / "Cubware").resolve()
-    output = landing / "assets" / "cad" / "catalog"
+    if not cubware.is_dir() or not (cubware / "README.md").is_file():
+        parser.error(f"Not a Cubware checkout: {cubware}")
+    revision = git_output(cubware, "rev-parse", "HEAD")
+    committed = {}
+    for row in git_output(cubware, "ls-tree", "-r", "-z", "HEAD").split("\0"):
+        if row:
+            metadata, name = row.split("\t", 1)
+            committed[name] = metadata.split()[2]
+    cad_root = landing / "assets" / "cad"
+    staging = tempfile.TemporaryDirectory(prefix="cubware-sync-")
+    stage = Path(staging.name)
+    output = stage / "catalog"
     output.mkdir(parents=True, exist_ok=True)
-    for child in output.iterdir():
-        if child.is_file():
-            child.unlink()
+    source_output = stage / "sources"
+    source_output.mkdir()
+
+    def source_info(path: Path) -> dict:
+        relative = path.relative_to(cubware).as_posix()
+        content = path.read_bytes()
+        digest = hashlib.sha256(content).hexdigest()
+        blob = hashlib.sha1(f"blob {len(content)}\0".encode() + content).hexdigest()
+        matches_commit = committed.get(relative) == blob
+        # Content-addressed copies keep every source download available, including
+        # local-only CAD. Filenames in the UI retain the original spelling.
+        suffix = ".txt" if path.suffix.lower() == ".md" else path.suffix.lower()
+        name = digest + suffix
+        target = source_output / name
+        if not target.exists():
+            target.write_bytes(content)
+        return {
+            "path": relative, "name": path.name, "bytes": len(content),
+            "format": "GCODE.3MF" if path.name.lower().endswith(".gcode.3mf") else path.suffix[1:].upper(),
+            "sha256": digest, "download": f"assets/cad/sources/{name}",
+            "local_changes": not matches_commit,
+            "url": f"{REPOSITORY}/blob/{revision}/{quote(relative, safe='/')}" if matches_commit else None,
+        }
 
     files = []
     excluded = []
@@ -228,7 +303,6 @@ def main() -> int:
 
     items = []
     conversions = []
-    used_hashes: dict[str, str] = {}
     used_ids: set[str] = set()
     used_names: set[str] = set()
     for (parent, stem), companions in sorted(grouped.items(), key=lambda pair: str(pair[0])):
@@ -247,8 +321,8 @@ def main() -> int:
             selected = next((p for p in ordered if p.suffix.lower() == ".glb"), None)
             selected_kind = "glb"
         if selected is None:
-            excluded.extend({"source": p.relative_to(cubware).as_posix(), "reason": "No browser mesh source selected"} for p in companions)
-            continue
+            selected = ordered[0]
+            selected_kind = "unavailable"
 
         source_rel = selected.relative_to(cubware)
         status, status_desc = status_for(source_rel)
@@ -266,10 +340,10 @@ def main() -> int:
                 read_obj_as_stl(selected, asset_path)
             except Exception as exc:
                 excluded.append({"source": source_rel.as_posix(), "reason": f"OBJ conversion failed: {exc}"})
-                continue
+                selected_kind = "unavailable"
         elif selected_kind == "step":
             conversions.append({"source": str(selected), "target": str(asset_path)})
-        else:
+        elif selected_kind == "glb":
             shutil.copy2(selected, asset_path)
 
         item_id = slug(str(parent / stem))
@@ -277,17 +351,30 @@ def main() -> int:
             item_id = f"{item_id}-{hashlib.sha1(str(parent / stem).encode()).hexdigest()[:8]}"
         used_ids.add(item_id)
         source_paths = [p.relative_to(cubware).as_posix() for p in sorted(companions)]
-        description = status_desc
+        # Do not inherit a distant README: that can describe a different part.
+        readme = next((p for p in selected.parent.iterdir() if p.name.lower() == "readme.md"), None)
+        preview = selected.with_suffix(".png")
+        sources = [source_info(p) for p in sorted(companions)]
         items.append({
             "id": item_id,
             "label": stem.replace("_", " "),
             "group": group,
             "subgroup": subgroup_for(relative),
-            "file": f"assets/cad/catalog/{asset_name}",
+            "file": f"assets/cad/catalog/{asset_name}" if selected_kind != "unavailable" else None,
+            "preview_kind": selected_kind,
+            "preview_error": "No supported mesh or STEP source is available." if selected_kind == "unavailable" else None,
             "source": source_rel.as_posix(),
             "sources": source_paths,
-            "desc": description,
+            "desc": status_desc,
             "status": status,
+            "configuration": configuration_for(source_rel),
+            "category": category_for(source_rel),
+            "formats": sorted({s["format"] for s in sources}),
+            "source_files": sources,
+            "local_changes": any(s["local_changes"] for s in sources),
+            "readme": source_info(readme) if readme else None,
+            "summary": summary_from_readme(readme),
+            "image": source_info(preview)["download"] if preview.is_file() else None,
         })
 
     failures = convert_steps(conversions, script)
@@ -296,13 +383,18 @@ def main() -> int:
         for f in failures
     }
     for failure in failures:
-        excluded.append({"source": Path(failure["source"]).relative_to(cubware).as_posix(), "reason": f"STEP conversion failed: {failure['reason']}"})
-    items = [item for item in items if item["source"] not in failed_sources]
+        excluded.append({"source": Path(failure["source"]).resolve().relative_to(cubware).as_posix(), "reason": f"STEP conversion failed: {failure['reason']}"})
+    for item in items:
+        if item["source"] in failed_sources:
+            item["file"] = None
+            item["preview_error"] = "STEP preview conversion failed. Original CAD is available below."
 
     # Deduplicate byte-identical generated meshes while preserving every source item.
     first_for_hash: dict[str, str] = {}
     for item in items:
-        path = landing / item["file"]
+        if not item["file"]:
+            continue
+        path = stage / Path(item["file"]).relative_to("assets/cad")
         if not path.exists():
             continue
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -313,12 +405,29 @@ def main() -> int:
             first_for_hash[digest] = item["file"]
 
     catalog = {
-        "version": 1,
+        "version": 2,
         "source": "Cubware",
+        "repository": REPOSITORY,
+        "source_revision": revision,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
         "parts": sorted(items, key=lambda item: (item["group"], item["subgroup"], item["label"])),
         "excluded_sources": sorted(excluded, key=lambda entry: entry["source"]),
     }
-    (landing / "assets" / "cad" / "catalog.json").write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
+    # Finish generation before touching the served snapshot. Replace the manifest
+    # last; an interrupted conversion cannot erase the existing catalog.
+    cad_root.mkdir(parents=True, exist_ok=True)
+    for folder in ("catalog", "sources"):
+        shutil.copytree(stage / folder, cad_root / folder, dirs_exist_ok=True)
+    manifest = cad_root / "catalog.json"
+    temporary_manifest = manifest.with_suffix(".json.tmp")
+    temporary_manifest.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
+    temporary_manifest.replace(manifest)
+    for folder in ("catalog", "sources"):
+        keep = {p.name for p in (stage / folder).iterdir()}
+        for path in (cad_root / folder).iterdir():
+            if path.is_file() and path.name not in keep:
+                path.unlink()
+    staging.cleanup()
     print(f"cataloged {len(items)} entries; generated {len(conversions) - len(failures)} STEP meshes; excluded {len(excluded)} source files")
     if failures:
         print(f"conversion failures: {len(failures)}", file=sys.stderr)

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
       import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
       import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
       try {
@@ -132,6 +133,17 @@ import * as THREE from 'three';
         const part = PARTS[id];
         if (!part) return;
         const version = ++loadVersion;
+        if (mesh) {
+          scene.remove(mesh);
+          mesh.traverse(child => {
+            child.geometry?.dispose();
+            if (child.material !== material) {
+              for (const mat of [child.material].flat().filter(Boolean)) mat.dispose();
+            }
+          });
+          mesh = null;
+        }
+        delete canvas.dataset.loadedPart;
         currentId = id;
         titleEl.textContent = part.label;
         sourceEl.textContent = part.source || (part.sources || []).join(' · ');
@@ -148,6 +160,34 @@ import * as THREE from 'three';
         delete canvas.dataset.loadedPart;
         status.textContent = 'Loading model…';
         status.hidden = false;
+        if (part.file.endsWith('.glb')) {
+          new GLTFLoader().load(part.file, gltf => {
+            if (version !== loadVersion) {
+              gltf.scene.traverse(child => {
+                child.geometry?.dispose();
+                for (const mat of [child.material].flat().filter(Boolean)) mat.dispose();
+              });
+              return;
+            }
+            mesh = gltf.scene;
+            const box = new THREE.Box3().setFromObject(mesh);
+            const size = box.getSize(new THREE.Vector3());
+            mesh.position.sub(box.getCenter(new THREE.Vector3()));
+            const radius = size.length() / 2;
+            camera.position.set(radius * 2.2, radius * 1.4, radius * 2.2);
+            camera.near = radius / 100;
+            camera.far = radius * 100;
+            camera.updateProjectionMatrix();
+            controls.target.set(0, 0, 0);
+            controls.update();
+            scene.add(mesh);
+            canvas.dataset.loadedPart = id;
+            status.hidden = true;
+          }, undefined, () => {
+            if (version === loadVersion) status.textContent = 'Could not load this model.';
+          });
+          return;
+        }
         loader.load(
           part.file,
           (geometry) => {

@@ -476,7 +476,7 @@ HEADER = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{description}" />
     <title>{title} | Ursa Laboratories</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=ursa-logo-1" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=ursa-logo-2" />
     <link rel="stylesheet" href="../styles.css?v=ursa-logo-1" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>

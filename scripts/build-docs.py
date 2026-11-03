@@ -39,8 +39,8 @@ TEMPLATE = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{description}" />
     <title>{title} | Ursa Laboratories</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=ursa-logo-1" />
+    <link rel="stylesheet" href="../styles.css?v=ursa-logo-1" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
     <script>
@@ -55,8 +55,7 @@ TEMPLATE = """<!doctype html>
 
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="Ursa Laboratories — home">
-        <img class="brand-mark" src="../assets/favicon.svg" alt="" aria-hidden="true" />
-        <span>Ursa Labs</span>
+        <img class="brand-wordmark" src="../assets/ursa-wordmark-white.svg" width="114" height="36" alt="Ursa" />
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="../index.html#instruments">Instruments</a>

@@ -86,7 +86,7 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  flex-shrink: 0;
   color: #ffffff;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -94,10 +94,11 @@ a {
   text-decoration: none;
 }
 
-.brand-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
+.brand-wordmark {
+  display: block;
+  width: 114px;
+  height: 36px;
+  object-fit: contain;
 }
 
 .site-nav {

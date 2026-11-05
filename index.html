@@ -5,21 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Ursa Labs builds Cub and CubOS — an open-source self-driving lab platform for autonomous materials characterization and electrochemistry in materials science and chemistry labs."
+      content="Affordable lab automation from Ursa Labs. Explore Cub and Cub XL liquid handlers, open-source CubOS software, published hardware designs, and custom instrumentation."
     />
-    <title>Ursa Laboratories | Self-Driving Labs for Materials Discovery</title>
+    <title>Ursa Labs: Affordable Lab Automation</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=ursa-logo-2" />
-    <link rel="stylesheet" href="styles.css?v=ursa-logo-1" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFM3B0DT2P"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-CFM3B0DT2P');
-    </script>
-  </head>
+    <link rel="stylesheet" href="styles.css?v=ursa-copy-4" />
+<!-- Ursa site metadata -->
+    <link rel="canonical" href="https://www.ursalabs.ai/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ursa Labs" />
+    <meta property="og:title" content="Ursa Labs: Affordable Lab Automation" />
+    <meta property="og:description" content="Affordable lab automation from Ursa Labs. Explore Cub and Cub XL liquid handlers, open-source CubOS software, published hardware designs, and custom instrumentation." />
+    <meta property="og:url" content="https://www.ursalabs.ai/" />
+    <meta property="og:image" content="https://www.ursalabs.ai/assets/cub-xl-liquid-handling.png" />
+    <meta property="og:image:width" content="1774" />
+    <meta property="og:image:height" content="887" />
+    <meta property="og:image:alt" content="Cub XL liquid handler with a mounted pipette and labware deck" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ursa Labs: Affordable Lab Automation" />
+    <meta name="twitter:description" content="Affordable lab automation from Ursa Labs. Explore Cub and Cub XL liquid handlers, open-source CubOS software, published hardware designs, and custom instrumentation." />
+    <meta name="twitter:image" content="https://www.ursalabs.ai/assets/cub-xl-liquid-handling.png" />
+    <meta name="twitter:image:alt" content="Cub XL liquid handler with a mounted pipette and labware deck" />
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.ursalabs.ai/#webpage",
+      "url": "https://www.ursalabs.ai/",
+      "name": "Ursa Labs: Affordable Lab Automation",
+      "description": "Affordable lab automation from Ursa Labs. Explore Cub and Cub XL liquid handlers, open-source CubOS software, published hardware designs, and custom instrumentation.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.ursalabs.ai/#website"
+      },
+      "publisher": {
+        "@id": "https://www.ursalabs.ai/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.ursalabs.ai/#organization",
+      "name": "Ursa Labs",
+      "alternateName": "Ursa Laboratories",
+      "url": "https://www.ursalabs.ai/",
+      "logo": "https://www.ursalabs.ai/assets/ursa-wordmark.svg",
+      "email": "alex@ursalabs.ai",
+      "description": "Affordable lab automation, automated pipetting, and custom instrumentation."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.ursalabs.ai/#website",
+      "url": "https://www.ursalabs.ai/",
+      "name": "Ursa Labs",
+      "publisher": {
+        "@id": "https://www.ursalabs.ai/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.ursalabs.ai/#faq",
+      "isPartOf": {
+        "@id": "https://www.ursalabs.ai/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Ursa Labs make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ursa Labs develops affordable lab automation, starting with Cub and Cub XL liquid handlers. CubOS coordinates the hardware and instruments, and Operator provides a browser interface for working with protocols."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do Cub and Cub XL differ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cub is the compact benchtop platform. Cub XL provides a larger work area for labware and instrument setups. Both use CubOS. See the hardware comparison to choose a starting point for your lab."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I access the software and hardware designs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. CubOS is open-source software. The Cubware library provides published hardware designs and CAD files, with build guides for specific configurations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I discuss a custom instrument or workflow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Get in touch with the instruments and workflow you want to automate. We can discuss the setup, integration work, and fit for your lab."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+    <script defer src="scripts/analytics.js?v=1"></script>
+<!-- /Ursa site metadata -->
+</head>
   <body>
 
     <header class="site-header">
@@ -27,8 +116,8 @@
         <img class="brand-wordmark" src="assets/ursa-wordmark-white.svg" width="114" height="36" alt="Ursa" />
       </a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="#instruments">Instruments</a>
         <a href="#compare">Hardware</a>
+        <a href="#instruments">Instruments</a>
         <a href="#software">Software</a>
         <a href="build.html">Build It</a>
         <a href="cubware.html">Cubware</a>
@@ -44,13 +133,16 @@
         </video>
         <div class="hero-content">
           <div class="hero-copy">
-            <p class="eyebrow">Built by Ursa Laboratories</p>
-            <h1 id="hero-title">Autonomous Materials Characterization, Made Easy.</h1>
+            <h1 id="hero-title">Lab automation anyone can afford.</h1>
             <p class="hero-subtitle">
-              An open-source self-driving lab platform, starting with affordable liquid handling.
+              Affordable pipetting. Open-source software. More of your budget left for discovery.
             </p>
+          </div>
+          <div class="hero-product" aria-labelledby="hero-product-title">
+            <h2 id="hero-product-title">Meet Cub.</h2>
+            <p>Automated pipetting for your lab.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#airtable">Get in touch</a>
+              <a class="btn btn-primary" href="#compare">Explore Cub <span aria-hidden="true">&#8594;</span></a>
               <a class="btn btn-ghost" href="#liquid-handling">See Cub in action</a>
             </div>
           </div>
@@ -79,12 +171,12 @@
             <h2 id="liquid-handling-title">Affordable<br />liquid handling.</h2>
           </div>
           <div class="liquid-handling-copy">
-            <p>Meet Cub, our first product. Affordable liquid handling that brings automated pipetting to your lab bench, powered by open-source CubOS software.</p>
+            <p>Bring automated pipetting to your lab bench with Cub. Start with liquid handling, then explore custom instrumentation for the work ahead.</p>
             <a class="liquid-handling-link" href="#airtable">Talk to us about liquid handling <span aria-hidden="true">&#8599;</span></a>
           </div>
         </div>
         <figure class="liquid-handling-demo">
-          <video autoplay muted loop controls playsinline preload="metadata" width="1280" height="720"
+          <video data-analytics-video="cub-pipetting" autoplay muted loop controls playsinline preload="metadata" width="1280" height="720"
             poster="assets/cub-liquid-handling-poster.jpg"
             aria-label="Cub liquid handler demonstration" aria-describedby="liquid-handling-caption">
             <source src="assets/cub-liquid-handling.mp4" type="video/mp4" />
@@ -97,13 +189,68 @@
         </figure>
       </section>
 
+      <section id="compare" class="section section--navy compare" aria-labelledby="compare-title">
+        <div class="section-heading narrow reveal">
+          <p class="eyebrow">Hardware</p>
+          <h2 id="compare-title">Cub vs Cub XL</h2>
+          <p>
+            Two sizes. The same open-source software. Choose the platform that fits your bench and your workflow.
+          </p>
+        </div>
+
+        <div class="compare-table-wrap reveal">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>
+                  <img class="compare-th-img" src="assets/cub_pipette_camera.webp" alt="Cub platform" />
+                  Cub
+                </th>
+                <th class="highlight">
+                  <img class="compare-th-img" src="assets/cub-xl-liquid-handling.png" width="1774" height="887" loading="lazy" alt="Cub XL liquid handler with a mounted pipette and labware deck" />
+                  Cub XL
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Work area</td>
+                <td>300 &times; 180 mm</td>
+                <td>400 &times; 300 mm</td>
+              </tr>
+              <tr>
+                <td>Well-plate capacity</td>
+                <td>4 &times; 96-well plates</td>
+                <td>12 &times; 96-well plates</td>
+              </tr>
+              <tr>
+                <td>Instrument heads</td>
+                <td>Single mount</td>
+                <td>Single or multi-mount</td>
+              </tr>
+              <tr>
+                <td>Footprint</td>
+                <td>Benchtop / fume hood</td>
+                <td>Benchtop</td>
+              </tr>
+              <tr>
+                <td>Best for</td>
+                <td>Repetitive benchtop work</td>
+                <td>High-throughput assays and workflows</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section id="instruments" class="section instruments" aria-labelledby="instruments-title">
         <div class="section-heading narrow reveal">
-          <p class="eyebrow">Instruments supported</p>
+          <p class="eyebrow">Custom Instrumentation</p>
           <h2 id="instruments-title">One platform, many measurements.</h2>
           <p>
-            Swap instrument heads on the Cub platform to run different characterization workflows
-            across 96-well plates — all controlled by the same software stack.
+            Your research goes beyond pipetting. Explore instrument setups for electrochemistry,
+            imaging, and materials characterization, all coordinated through CubOS.
           </p>
         </div>
 
@@ -122,7 +269,7 @@
               <img src="assets/uvvis.png" alt="UV-Vis spectrometer probe mounted on Cub gantry" />
             </div>
             <div class="carousel-slide" data-index="4">
-              <img src="assets/fluid_dispensing.webp" alt="Pipette, potentiostat, and camera mounted on CubOS gantry" />
+              <img src="assets/pipette-decapper-camera.png" width="1448" height="1086" alt="Pipette, decapper, and camera mounted on the gantry above a labware deck" />
             </div>
           </div>
           <div class="carousel-controls">
@@ -141,7 +288,7 @@
             <button class="carousel-label" onclick="goToSlide(1)">ASMI Indentation</button>
             <button class="carousel-label" onclick="goToSlide(2)">UV Curing</button>
             <button class="carousel-label" onclick="goToSlide(3)">UV-Vis Spectroscopy</button>
-            <button class="carousel-label" onclick="goToSlide(4)">Pipette + Potentiostat + Camera</button>
+            <button class="carousel-label" onclick="goToSlide(4)">Pipette + Decapper + Camera</button>
           </div>
         </div>
 
@@ -198,89 +345,36 @@
             </tbody>
           </table>
         </div>
-      </section>
-
-      <section id="compare" class="section section--navy compare" aria-labelledby="compare-title">
-        <div class="section-heading narrow reveal">
-          <p class="eyebrow">Hardware</p>
-          <h2 id="compare-title">Cub vs Cub XL</h2>
-          <p>
-            Two form factors, same software. Pick the platform that fits your lab's footprint and throughput needs.
-          </p>
-        </div>
-
-        <div class="compare-table-wrap reveal">
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>
-                  <img class="compare-th-img" src="assets/cub_pipette_camera.webp" alt="Cub platform" />
-                  Cub
-                </th>
-                <th class="highlight">
-                  <img class="compare-th-img" src="assets/asmi_indent.png" alt="Cub XL platform" />
-                  Cub XL
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Work area</td>
-                <td>300 &times; 180 mm</td>
-                <td>400 &times; 300 mm</td>
-              </tr>
-              <tr>
-                <td>Well-plate capacity</td>
-                <td>2 &times; 96-well plates</td>
-                <td>Up to 4 &times; 96-well plates</td>
-              </tr>
-              <tr>
-                <td>Instrument heads</td>
-                <td>Single mount</td>
-                <td>Single or multi-mount</td>
-              </tr>
-              <tr>
-                <td>Footprint</td>
-                <td>Benchtop / fume hood</td>
-                <td>Benchtop</td>
-              </tr>
-              <tr>
-                <td>Best for</td>
-                <td>Single-instrument screening</td>
-                <td>Multi-instrument campaigns</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="section-actions reveal">
+          <a class="btn btn-primary" href="#airtable">Get in touch <span aria-hidden="true">&#8599;</span></a>
         </div>
       </section>
 
-      <section id="software" class="section software" aria-labelledby="software-title">
+      <section id="software" class="section section--navy software" aria-labelledby="software-title">
         <div class="section-heading narrow reveal">
-          <p class="eyebrow">Hardware + Software</p>
-          <h2 id="software-title">Cub, CubOS &amp; Operator</h2>
+          <p class="eyebrow">Built to be yours</p>
+          <h2 id="software-title">All Open Source</h2>
           <p>
-            Coupled hardware, software, and UI that turn a CNC gantry into a self-driving lab.
+            Explore how your system works and adapt it to your research.
           </p>
         </div>
 
         <div class="software-grid reveal">
           <article class="software-card">
             <span class="software-kicker">Cub</span>
-            <h3>Modified hardware platform</h3>
+            <h3>Hardware you can build on</h3>
             <p>
-              A modified CNC gantry with custom instrument mounts, labware, and safety
-              enclosures — purpose-built for autonomous characterization in materials
-              science and chemistry labs.
+              Cub pairs a CNC gantry with custom instrument mounts and labware. Explore the
+              <a href="cubware.html">published hardware designs</a> and
+              <a href="build.html">build guides</a> to see how it comes together.
             </p>
           </article>
           <article class="software-card">
             <span class="software-kicker">CubOS</span>
             <h3><a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">Open-source Python package</a></h3>
             <p>
-              Define entire experiment workflows in simple YAML configs. CubOS handles
-              motion control, instrument coordination, data collection, and closed-loop
-              optimization — no low-level code required.
+              CubOS coordinates gantry movement and instruments through protocols you can
+              inspect and edit. Read the code, adapt a workflow, and build on what is there.
             </p>
           </article>
           <article class="software-card">
@@ -291,6 +385,30 @@
               validate motion, and launch protocols from the browser — then watch
               experiment data come in live.
             </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq" aria-labelledby="faq-title">
+        <div class="section-heading narrow">
+          <h2 id="faq-title">FAQ</h2>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>What does Ursa Labs make?</h3>
+            <p>Ursa Labs develops affordable lab automation, starting with Cub and Cub XL liquid handlers. CubOS coordinates the hardware and instruments, and Operator provides a browser interface for working with protocols.</p>
+          </article>
+          <article class="faq-item">
+            <h3>How do Cub and Cub XL differ?</h3>
+            <p>Cub is the compact benchtop platform. Cub XL provides a larger work area for labware and instrument setups. Both use CubOS. See the <a href="#compare">hardware comparison</a> to choose a starting point for your lab.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I access the software and hardware designs?</h3>
+            <p>Yes. <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">CubOS is open-source software</a>. The <a href="cubware.html">Cubware library</a> provides published hardware designs and CAD files, with <a href="build.html">build guides</a> for specific configurations.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I discuss a custom instrument or workflow?</h3>
+            <p>Yes. <a href="#airtable">Get in touch</a> with the instruments and workflow you want to automate. We can discuss the setup, integration work, and fit for your lab.</p>
           </article>
         </div>
       </section>
@@ -339,7 +457,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>Ursa Laboratories — self-driving laboratories for autonomous materials discovery.</p>
+      <p>Ursa Labs — affordable lab automation, built around your research.</p>
       <nav class="site-footer-links" aria-label="Footer">
         <a href="https://github.com/Hydra-Laboratories/CubOS" target="_blank" rel="noopener">GitHub</a>
         <a href="build.html">Build It</a>
@@ -348,7 +466,7 @@
       </nav>
       <p class="site-footer-copyright">&copy; 2026 Ursa Labs. All rights reserved.</p>
     </footer>
-    <script src="scripts/contact.js?v=2"></script>
+    <script src="scripts/contact.js?v=3"></script>
     <script>
       let current = 0;
       const slides = document.querySelectorAll('.carousel-slide');
@@ -411,6 +529,7 @@
       if (prefersReduced || !('IntersectionObserver' in window)) {
         reveals.forEach((el) => el.classList.add('is-visible'));
       } else {
+        document.documentElement.classList.add('reveal-ready');
         const io = new IntersectionObserver(
           (entries, obs) => {
             entries.forEach((entry) => {

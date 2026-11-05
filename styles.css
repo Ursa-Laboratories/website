@@ -207,7 +207,8 @@ main {
   z-index: 2;
   background:
     linear-gradient(90deg, rgba(3, 10, 22, 0.82) 0%, rgba(3, 10, 22, 0.64) 16%, rgba(3, 10, 22, 0.24) 34%, rgba(3, 10, 22, 0) 52%),
-    linear-gradient(180deg, rgba(3, 10, 22, 0.24) 0%, rgba(3, 10, 22, 0.08) 22%, rgba(3, 10, 22, 0) 42%);
+    linear-gradient(180deg, rgba(3, 10, 22, 0.24) 0%, rgba(3, 10, 22, 0.08) 22%, rgba(3, 10, 22, 0) 42%),
+    linear-gradient(0deg, rgba(3, 10, 22, 0.38), transparent 45%);
 }
 
 .hero-video {
@@ -225,8 +226,10 @@ main {
   position: relative;
   z-index: 3;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
   width: 100%;
   min-height: inherit;
   margin-inline: auto;
@@ -245,11 +248,30 @@ main {
   display: none;
 }
 
+.hero-product {
+  max-width: 34rem;
+  color: #ffffff;
+}
+
+.hero-product h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.hero-product p {
+  margin: 0.65rem 0 1.5rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 0.9rem;
+  margin-top: 0;
 }
 
 .hero .eyebrow {
@@ -396,19 +418,19 @@ h3 {
 }
 
 /* Scroll-reveal entrance — respects reduced-motion */
-.reveal {
+.reveal-ready .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 700ms ease, transform 700ms ease;
 }
 
-.reveal.is-visible {
+.reveal-ready .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal-ready .reveal {
     opacity: 1;
     transform: none;
     transition: none;
@@ -534,6 +556,44 @@ h3 {
   display: block;
   max-width: 780px;
   text-align: left;
+}
+
+.section-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.faq {
+  border-top: 1px solid var(--line);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 4rem;
+}
+
+.faq-item h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.faq-item a {
+  color: var(--blue-dark);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* Carousel */
@@ -758,6 +818,7 @@ h3 {
 .compare-th-img {
   display: block;
   width: 100%;
+  height: 200px;
   max-height: 200px;
   object-fit: contain;
   margin-bottom: 0.75rem;
@@ -855,6 +916,33 @@ h3 {
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.software.section--navy .software-card {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+}
+
+.software.section--navy .software-card:hover {
+  border-color: rgba(111, 183, 239, 0.5);
+}
+
+.software.section--navy .software-card h3 {
+  color: #ffffff;
+}
+
+.software.section--navy .software-card p {
+  color: #becbdb;
+}
+
+.software.section--navy .software-card a {
+  text-underline-offset: 3px;
+}
+
+.software.section--navy .software-kicker {
+  color: #a9d4f5;
+  background: rgba(111, 183, 239, 0.12);
 }
 
 .site-footer-links a {
@@ -1087,6 +1175,7 @@ h3 {
 
   .hero-content {
     padding: 3rem;
+    padding-top: 6.5rem;
   }
 
   .hero-copy {
@@ -1130,6 +1219,7 @@ h3 {
   .hero-content {
     width: 100%;
     padding: 1.75rem 1.25rem;
+    padding-top: 6rem;
   }
 
   .hero-copy {

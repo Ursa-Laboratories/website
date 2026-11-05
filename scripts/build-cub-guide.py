@@ -623,8 +623,11 @@ BUILDS = [
 
 
 if __name__ == "__main__":
+    from site_metadata import update_site
+
     for build in BUILDS:
         render_overview(build)
         for i, part in enumerate(build["parts"]):
             render_part(build, i, part)
     print(f"wrote {sum(len(b['parts']) + 1 for b in BUILDS)} pages to {OUT}")
+    update_site()

@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 import markdown
+from site_metadata import update_site
 
 ROOT = Path(__file__).resolve().parent.parent
 CUBWARE = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT.parent.parent / "Cubware"
@@ -170,3 +171,4 @@ if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     for g in GUIDES:
         render(g)
+    update_site()

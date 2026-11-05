@@ -14,6 +14,8 @@ contactForm.addEventListener('submit', (event) => {
     interest ? `Interest: ${interest}` : ''].filter((line, index) => line || index === 1).join('\n');
   const subject = `Ursa Labs inquiry from ${name}`;
   const draft = `mailto:alex@ursalabs.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  // Measure the handoff, without sending any form values or the mailto URL.
+  document.dispatchEvent(new CustomEvent('ursa:contact-draft-open'));
   window.location.href = draft;
   const status = document.getElementById('contact-status');
   status.hidden = false;

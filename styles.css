@@ -563,6 +563,63 @@ h3 {
   text-align: center;
 }
 
+/* A direct route from the hardware comparison to a quote by email. */
+.buy {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 2rem;
+  color: #172137;
+}
+
+.buy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: #f6f4ed;
+}
+
+.buy h2 {
+  margin: 0;
+}
+
+.buy-details p {
+  max-width: 42ch;
+  margin: 0 0 1.5rem;
+  font-size: 1.08rem;
+}
+
+.buy-quote {
+  background: #233c78;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.buy-quote:hover {
+  background: #172137;
+}
+
+.buy-email {
+  display: block;
+  width: fit-content;
+  margin-top: 1rem;
+  color: #233c78;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+  .buy {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
 .faq {
   border-top: 1px solid var(--line);
 }
@@ -1151,6 +1208,8 @@ h3 {
 
 .site-footer-links {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 1.4rem;
 }
 

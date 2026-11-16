@@ -36,7 +36,7 @@ class SiteMetadataTests(unittest.TestCase):
     def test_order_and_local_image(self):
         html = (ROOT / "index.html").read_text()
         sections = re.findall(r'<section id="([^"]+)"', html)
-        self.assertEqual(sections[:3], ['liquid-handling', 'compare', 'instruments'])
+        self.assertEqual(sections[:4], ['liquid-handling', 'compare', 'buy', 'instruments'])
         self.assertIn('Lab automation anyone can afford.', html)
         self.assertNotIn('Built by Ursa Laboratories', html)
         self.assertTrue((ROOT / 'assets/cub-xl-liquid-handling.png').is_file())
